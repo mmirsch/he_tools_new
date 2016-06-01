@@ -1,0 +1,49 @@
+<T3DataStructure>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>Function</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<switchableControllerActions>
+						<TCEforms>
+							<label>Funktion auswählen</label>
+							<config>
+								<type>select</type>
+								<items>
+									<numIndex index="0">
+										<numIndex index="0">Personen: Listenansicht</numIndex>
+										<numIndex index="1">Persons->list</numIndex>
+									</numIndex>
+									<numIndex index="1">
+										<numIndex index="0">Personen: Einzelansicht</numIndex>
+										<numIndex index="1">Persons->show</numIndex>
+									</numIndex>
+									<numIndex index="2">
+										<numIndex index="0">Personen: Edit</numIndex>
+										<numIndex index="1">Persons->edit</numIndex>
+									</numIndex>
+								</items>
+							</config>
+						</TCEforms>
+					</switchableControllerActions>
+					<settings.person>
+						<TCEforms>
+							<label>Person auswählen</label>
+							<displayCond>FIELD:switchableControllerActions:=:Persons->show</displayCond>
+							<config>
+								<type>select</type>
+								<foreign_table>tx_hetools_domain_model_persons</foreign_table>
+								<size>30</size>
+								<maxitems>1</maxitems>
+								<wizards><suggest><type>suggest</type></suggest></wizards>
+							</config>
+						</TCEforms>
+					</settings.person>
+				</el>
+			</ROOT>
+		</sDEF>
+	</sheets>
+</T3DataStructure>

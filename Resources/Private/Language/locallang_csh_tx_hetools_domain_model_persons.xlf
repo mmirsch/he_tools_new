@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-05-31T12:19:22Z" product-name="he_tools">
+		<header/>
+		<body>
+			<trans-unit id="feuser.description">
+				<source>feuser</source>
+			</trans-unit>
+			<trans-unit id="pers_data.description">
+				<source>persData</source>
+			</trans-unit>
+			<trans-unit id="pers_func.description">
+				<source>persFunc</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

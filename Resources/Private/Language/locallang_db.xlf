@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-05-31T12:19:22Z" product-name="he_tools">
+		<header/>
+		<body>
+			<trans-unit id="tx_hetools_domain_model_faculties">
+				<source>Faculties</source>
+			</trans-unit>
+			<trans-unit id="tx_hetools_domain_model_faculties.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_hetools_domain_model_faculties.shortcut">
+				<source>Shortcut</source>
+			</trans-unit>
+			<trans-unit id="tx_hetools_domain_model_studyprograms">
+				<source>Studyprograms</source>
+			</trans-unit>
+			<trans-unit id="tx_hetools_domain_model_studyprograms.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_hetools_domain_model_studyprograms.shortcut">
+				<source>Shortcut</source>
+			</trans-unit>
+			<trans-unit id="tx_hetools_domain_model_studyprograms.degree">
+				<source>Degree</source>
+			</trans-unit>
+			<trans-unit id="tx_hetools_domain_model_studyprograms.faculty">
+				<source>Faculty</source>
+			</trans-unit>
+			<trans-unit id="tx_hetools_domain_model_institutions">
+				<source>Institutions</source>
+			</trans-unit>
+			<trans-unit id="tx_hetools_domain_model_institutions.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_hetools_domain_model_institutions.shortcut">
+				<source>Shortcut</source>
+			</trans-unit>
+			<trans-unit id="tx_hetools_domain_model_persons">
+				<source>Persons</source>
+			</trans-unit>
+			<trans-unit id="tx_hetools_domain_model_persons.feuser">
+				<source>Feuser</source>
+			</trans-unit>
+			<trans-unit id="tx_hetools_domain_model_persons.pers_data">
+				<source>Pers Data</source>
+			</trans-unit>
+			<trans-unit id="tx_hetools_domain_model_persons.pers_func">
+				<source>Pers Func</source>
+			</trans-unit>
+			<trans-unit id="tx_hetools_domain_model_persdata">
+				<source>Pers Data</source>
+			</trans-unit>
+			<trans-unit id="tx_hetools_domain_model_persdata.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_hetools_domain_model_persdata.value">
+				<source>Value</source>
+			</trans-unit>
+			<trans-unit id="tx_hetools_domain_model_persfunc">
+				<source>Pers Func</source>
+			</trans-unit>
+			<trans-unit id="tx_hetools_domain_model_persfunc.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_hetools_domain_model_persfunc.type">
+				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="tx_hetools_domain_model_persfunc.institution">
+				<source>Institution</source>
+			</trans-unit>
+			<trans-unit id="tx_hetools_domain_model_persfunc.faculty">
+				<source>Faculty</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

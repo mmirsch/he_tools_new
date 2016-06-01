@@ -1,0 +1,45 @@
+
+plugin.tx_hetools_hepersonen {
+	view {
+		templateRootPaths.0 = {$plugin.tx_hetools_hepersonen.view.templateRootPath}
+		partialRootPaths.0 = {$plugin.tx_hetools_hepersonen.view.partialRootPath}
+		layoutRootPaths.0 = {$plugin.tx_hetools_hepersonen.view.layoutRootPath}
+	}
+	persistence {
+		storagePid = {$plugin.tx_hetools_hepersonen.persistence.storagePid}
+	}
+}
+
+plugin.tx_hetools._CSS_DEFAULT_STYLE (
+	textarea.f3-form-error {
+		background-color:#FF9F9F;
+		border: 1px #FF0000 solid;
+	}
+
+	input.f3-form-error {
+		background-color:#FF9F9F;
+		border: 1px #FF0000 solid;
+	}
+
+	.tx-he-tools table {
+		border-collapse:separate;
+		border-spacing:10px;
+	}
+
+	.tx-he-tools table th {
+		font-weight:bold;
+	}
+
+	.tx-he-tools table td {
+		vertical-align:top;
+	}
+
+	.typo3-messages .message-error {
+		color:red;
+	}
+
+	.typo3-messages .message-ok {
+		color:green;
+	}
+
+)
