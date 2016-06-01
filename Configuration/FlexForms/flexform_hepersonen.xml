@@ -93,6 +93,7 @@
 									<default>
 										<searchWholePhrase>TRUE</searchWholePhrase>
 										<minimumCharacters>1</minimumCharacters>
+										<receiverClass>HSE\HeTools\Suggest\PersonsSuggestReceiver</receiverClass>
 									</default>
 								</suggest></wizards>
 							</config>

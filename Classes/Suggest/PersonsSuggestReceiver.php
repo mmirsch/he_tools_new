@@ -54,31 +54,40 @@ class PersonsSuggestReceiver extends SuggestWizardDefaultReceiver {
 	public function queryTable(&$params, $recursionCounter = 0) {
 		$rows = array();
 		$this->params = &$params;
+		$joinedTable = 'fe_users';
 
 		$limitStart = $recursionCounter * 50;
 
 		$searchString = $this->params['value'];
 		$searchWholePhrase = $this->config['searchWholePhrase'];
 		$searchUid = (int)$searchString;
-		$select = 'SELECT tx_hetools_domain_model_persons.uid, fe_users.first_name, fe_users.last_name, fe_users.username FROM tx_hetools_domain_model_persons INNER JOIN fe_users ON tx_hetools_domain_model_persons.feuser=fe_users.uid';
+		$select = 'SELECT ' . $this->table . '.uid, ' .
+			$joinedTable . '.first_name, ' .
+			$joinedTable . '.last_name, ' .
+			$joinedTable . '.username FROM ' . $this->table .
+			' INNER JOIN ' . $joinedTable . ' ON ' . $this->table . '.feuser=' . $joinedTable . '.uid';
 
 		$this->selectClause = 'TRUE';
 		if (strlen($searchString)>0) {
-			$searchString = $GLOBALS['TYPO3_DB']->quoteStr($searchString, 'fe_users');
+			$searchString = $GLOBALS['TYPO3_DB']->quoteStr($searchString, $joinedTable);
 			$searchStringForLike = $GLOBALS['TYPO3_DB']->escapeStrForLike($searchString, $this->table);
 			if ($searchString[0]!='^' && $searchWholePhrase) {
 				$start = '%';
 			} else {
 				$start = '';
 			}
-			$this->selectClause = '(fe_users.first_name LIKE \'' . $start . $searchStringForLike . '%\'' .
-				' OR fe_users.last_name LIKE \'' . $start . $searchStringForLike . '%\'' .
-				' OR fe_users.username LIKE \'' . $start . $searchStringForLike . '%\')' .
-				' AND tx_hetools_domain_model_persons.deleted=0 AND tx_hetools_domain_model_persons.hidden=0';
+			$this->selectClause = '(' . $joinedTable . '.first_name LIKE \'' . $start . $searchStringForLike . '%\'' .
+				' OR ' . $joinedTable . '.last_name LIKE \'' . $start . $searchStringForLike . '%\'' .
+				' OR ' . $joinedTable . '.username LIKE \'' . $start . $searchStringForLike . '%\')' .
+				' AND ' . $this->table . '.deleted=0 AND ' . $this->table . '.hidden=0';
 
 			// treat numbers as page id
 			if ($searchUid > 0 && $searchUid == $searchString) {
-				$this->selectClause = '(' . $this->selectClause . ' OR ' . $this->table . '.uid = ' . $searchUid . ')';
+				$this->selectClause = '(' . $this->selectClause . ' OR (' .
+					$this->table . '.uid = ' . $searchUid .
+					' AND ' . $this->table . '.deleted=0' .
+					' AND ' . $this->table . '.hidden=0' .
+					'))';
 			}
 		}
 
