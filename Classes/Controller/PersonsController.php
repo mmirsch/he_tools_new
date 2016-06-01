@@ -51,8 +51,24 @@ class PersonsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      */
     public function listAction()
     {
-        $persons = $this->personsRepository->findAll();
-        $this->view->assign('persons', $persons);
+        $persId = $this->settings['listManually'];
+        $persIdArray = explode(',', $persId);
+        foreach($persIdArray as &$value){
+            $personsList[] = $this->personsRepository->findByUid($value);
+        }
+
+        /* Alternativ über for-Schleife:
+        for ($i = 0; $i < count($persIdArray); $i = $i + 1){
+          $personsList[$i] = $this->personsRepository->findByUid($persIdArray[$i]);
+        }
+        */
+
+        //$personsList = $this->personsRepository->findByUid($persIdArray[0]);
+        DebuggerUtility::var_dump($personsList);
+        $this->view->assign('personsList', $personsList);
+
+        //$persons = $this->personsRepository->findAll();
+        //$this->view->assign('persons', $persons);
     }
     
     /**

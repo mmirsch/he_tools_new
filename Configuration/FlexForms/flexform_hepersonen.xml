@@ -79,6 +79,25 @@
 							</config>
 						</TCEforms>
 					</settings.listManually>
+					<settings.listManuallyExclude>
+						<TCEforms>
+							<label>Personen auswählen, die nicht angezeigt werden sollen</label>
+							<displayCond>FIELD:switchableControllerActions:=:Persons->list</displayCond>
+							<config>
+								<type>select</type>
+								<foreign_table>tx_hetools_domain_model_persons</foreign_table>
+								<size>30</size>
+								<maxitems>99</maxitems>
+								<wizards><suggest>
+									<type>suggest</type>
+									<default>
+										<searchWholePhrase>TRUE</searchWholePhrase>
+										<minimumCharacters>1</minimumCharacters>
+									</default>
+								</suggest></wizards>
+							</config>
+						</TCEforms>
+					</settings.listManuallyExclude>
 				</el>
 			</ROOT>
 		</sDEF>

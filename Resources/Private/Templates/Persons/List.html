@@ -1,35 +1,13 @@
+<f:comment>
+<f:section name="main"></f:section>
+</f:comment>
 
-<f:layout name="Default" />
 
-This Template is responsible for creating a table of domain objects.
+<h1>Ausgewählte Personen</h1>
 
-If you modify this template, do not forget to change the overwrite settings
-in /Configuration/ExtensionBuilder/settings.yaml:
-  Resources:
-    Private:
-      Templates:
-        List.html: keep
-
-Otherwise your changes will be overwritten the next time you save the extension in the extension builder
-
-<f:section name="main">
-<h1>Listing for Persons</h1>
-
-<f:flashMessages />
-
-<table  class="tx_hetools" >
-	<tr>
-		<th> </th>
-		<th> </th>
-	</tr>
-
-	<f:for each="{personss}" as="persons">
-		<tr>
-			<td><f:link.action action="edit" arguments="{persons : persons}">Edit</f:link.action></td>
-			<td><f:link.action action="delete" arguments="{persons : persons}">Delete</f:link.action></td>
-		</tr>
-	</f:for>
-</table>
-
-<f:link.action action="new">New Persons</f:link.action>
-</f:section>
+<dl class="dl-horizontal">
+  <f:for each="{personsList}" as="list">
+    <dt>Person:</dt>
+    <dd>{list.feuser.Name}</dd>
+  </f:for>
+</dl>
