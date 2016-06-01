@@ -73,7 +73,8 @@ class PersonsSuggestReceiver extends SuggestWizardDefaultReceiver {
 			}
 			$this->selectClause = '(fe_users.first_name LIKE \'' . $start . $searchStringForLike . '%\'' .
 				' OR fe_users.last_name LIKE \'' . $start . $searchStringForLike . '%\'' .
-				' OR fe_users.username LIKE \'' . $start . $searchStringForLike . '%\')';
+				' OR fe_users.username LIKE \'' . $start . $searchStringForLike . '%\')' .
+				' AND tx_hetools_domain_model_persons.deleted=0 AND tx_hetools_domain_model_persons.hidden=0';
 
 			// treat numbers as page id
 			if ($searchUid > 0 && $searchUid == $searchString) {
