@@ -60,7 +60,7 @@ class PersonsSuggestReceiver extends SuggestWizardDefaultReceiver {
 		$searchString = $this->params['value'];
 		$searchWholePhrase = $this->config['searchWholePhrase'];
 		$searchUid = (int)$searchString;
-		$select = 'SELECT tx_hetools_domain_model_persons.uid, fe_users.* FROM tx_hetools_domain_model_persons INNER JOIN fe_users ON tx_hetools_domain_model_persons.feuser=fe_users.uid';
+		$select = 'SELECT tx_hetools_domain_model_persons.uid, fe_users.first_name, fe_users.last_name, fe_users.username FROM tx_hetools_domain_model_persons INNER JOIN fe_users ON tx_hetools_domain_model_persons.feuser=fe_users.uid';
 
 		$this->selectClause = 'TRUE';
 		if (strlen($searchString)>0) {
@@ -104,9 +104,9 @@ class PersonsSuggestReceiver extends SuggestWizardDefaultReceiver {
 					$this->table, $row, array('style' => 'margin: 0 4px 0 -20px; padding: 0;')
 				);
 				$uid = $row['t3ver_oid'] > 0 ? $row['t3ver_oid'] : $row['uid'];
-				$label = $row['last_name'] . ', ' . $row['first_name'];
+				$label = $row['last_name'] . ', ' . $row['first_name'] . ' (' . $row['username'] . ')';
 				$entry = array(
-					'text' => '<span class="suggest-label">' . $label . '</span><span class="suggest-uid">[' . $uid . ']</span>',
+					'text' => '<span class="suggest-label">' . $label . '</span>',
 					'table' => $this->table,
 					'label' => $label,
 					'path' => '',
