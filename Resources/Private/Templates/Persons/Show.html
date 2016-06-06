@@ -10,12 +10,12 @@
   <dt>Nachname:</dt>
   <dd>{personsData.feuser.lastName}</dd>
   <f:for each="{personsData.persData}" as="data">
-    <dt>{data.title}:</dt>
+    <dt>{data.type.title}:</dt>
     <dd>{data.value}</dd>
   </f:for>
   <f:for each="{personsData.persFunc}" as="func">
     <dt>Funktion:</dt>
-    <dd>{func.title}</dd>
+    <dd>{func.type.title}</dd>
     <f:if condition="{func.faculty}">
       <f:then>
         <dt>Fakultät:</dt>

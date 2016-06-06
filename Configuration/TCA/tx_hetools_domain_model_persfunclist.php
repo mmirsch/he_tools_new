@@ -1,13 +1,12 @@
 <?php
 return array(
 	'ctrl' => array(
-		'title'	=> 'LLL:EXT:he_tools/Resources/Private/Language/locallang_db.xlf:tx_hetools_domain_model_persdata',
-		'label' => 'value',
+		'title'	=> 'LLL:EXT:he_tools/Resources/Private/Language/locallang_db.xlf:tx_hetools_domain_model_persfunclist',
+		'label' => 'title',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
 		'dividers2tabs' => TRUE,
-		'sortby' => 'sorting',
 		'versioningWS' => 2,
 		'versioning_followPages' => TRUE,
 
@@ -20,14 +19,14 @@ return array(
 			'starttime' => 'starttime',
 			'endtime' => 'endtime',
 		),
-		'searchFields' => 'value,type,',
-		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('he_tools') . 'Resources/Public/Icons/tx_hetools_domain_model_persdata.gif'
+		'searchFields' => 'title,type,',
+		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('he_tools') . 'Resources/Public/Icons/tx_hetools_domain_model_persfunclist.gif'
 	),
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, value, type',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, type',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, value, type, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title, type, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -58,8 +57,8 @@ return array(
 				'items' => array(
 					array('', 0),
 				),
-				'foreign_table' => 'tx_hetools_domain_model_persdata',
-				'foreign_table_where' => 'AND tx_hetools_domain_model_persdata.pid=###CURRENT_PID### AND tx_hetools_domain_model_persdata.sys_language_uid IN (-1,0)',
+				'foreign_table' => 'tx_hetools_domain_model_persfunclist',
+				'foreign_table_where' => 'AND tx_hetools_domain_model_persfunclist.pid=###CURRENT_PID### AND tx_hetools_domain_model_persfunclist.sys_language_uid IN (-1,0)',
 			),
 		),
 		'l10n_diffsource' => array(
@@ -117,9 +116,9 @@ return array(
 			),
 		),
 
-		'value' => array(
+		'title' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:he_tools/Resources/Private/Language/locallang_db.xlf:tx_hetools_domain_model_persdata.value',
+			'label' => 'LLL:EXT:he_tools/Resources/Private/Language/locallang_db.xlf:tx_hetools_domain_model_persfunclist.title',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
@@ -128,26 +127,19 @@ return array(
 		),
 		'type' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:he_tools/Resources/Private/Language/locallang_db.xlf:tx_hetools_domain_model_persdata.type',
+			'label' => 'LLL:EXT:he_tools/Resources/Private/Language/locallang_db.xlf:tx_hetools_domain_model_persfunclist.type',
 			'config' => array(
 				'type' => 'select',
-				'foreign_table' => 'tx_hetools_domain_model_persdatalist',
-				'minitems' => 0,
-				'maxitems' => 1,
-				'appearance' => array(
-					'collapseAll' => 0,
-					'levelLinksPosition' => 'top',
-					'showSynchronizationLink' => 1,
-					'showPossibleLocalizationRecords' => 1,
-					'showAllLocalizationLink' => 1
+				'renderType' => 'selectSingle',
+				'items' => array(
+					array('fixed', 0),
+					array('editable', 1),
 				),
+				'size' => 1,
+				'maxitems' => 1,
+				'eval' => ''
 			),
 		),
 		
-		'persons' => array(
-			'config' => array(
-				'type' => 'passthrough',
-			),
-		),
 	),
 );

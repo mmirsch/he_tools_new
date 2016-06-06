@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2016-05-31T12:19:22Z" product-name="he_tools">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-06-06T10:28:35Z" product-name="he_tools">
 		<header/>
 		<body>
 			<trans-unit id="tx_hetools_domain_model_faculties">
@@ -51,17 +51,14 @@
 			<trans-unit id="tx_hetools_domain_model_persdata">
 				<source>Pers Data</source>
 			</trans-unit>
-			<trans-unit id="tx_hetools_domain_model_persdata.title">
-				<source>Title</source>
-			</trans-unit>
 			<trans-unit id="tx_hetools_domain_model_persdata.value">
 				<source>Value</source>
 			</trans-unit>
+			<trans-unit id="tx_hetools_domain_model_persdata.type">
+				<source>Type</source>
+			</trans-unit>
 			<trans-unit id="tx_hetools_domain_model_persfunc">
 				<source>Pers Func</source>
-			</trans-unit>
-			<trans-unit id="tx_hetools_domain_model_persfunc.title">
-				<source>Title</source>
 			</trans-unit>
 			<trans-unit id="tx_hetools_domain_model_persfunc.type">
 				<source>Type</source>
@@ -71,6 +68,24 @@
 			</trans-unit>
 			<trans-unit id="tx_hetools_domain_model_persfunc.faculty">
 				<source>Faculty</source>
+			</trans-unit>
+			<trans-unit id="tx_hetools_domain_model_persdatalist">
+				<source>Pers Data List</source>
+			</trans-unit>
+			<trans-unit id="tx_hetools_domain_model_persdatalist.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_hetools_domain_model_persdatalist.type">
+				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="tx_hetools_domain_model_persfunclist">
+				<source>Pers Func List</source>
+			</trans-unit>
+			<trans-unit id="tx_hetools_domain_model_persfunclist.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_hetools_domain_model_persfunclist.type">
+				<source>Type</source>
 			</trans-unit>
 		</body>
 	</file>

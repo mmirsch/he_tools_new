@@ -288,8 +288,8 @@
         {
             "config": {
                 "position": [
-                    934,
-                    66
+                    840,
+                    415
                 ]
             },
             "name": "New Model Object",
@@ -325,17 +325,7 @@
                             "maxItems": "1",
                             "propertyDescription": "",
                             "propertyIsExcludeField": true,
-                            "propertyIsRequired": false,
-                            "propertyName": "title",
-                            "propertyType": "String",
-                            "uid": "225166992528"
-                        },
-                        {
-                            "allowedFileTypes": "",
-                            "maxItems": "1",
-                            "propertyDescription": "",
-                            "propertyIsExcludeField": true,
-                            "propertyIsRequired": false,
+                            "propertyIsRequired": true,
                             "propertyName": "value",
                             "propertyType": "String",
                             "uid": "368016150293"
@@ -344,7 +334,16 @@
                 },
                 "relationGroup": {
                     "relations": [
-
+                        {
+                            "foreignRelationClass": "",
+                            "lazyLoading": false,
+                            "propertyIsExcludeField": true,
+                            "relationDescription": "",
+                            "relationName": "type",
+                            "relationType": "zeroToOne",
+                            "relationWire": "[wired]",
+                            "uid": "684771593502"
+                        }
                     ]
                 }
             }
@@ -352,8 +351,8 @@
         {
             "config": {
                 "position": [
-                    1162,
-                    66
+                    138,
+                    421
                 ]
             },
             "name": "New Model Object",
@@ -384,30 +383,21 @@
                 },
                 "propertyGroup": {
                     "properties": [
-                        {
-                            "allowedFileTypes": "",
-                            "maxItems": "1",
-                            "propertyDescription": "",
-                            "propertyIsExcludeField": true,
-                            "propertyIsRequired": false,
-                            "propertyName": "title",
-                            "propertyType": "String",
-                            "uid": "1341801972515"
-                        },
-                        {
-                            "allowedFileTypes": "",
-                            "maxItems": "1",
-                            "propertyDescription": "",
-                            "propertyIsExcludeField": true,
-                            "propertyIsRequired": false,
-                            "propertyName": "type",
-                            "propertyType": "String",
-                            "uid": "1168508014468"
-                        }
+
                     ]
                 },
                 "relationGroup": {
                     "relations": [
+                        {
+                            "foreignRelationClass": "",
+                            "lazyLoading": false,
+                            "propertyIsExcludeField": true,
+                            "relationDescription": "",
+                            "relationName": "type",
+                            "relationType": "zeroToOne",
+                            "relationWire": "[wired]",
+                            "uid": "27098774276"
+                        },
                         {
                             "foreignRelationClass": "",
                             "lazyLoading": false,
@@ -428,6 +418,134 @@
                             "relationWire": "[wired]",
                             "uid": "784667069526"
                         }
+                    ]
+                }
+            }
+        },
+        {
+            "config": {
+                "position": [
+                    1088,
+                    417
+                ]
+            },
+            "name": "New Model Object",
+            "value": {
+                "actionGroup": {
+                    "_default0_list": true,
+                    "_default1_show": true,
+                    "_default2_new_create": true,
+                    "_default3_edit_update": true,
+                    "_default4_delete": true,
+                    "customActions": [
+
+                    ]
+                },
+                "name": "PersDataList",
+                "objectsettings": {
+                    "addDeletedField": true,
+                    "addHiddenField": true,
+                    "addStarttimeEndtimeFields": true,
+                    "aggregateRoot": false,
+                    "categorizable": false,
+                    "description": "",
+                    "mapToTable": "",
+                    "parentClass": "",
+                    "sorting": false,
+                    "type": "Entity",
+                    "uid": "497617485378"
+                },
+                "propertyGroup": {
+                    "properties": [
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "",
+                            "propertyIsExcludeField": true,
+                            "propertyIsRequired": true,
+                            "propertyName": "title",
+                            "propertyType": "String",
+                            "uid": "1306110686807"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "",
+                            "propertyIsExcludeField": true,
+                            "propertyIsRequired": false,
+                            "propertyName": "type",
+                            "propertyType": "Select",
+                            "uid": "1272614343127"
+                        }
+                    ]
+                },
+                "relationGroup": {
+                    "relations": [
+
+                    ]
+                }
+            }
+        },
+        {
+            "config": {
+                "position": [
+                    374,
+                    419
+                ]
+            },
+            "name": "New Model Object",
+            "value": {
+                "actionGroup": {
+                    "_default0_list": true,
+                    "_default1_show": true,
+                    "_default2_new_create": true,
+                    "_default3_edit_update": true,
+                    "_default4_delete": true,
+                    "customActions": [
+
+                    ]
+                },
+                "name": "PersFuncList",
+                "objectsettings": {
+                    "addDeletedField": true,
+                    "addHiddenField": true,
+                    "addStarttimeEndtimeFields": true,
+                    "aggregateRoot": false,
+                    "categorizable": false,
+                    "description": "",
+                    "mapToTable": "",
+                    "parentClass": "",
+                    "sorting": false,
+                    "type": "Entity",
+                    "uid": "1073036236212"
+                },
+                "propertyGroup": {
+                    "properties": [
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "",
+                            "propertyIsExcludeField": true,
+                            "propertyIsRequired": true,
+                            "propertyName": "title",
+                            "propertyType": "String",
+                            "uid": "769464923792"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "",
+                            "propertyIsExcludeField": true,
+                            "propertyIsRequired": false,
+                            "propertyName": "type",
+                            "propertyType": "Select",
+                            "uid": "1270949085292"
+                        }
+                    ]
+                },
+                "relationGroup": {
+                    "relations": [
+
                     ]
                 }
             }
@@ -486,7 +604,7 @@
         {
             "src": {
                 "moduleId": 5,
-                "terminal": "relationWire_0",
+                "terminal": "relationWire_1",
                 "uid": "153315233591"
             },
             "tgt": {
@@ -498,7 +616,7 @@
         {
             "src": {
                 "moduleId": 5,
-                "terminal": "relationWire_1",
+                "terminal": "relationWire_2",
                 "uid": "784667069526"
             },
             "tgt": {
@@ -530,10 +648,34 @@
                 "terminal": "SOURCES",
                 "uid": "786789873348"
             }
+        },
+        {
+            "src": {
+                "moduleId": 4,
+                "terminal": "relationWire_0",
+                "uid": "684771593502"
+            },
+            "tgt": {
+                "moduleId": 6,
+                "terminal": "SOURCES",
+                "uid": "497617485378"
+            }
+        },
+        {
+            "src": {
+                "moduleId": 5,
+                "terminal": "relationWire_0",
+                "uid": "27098774276"
+            },
+            "tgt": {
+                "moduleId": 7,
+                "terminal": "SOURCES",
+                "uid": "1073036236212"
+            }
         }
     ],
     "log": {
-        "last_modified": "2016-05-31 12:19",
+        "last_modified": "2016-06-06 10:08",
         "extension_builder_version": "7.6.0",
         "be_user": " (1)"
     }

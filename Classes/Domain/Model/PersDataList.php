@@ -27,51 +27,51 @@ namespace HSE\HeTools\Domain\Model;
  ***************************************************************/
 
 /**
- * PersData
+ * PersDataList
  */
-class PersData extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+class PersDataList extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
 
     /**
-     * value
+     * title
      *
      * @var string
      * @validate NotEmpty
      */
-    protected $value = '';
+    protected $title = '';
     
     /**
      * type
      *
-     * @var \HSE\HeTools\Domain\Model\PersDataList
+     * @var int
      */
-    protected $type = null;
+    protected $type = 0;
     
     /**
-     * Returns the value
+     * Returns the title
      *
-     * @return string $value
+     * @return string title
      */
-    public function getValue()
+    public function getTitle()
     {
-        return $this->value;
+        return $this->title;
     }
     
     /**
-     * Sets the value
+     * Sets the title
      *
-     * @param string $value
+     * @param string $title
      * @return void
      */
-    public function setValue($value)
+    public function setTitle($title)
     {
-        $this->value = $value;
+        $this->title = $title;
     }
     
     /**
      * Returns the type
      *
-     * @return \HSE\HeTools\Domain\Model\PersDataList $type
+     * @return int type
      */
     public function getType()
     {
@@ -81,10 +81,10 @@ class PersData extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the type
      *
-     * @param \HSE\HeTools\Domain\Model\PersDataList $type
+     * @param int $type
      * @return void
      */
-    public function setType(\HSE\HeTools\Domain\Model\PersDataList $type)
+    public function setType($type)
     {
         $this->type = $type;
     }

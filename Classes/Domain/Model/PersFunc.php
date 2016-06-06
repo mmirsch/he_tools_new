@@ -33,18 +33,11 @@ class PersFunc extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
 
     /**
-     * title
-     *
-     * @var string
-     */
-    protected $title = '';
-    
-    /**
      * type
      *
-     * @var string
+     * @var \HSE\HeTools\Domain\Model\PersFuncList
      */
-    protected $type = '';
+    protected $type = null;
     
     /**
      * institution
@@ -59,48 +52,6 @@ class PersFunc extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @var \HSE\HeTools\Domain\Model\Faculties
      */
     protected $faculty = null;
-    
-    /**
-     * Returns the title
-     *
-     * @return string $title
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-    
-    /**
-     * Sets the title
-     *
-     * @param string $title
-     * @return void
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-    }
-    
-    /**
-     * Returns the type
-     *
-     * @return string $type
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-    
-    /**
-     * Sets the type
-     *
-     * @param string $type
-     * @return void
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-    }
     
     /**
      * Returns the institution
@@ -142,6 +93,27 @@ class PersFunc extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setFaculty(\HSE\HeTools\Domain\Model\Faculties $faculty)
     {
         $this->faculty = $faculty;
+    }
+    
+    /**
+     * Returns the type
+     *
+     * @return \HSE\HeTools\Domain\Model\PersFuncList $type
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+    
+    /**
+     * Sets the type
+     *
+     * @param \HSE\HeTools\Domain\Model\PersFuncList $type
+     * @return void
+     */
+    public function setType(\HSE\HeTools\Domain\Model\PersFuncList $type)
+    {
+        $this->type = $type;
     }
 
 }

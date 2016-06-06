@@ -32,3 +32,9 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$pluginSignat
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_hetools_domain_model_persfunc', 'EXT:he_tools/Resources/Private/Language/locallang_csh_tx_hetools_domain_model_persfunc.xlf');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_hetools_domain_model_persfunc');
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_hetools_domain_model_persdatalist', 'EXT:he_tools/Resources/Private/Language/locallang_csh_tx_hetools_domain_model_persdatalist.xlf');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_hetools_domain_model_persdatalist');
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_hetools_domain_model_persfunclist', 'EXT:he_tools/Resources/Private/Language/locallang_csh_tx_hetools_domain_model_persfunclist.xlf');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_hetools_domain_model_persfunclist');

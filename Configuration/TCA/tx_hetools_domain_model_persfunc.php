@@ -2,7 +2,7 @@
 return array(
 	'ctrl' => array(
 		'title'	=> 'LLL:EXT:he_tools/Resources/Private/Language/locallang_db.xlf:tx_hetools_domain_model_persfunc',
-		'label' => 'title',
+		'label' => 'type',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
@@ -20,14 +20,14 @@ return array(
 			'starttime' => 'starttime',
 			'endtime' => 'endtime',
 		),
-		'searchFields' => 'title,type,institution,faculty,',
+		'searchFields' => 'type,institution,faculty,',
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('he_tools') . 'Resources/Public/Icons/tx_hetools_domain_model_persfunc.gif'
 	),
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, type, institution, faculty',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, type, institution, faculty',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title, type, institution, faculty, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, type, institution, faculty, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -117,30 +117,28 @@ return array(
 			),
 		),
 
-		'title' => array(
-			'exclude' => 1,
-			'label' => 'LLL:EXT:he_tools/Resources/Private/Language/locallang_db.xlf:tx_hetools_domain_model_persfunc.title',
-			'config' => array(
-				'type' => 'input',
-				'size' => 30,
-				'eval' => 'trim'
-			),
-		),
 		'type' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:he_tools/Resources/Private/Language/locallang_db.xlf:tx_hetools_domain_model_persfunc.type',
 			'config' => array(
-				'type' => 'input',
-				'size' => 30,
-				'eval' => 'trim'
+				'type' => 'select',
+				'foreign_table' => 'tx_hetools_domain_model_persfunclist',
+				'minitems' => 0,
+				'maxitems' => 1,
+				'appearance' => array(
+					'collapseAll' => 0,
+					'levelLinksPosition' => 'top',
+					'showSynchronizationLink' => 1,
+					'showPossibleLocalizationRecords' => 1,
+					'showAllLocalizationLink' => 1
+				),
 			),
 		),
 		'institution' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:he_tools/Resources/Private/Language/locallang_db.xlf:tx_hetools_domain_model_persfunc.institution',
 			'config' => array(
-				'type' => 'select',
-				'renderType' => 'selectMultipleSideBySide',
+				'type' => 'inline',
 				'foreign_table' => 'tx_hetools_domain_model_institutions',
 				'minitems' => 0,
 				'maxitems' => 1,
@@ -158,10 +156,10 @@ return array(
 			'label' => 'LLL:EXT:he_tools/Resources/Private/Language/locallang_db.xlf:tx_hetools_domain_model_persfunc.faculty',
 			'config' => array(
 				'type' => 'select',
-				'renderType' => 'selectMultipleSideBySide',
+				'renderType' => 'selectSingle',
 				'foreign_table' => 'tx_hetools_domain_model_faculties',
 				'minitems' => 0,
-				'maxitems' => 9999,
+				'maxitems' => 1,
 			),
 		),
 		
