@@ -13,6 +13,29 @@ $pluginSignature = str_replace('_','',$_EXTKEY) . '_hepersonen';
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($pluginSignature, 'FILE:EXT:' . $_EXTKEY . '/Configuration/FlexForms/flexform_hepersonen.xml');
 
+if (TYPO3_MODE === 'BE') {
+
+	/**
+	 * Registers a Backend Module
+	 */
+	\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
+		'HSE.' . $_EXTKEY,
+		'web',	 // Make module a submodule of 'web'
+		'hetools',	// Submodule key
+		'',						// Position
+		array(
+			'Backend' => 'managePersons, import',
+			'Persons' => 'list',
+		),
+		array(
+			'access' => 'user,group',
+			'icon'   => 'EXT:' . $_EXTKEY . '/ext_icon.gif',
+			'labels' => 'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang_hetools.xlf',
+		)
+	);
+
+}
+
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'HE-Tools');
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_hetools_domain_model_faculties', 'EXT:he_tools/Resources/Private/Language/locallang_csh_tx_hetools_domain_model_faculties.xlf');

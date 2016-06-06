@@ -43,3 +43,15 @@ plugin.tx_hetools._CSS_DEFAULT_STYLE (
 	}
 
 )
+
+ # Module configuration
+module.tx_hetools_web_hetoolshetools {
+	persistence {
+		storagePid = {$module.tx_hetools_hetools.persistence.storagePid}
+	}
+	view {
+		templateRootPaths.0 = {$module.tx_hetools_hetools.view.templateRootPath}
+		partialRootPaths.0 = {$module.tx_hetools_hetools.view.partialRootPath}
+		layoutRootPaths.0 = {$module.tx_hetools_hetools.view.layoutRootPath}
+	}
+}

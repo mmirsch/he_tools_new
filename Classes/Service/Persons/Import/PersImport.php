@@ -27,8 +27,13 @@ class PersImport  {
 		$persData = array();
 		$handle = fopen($csvPath, "r");
 		if ($handle) {
+			$titles = fgetcsv($handle, 1000, ";");
 			while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
-				$persData[] = $data;
+				$datacomplete = array();
+				foreach($titles as $index=>$value) {
+					$datacomplete[$value] = $data[$index];
+				}
+				$persData[] = $datacomplete;
 			}
 			fclose($handle);
 		}

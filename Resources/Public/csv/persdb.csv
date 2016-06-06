@@ -1,0 +1,99 @@
+login;nachname;vorname;geschlecht;akad_grad;taetigkeit;mailok;raum;tel;hb1;hb2;hb3;hb4;hb5;ub1a;ub2a;ub3a;ub4a;ub5a;ub1b;ub2b;ub3b;ub4b;ub5b;fkt1a;fkt1b;fkt2a;fkt2b;fkt3a;fkt3b;fkt4a;fkt4b;fkt5a;fkt5b;fkt_sva;hb_sva;uba_sva;ubb_sva;status
+hopkins;Hopkins;Elvira;W;;;Elvira.Hopkins@hs-esslingen.de;S 01.129;7113973061; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;; ; ; ; ;Mitarbeiterin;Verwaltung;Studentische Abteilung;StudA;A
+bayer;Bayer;Klaus;M;;;Klaus.Bayer@hs-esslingen.de;S 04.006;7113973315;; ; ; ; ;; ; ; ; ;; ; ; ; ;Sicherheitsbeauftragter - SM; ; ;; ;Dipl.-Ing. (FH); ; ; ; ;Mitarbeiter;FZ;Fakultät FZ; ;A
+beltz;Beltz;Peter;M;;;Peter.Beltz@hs-esslingen.de;F 01.310;7113974250; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;; ; ; ; ;Mitarbeiter;IT;Fakultät IT; ;A
+frie;Friedrich;Roland;M;Dr.-Ing.;;Roland.Friedrich@hs-esslingen.de;G 01.103;71616791164; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;Dr.-Ing.; ;Dipl.-Ing.; ; ; ; ;Mitarbeiter;ME;Fakultät ME; ;A
+lae;Lämmerzahl;Norbert;M;;;Norbert.Laemmerzahl@hs-esslingen.de;-;71139749; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;Dipl.-Ing. (FH); ; ; ; ;Projekt-MA;ME;Fakultät ME; ;A
+langeman;Langemann;Heinrich;M;;;Heinrich.Langemann@hs-esslingen.de;F 02.342;7113974311; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;Dipl.-Wirt.-Ing. (FH); ; ; ; ;Mitarbeiter;BW;Fakultät BW; ;A
+moell;Möllmann;Arthur;M;;;Arthur.Moellmann@hs-esslingen.de;F 02.255;7113974317; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;Dipl.-Ing. (FH); ; ; ; ;Mitarbeiter;BW;Fakultät BW; ;A
+peter;Peter;Hermann;M;;;Hermann.Peter@hs-esslingen.de;F 01.408;7113974201; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;Dipl.-Ing. (FH); ; ; ; ;Mitarbeiter;IT;Fakultät IT; ;A
+ruecker;Rücker;Walter;M;;;Walter.Ruecker@hs-esslingen.de;-;71139749; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;Mitarbeiter; ; ; ;B
+schusche;Schuschenk;Dieter;M;;LB;Dieter.Schuschenk@hs-esslingen.de;-;71139749; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;Dipl.-Ing.(FH) Wirt.-Ing.(grad.); ; ; ; ;LB;BW; ; ;A
+tvogt;Vogt;Thomas;M;;;Thomas.Vogt@hs-esslingen.de;F 01.-163;7113974410;; ; ; ; ;; ; ; ; ;; ; ; ; ;Laserschutzbeauftragter; ; ;; ;Dipl.-Ing. (FH); ; ; ; ;Mitarbeiter;FZ;Fakultät FZ; ;A
+weidlich;Weidlich;Uwe;M;;;Uwe.Weidlich@hs-esslingen.de;G 01.204;71616791204; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;Dipl.-Ing. (FH); ; ; ; ;Mitarbeiter;ME;Fakultät ME; ;A
+babel;Babel;Janos Ferenc;M;;;Janos-Ferenc.Babel@hs-esslingen.de;S 14.001;7113973296; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;Dipl.-Ing. (FH); ; ; ; ;Mitarbeiter;INEM;Fakultät GU;INEM;A
+thauser;Tonhäuser;Hanna;W;;;Hanna.Tonhaeuser@hs-esslingen.de;S 12.103;7113973460; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;Dipl.-Ing.; ; ; ; ;Mitarbeiterin;GU;Fakultät GU; ;A
+eruss;Russ;Eugen;M;;;Eugen.Russ@hs-esslingen.de;-;71139749; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;; ; ; ; ;Mitarbeiter;Rektorat;Rektorat, SG/QSiM Rektorat, Bibliothek, SGe/QSiM AStA; ;A
+wdh;Wiedenhöfer;Ulf;M;;;Ulf.Wiedenhoefer@hs-esslingen.de;G 01.114;71616791163; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;Dipl.-Ing. (FH); ; ; ; ;Mitarbeiter;ME;Fakultät ME; ;A
+herdtle;Herdtle;Achim;M;;;Achim.Herdtle@hs-esslingen.de;S 09.110;7113973270; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;Dipl.-Ing. (FH); ; ; ; ;Mitarbeiter;MB;Fakultät MB; ;A
+merk;Merk;Udo;M;;;Udo.Merk@hs-esslingen.de;S 10.101;7113973318;; ; ; ; ;; ; ; ; ;; ; ; ; ;Strahlenschutzbeauftragter; ; ;; ;Dipl.-Ing. (FH); ; ; ; ;Mitarbeiter;MB;Fakultät MB; ;A
+schoen;Schön;Hedi;W;;;Hedi.Schoen@hs-esslingen.de;S 07.008;7113973144; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;Dipl.-Ing.; ; ; ; ;Mitarbeiterin;RZ;Rechenzentrum; ;A
+wynne;Wynne;Terence;M;Dr.;PR;Terence.Wynne@hs-esslingen.de;F 02.422;7113974305;BW;BW;BW;BW; ;;;;Internationale Technische Betriebswirtschaft (TBB); ;;;;; ;Stellv. Dekan; ;Prodekan;Prof. Dr.;Studiendekan;;Studiengangleitung; ; ; ;Professor;BW;Fakultät BW; ;A
+rost;Osterwinter;Renate;W;;;Renate.Osterwinter@hs-esslingen.de;G 04.105;71616791175; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;; ; ; ; ;Sekretärin;ME;Fakultät ME; ;A
+jmack;Mack;Jürgen;M;;;Juergen.Mack@hs-esslingen.de;-;71139749; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;Dipl.-Ing. (FH); ; ; ; ;Projekt-MA;ME;Fakultät ME; ;A
+bletzer;Bletzer;Hermann;M;;;Hermann.Bletzer@hs-esslingen.de;G 04.220;71616791117; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;Dipl.-Phys.; ; ; ; ;Mitarbeiter;ME;Fakultät ME; ;A
+fgraf;Graf;Friedrich;M;;;Friedrich.Graf@hs-esslingen.de;F 02.262;7113974363;;; ; ; ;;; ; ; ;;; ; ; ;Personalratsmitglied - Vertretung der Beschäftigten; ;Vertrauensperson der schwerbehinderten Beschäftigten;; ;; ; ; ; ;Mitarbeiter;BW;Fakultät BW; ;A
+hasel;Buchter;Elke;W;;;Elke.Buchter@hs-esslingen.de;S 05.207;7113973451; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;; ; ; ; ;Sekretärin;GU;Fakultät GU; ;A
+gruber;Gruber;Rainer;M;;;Rainer.Gruber@hs-esslingen.de;G 01.003;71616791135; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;Dipl.-Ing. (FH); ; ; ; ;Mitarbeiter;ME;Fakultät ME; ;A
+bjung;Jung;Bernd;M;;;Bernd.Jung@hs-esslingen.de;S 04.215;7113973405; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;; ; ; ; ;Mitarbeiter;G;Fakultät G; ;A
+lode;Lodemann;Detlev;M;;;Detlev.Lodemann@hs-esslingen.de;G 04.014;71616791223; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;Dipl.-Ing. Dipl.-Wirt.-Ing. (FH); ; ; ; ;Mitarbeiter;WI;Fakultät WI; ;A
+unger;Unger;Franz;M;;;Franz.Unger@hs-esslingen.de;G 04.118;71616791190; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;; ; ; ; ;Mitarbeiter;RZ;Rechenzentrum; ;A
+trybek;Trybek;Rafael;M;;;Rafael.Trybek@hs-esslingen.de;F 01.408;7113974260; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;Dipl.-Ing.; ; ; ; ;Mitarbeiter;IT;Fakultät IT; ;A
+lei;Leiprecht;Konrad;M;;;Konrad.Leiprecht@hs-esslingen.de;G 02.004a;71616791146;; ; ; ; ;; ; ; ; ;; ; ; ; ;Personalratsmitglied - Vertretung der Beschäftigten; ; ;; ;; ; ; ; ;Mitarbeiter;ZMF;Zentr. Mechan. Fertig.; ;A
+rechert;Rechert;Andreas;M;;;Andreas.Rechert@hs-esslingen.de;S 01.-120;7113973277; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;Dipl.-Ing.; ; ; ; ;Mitarbeiter;MB;Fakultät MB; ;A
+rohm;Rohm;Friedrich;M;;;Friedrich.Rohm@hs-esslingen.de;S 10.221;7113973546;;; ; ; ;;; ; ; ;;; ; ; ;Senatsmitglied; ;Sicherheitsbeauftragter - SM;; ;; ; ; ; ;Mitarbeiter;AN;Studiengang CIB; ;A
+pfeiffer;Pfeiffer;Cornelia;W;;;Cornelia.Pfeiffer@hs-esslingen.de;G 04.105;71616791176; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;; ; ; ; ;Sekretärin;WI;Fakultät WI; ;A
+gheinzma;Heinzmann;Gisela;W;;;Gisela.Heinzmann@hs-esslingen.de;F 01.008;7113974090; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;; ; ; ; ;Mitarbeiterin;TA;Technische Abteilung; ;A
+herz;Herz;Joachim;M;;;Joachim.Herz@hs-esslingen.de;S 06.001;7113973254; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;; ; ; ; ;Mitarbeiter;MB;Fakultät MB; ;A
+hoyh;Hoyh;Tabea;W;;;Tabea.Hoyh@hs-esslingen.de;S 05.113;7113973401; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;; ; ; ; ;Sekretärin;G;Fakultät G; ;A
+held;Held;Wolfgang;M;;;Wolfgang.Held@hs-esslingen.de;F 02.237;7113974391; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;; ; ; ; ;Mitarbeiter;G;Fakultät G; ;A
+tlang;Lang;Thomas;M;;;Thomas.Lang@hs-esslingen.de;S 09.110;7113973362; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;Dipl.-Ing. (FH); ; ; ; ;Mitarbeiter;MB;Fakultät MB; ;A
+stierle;Stierle;Andreas;M;;;Andreas.Stierle@hs-esslingen.de;F 02.018;7113974011; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;; ; ; ; ;Mitarbeiter;TA;Technische Abteilung; ;A
+schle;Schlesinger;Udo;M;;;Udo.Schlesinger@hs-esslingen.de;F 01.404;7113974190; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;; ; ; ; ;Mitarbeiter;IT;Fakultät IT; ;A
+herres;Herres;Konrad;M;;;Konrad.Herres@hs-esslingen.de;F 02.016;7113974010;; ; ; ; ;; ; ; ; ;; ; ; ; ;Sicherheitsbeauftragter - Flandernstraße; ; ;; ;; ; ; ; ;Mitarbeiter;TA;Technische Abteilung; ;A
+kerler;Kerler;Jürgen;M;;;Juergen.Kerler@hs-esslingen.de;G 04.118;71616791185; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;Dipl.-Ing. (FH); ; ; ; ;Mitarbeiter;RZ;Rechenzentrum; ;A
+echam;Vuletic;Efrosini;W;;;Efrosini.Chamouratidou@hs-esslingen.de;-;71139749; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;Mitarbeiterin;Verwaltung; ;FinA;B
+faerber;Färber;Rüdiger;M;;;Ruediger.Faerber@hs-esslingen.de;S 07.-121;7113973052; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;; ; ; ; ;Mitarbeiter;TA;Technische Abteilung; ;A
+schulze;Schulze;Volker;M;;;Volker.Schulze@hs-esslingen.de;G 01.011;71616791270; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;; ; ; ; ;Mitarbeiter;ME;Fakultät ME; ;A
+breuer;Breuer;Thomas;M;;;Thomas.Breuer@hs-esslingen.de;F 01.009;7113974022;;; ; ; ;;; ; ; ;;; ; ; ;Sicherheitsbeauftragter - Flandernstraße; ;Personalratsmitglied - Vertretung der Beschäftigten;; ;; ; ; ; ;Hausmeister;TA;Technische Abteilung; ;A
+gschmidt;Schmidt;Gerhard;M;;;Gerhard.Schmidt@hs-esslingen.de;S 13.205;7113973326; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;; ; ; ; ;Mitarbeiter;FZ;Fakultät FZ; ;A
+thon;Thon;Klaus;M;;;Klaus.Thon@hs-esslingen.de;G 04.008;71616791281;; ; ; ; ;; ; ; ; ;; ; ; ; ;Sicherheitsbeauftragter - GP; ; ;; ;; ; ; ; ;Mitarbeiter;TA;Technische Abteilung; ;A
+sbluhm;Bluhm;Simone;W;;;Simone.Bluhm@hs-esslingen.de;-;7113973120; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;; ; ; ; ;Mitarbeiterin;TA;Technische Abteilung; ;A
+kleo;Kleofass;Silvia;W;;;Silvia.Kleofass@hs-esslingen.de;G 04.322;71616791191; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;Dipl.-Bibl. (FH); ; ; ; ;Mitarbeiterin;Bibliothek;Bibliothek; ;A
+stroil;Stroil;Bekir;M;;;Bekir.Stroil@hs-esslingen.de;S 07.004;7113973172; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;Dipl.-Ing. Militärtechnische Akademie Zagreb; ; ; ; ;Mitarbeiter;RZ;Rechenzentrum; ;A
+neuberge;Neuberger;Nikolaus;M;Dr.-Ing.;LB;Nikolaus.Neuberger@hs-esslingen.de;-;71139749; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;Prof. h.c. (NMU) Dr.-Ing.; ;; ; ; ; ;LB;ME; ; ;A
+roth;Roth;Helmut;M;;;Helmut.Roth@hs-esslingen.de;S 10.103;7113973366;; ; ; ; ;; ; ; ; ;; ; ; ; ;Sicherheitsbeauftragter - SM; ; ;; ;; ; ; ; ;Mitarbeiter;FZ;Fakultät FZ; ;A
+jliedle;Liedle;Joachim;M;;;Joachim.Liedle@hs-esslingen.de;S 01.019;7113973037; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;; ; ; ; ;Mitarbeiter;TA;Technische Abteilung; ;A
+huwig;Huwig;Thomas;M;;;Thomas.Huwig@hs-esslingen.de;G 04.009;71616791181; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;; ; ; ; ;Hausmeister;TA;Technische Abteilung; ;A
+feisen;Eisen;Franz;M;;;Franz.Eisen@hs-esslingen.de;S 07.-122;7113973053;; ; ; ; ;; ; ; ; ;; ; ; ; ;Sicherheitsbeauftragter - SM; ; ;; ;; ; ; ; ;Mitarbeiter;TA;Technische Abteilung; ;A
+pysny;Pysny;Ralf;M;;;Ralf.Pysny@hs-esslingen.de;S 03.005;7113973316; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;; ; ; ; ;Mitarbeiter;FZ;Fakultät FZ; ;A
+bosler;Bosler;Verena;W;;;Verena.Bosler@hs-esslingen.de;S 09.102;7113973351; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;; ; ; ; ;Sekretärin;MB;Fakultät MB, SG/QSiM Maschinenbau; ;A
+muschik;Muschik;Gregor;M;;LB;Gregor.Muschik@hs-esslingen.de;-;71139749; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;Dipl.-Ing. (FH); ; ; ; ;LB;MB; ; ;A
+kaese;Kaese;Wolfgang;M;;;Wolfgang.Kaese@hs-esslingen.de;G 01.103;71616791150;; ; ; ; ;; ; ; ; ;; ; ; ; ;Strahlenschutzbeauftragter; ; ;; ;Dipl.-Ing. (FH); ; ; ; ;Mitarbeiter;ME;Fakultät ME; ;A
+fbuehler;Bühler;Frank;M;;;Frank.Buehler@hs-esslingen.de;S 06.001;7113973255; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;Dipl.-Ing. (FH); ; ; ; ;Mitarbeiter;MB;Fakultät MB; ;A
+rcolin;Colin;Ralf;M;;;Ralf.Colin@hs-esslingen.de;G 01.303;71616791165; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;Dipl.-Ing.; ; ; ; ;Mitarbeiter;IAF;IAF Mechatronik;IAF;A
+mschmid;Schmid;Martin;M;;;Martin.Schmid@hs-esslingen.de;F 01.203;7113974111; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;Dipl.-Ing. (FH); ; ; ; ;Mitarbeiter;RZ;Rechenzentrum; ;A
+tluong;Luong;Tu Dao;W;;;Tudao.Luong@hs-esslingen.de;F 02.119;7113974466; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;Dipl.-Betriebsw. (FH); ; ; ; ;Mitarbeiterin;GS;Fakultät GS; ;A
+adrian;Reber;Adrian;M;Dr.-Ing.;LB;Adrian.Reber@hs-esslingen.de;-;71139749; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;Dr.-Ing.; ;Dipl.-Ing. (FH) MSc (Brunel University); ; ; ; ;LB;IT; ; ;A
+cfekete;Fekete-Nester;Catriona;W;;;Catriona.Fekete-Nester@hs-esslingen.de;F 02.120;7113974475; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;M.A. (Dalhousie Univ.); ; ; ; ;Mitarbeiterin;GS;Fakultät GS; ;A
+watzko;Watzko;Joachim;M;;;Joachim.Watzko@hs-esslingen.de;F 01.203;7113974112; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;; ; ; ; ;Mitarbeiter;RZ;;IT;A
+maleska;Maleska;Beate;W;;;Beate.Maleska@hs-esslingen.de;S 17.002;7113973082; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;Dipl.-Päd.; ; ; ; ;Leitung;AAA;Akademisches Auslandsamt; ;A
+ebinder;Binder;Edda;W;;;Edda.Binder@hs-esslingen.de;S 10.217;7113973420;; ; ; ; ;; ; ; ; ;; ; ; ; ;Gefahrstoffbeauftragte; ; ;; ;Dipl.-Ing. (FH); ; ; ; ;Mitarbeiterin;AN;Gefahrstoffbeauftragte, Masterstg. Umweltschutz; ;A
+bertleff;Bertleff;Karin;W;;;Karin.Bertleff@hs-esslingen.de;S 10.223;7113973505; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;Dipl.-Ing.; ; ; ; ;Mitarbeiterin;AN;Studiengang CIB; ;A
+nolle;Nolle;Eugen;M;Dr.IngDrhc;LB;Eugen.Nolle@hs-esslingen.de;-;71139749; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;Prof. Dr.-Ing. Dr. h. c. (NBU); ;Dipl.-Ing.; ; ; ; ;LB;ME; ; ;A
+bendig;Bendig;Klaus;M;;;Klaus.Bendig@hs-esslingen.de;S 10.003;7113973261; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;; ; ; ; ;Mitarbeiter;MB;Fakultät MB; ;A
+guelck;Gülck;Petra;W;;;Petra.Guelck@hs-esslingen.de;F 02.120;7113974461; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;Dipl.-Soz.arb. und -Soz.päd.; ; ; ; ;Sekretärin;GS;Fakultät GS, SG/QSiM Graduate School; ;A
+tandel;Tandel;Kersten;M;;;Kersten.Tandel@hs-esslingen.de;S 07.009a;7113973140; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;Dipl.-Ing. (FH); ; ; ; ;Leitung;RZ;Rechenzentrum; ;A
+renn;Renn;Achim;M;;;Achim.Renn@hs-esslingen.de;S 12.006;7113973458; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;; ; ; ; ;Mitarbeiter;GU;Fakultät GU; ;A
+gruebel;Grübel;Elisabeth;W;;;Elisabeth.Gruebel@hs-esslingen.de;S 02.009;7113973301; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;; ; ; ; ;Sekretärin;FZ;Fakultät FZ; ;A
+bclauss;Clauß;Bettina;W;;;Bettina.Clauss@hs-esslingen.de;G 02.012;71616791184;; ; ; ; ;; ; ; ; ;; ; ; ; ;Hochschulratsmitglied; ; ;; ;Dipl.-Ing. (FH); ; ; ; ;Mitarbeiterin;ME;Fakultät ME; ;A
+rosentha;Rosenthal;Jakub;M;Dr.-Ing.;LB;Jakub.Rosenthal@hs-esslingen.de;-;71139749; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;Dr.-Ing.; ;; ; ; ; ;LB;MB; ; ;A
+aschwarz;Schwarz;Angela;W;;;Angela.Schwarz@hs-esslingen.de;F 01.001b;7113974403;;; ; ; ;;; ; ; ;;; ; ; ;Fachkraft für Arbeitssicherheit; ;Sicherheitsingenieurin;; ;Dipl.-Ing. (FH); ; ; ; ;Mitarbeiterin;Rektorat;Rektorat; ;A
+nitschko;Nitschko;Gabriele;W;;;Gabriele.Nitschko@hs-esslingen.de;S 07.208;7113973447; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;; ; ; ; ;Mitarbeiterin;G;SG/QSiM Grundlagen; ;A
+hiesgen;Hiesgen;Renate;W;Dr.;PR;Renate.Hiesgen@hs-esslingen.de;S 04.304;7113973414;AN;;G;G; ;;;;; ;;;Labor Physik A;Labor Rasterelektronenmikroskopie und Mikroanalyse; ;kooptiert bei der Fakultät Angewandte Naturwissenschaften; ;Strahlenschutzbevollmächtigte;Prof. Dr. rer. nat.;Laborleitung;Dipl.-Phys.;Laborleitung; ; ; ;Professorin;G;Fakultät G; ;A
+hartinge;Hartinger;Markus;M;Dr.;PR;Markus.Hartinger@hs-esslingen.de;F 02.256;7113974365;BW;BW; ; ; ;Internationale Technische Betriebswirtschaft (TBB);; ; ; ;;Institut für Business Applications; ; ; ;Praktikantenamtsleitung; ;Laborleitung;Prof. Dr. rer. pol.; ;; ; ; ; ;Professor;BW;Fakultät BW; ;A
+kiriakid;Kiriakidou;Hrisowalandou;W;;;Hrisowalandou.Kiriakidou@hs-esslingen.de;S 01.125;7113973050; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;; ; ; ; ;Mitarbeiterin;Verwaltung;Studentische Abteilung;StudA;A
+jminuth;Minuth;Jürgen;M;;PR;Juergen.Minuth@hs-esslingen.de;G 04.209;71616791143; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;Prof.; ;Dipl.-Ing.; ; ; ; ;Professor;ME;Fakultät ME; ;A
+schubert;Schubert;Silke;W;;;Silke.Schubert@hs-esslingen.de;S 17.011;7113973157; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;M.A.; ; ; ; ;Mitarbeiterin;Ausl.bez.;Auslandsbeziehungen, AAA; ;A
+haiber;Haiber;Jürgen;M;Dr.;;Juergen.Haiber@hs-esslingen.de;S 04.214;7113973425;; ; ; ; ;; ; ; ; ;; ; ; ; ;Strahlenschutzbeauftragter; ; ;Dr. rer. nat.; ;; ; ; ; ;Mitarbeiter;G;Fakultät G; ;A
+schniepp;Schaal;Barbara;W;;;Barbara.Schaal@hs-esslingen.de;S 02.001;7113973302; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;; ; ; ; ;Sekretärin;FZ;Master 2016; ;A
+gagruess;Grüßhaber;Gaby;W;;LB;Gaby.Gruesshaber@hs-esslingen.de;-;71139749; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;M.A.; ; ; ; ;LB;GS; ; ;A
+ghaider;Haider;Gabriele;W;;;Gabriele.Haider@hs-esslingen.de;S 01.127;7113973070; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;; ; ; ; ;Mitarbeiterin;Verwaltung;Studentische Abteilung;StudA;A
+tverch;Verch;Tanja;W;;;Tanja.Verch@hs-esslingen.de;S 01.122;7113973175; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;; ; ; ; ;Mitarbeiterin;Verwaltung;Studentische Abteilung;StudA;A
+haefele;Häfele;Peter;M;Dr.-Ing.;PR;Peter.Haefele@hs-esslingen.de;S 10.104;7113973263;FZ; ; ; ; ;; ; ; ; ;Labor Werkstoff- / Fügetechnik; ; ; ; ;Laborleitung; ; ;Prof. Dr.-Ing.; ;Dipl.-Ing.; ; ; ; ;Professor;FZ;Fakultät FZ; ;A
+schrempf;Schrempf;Heike;W;;;Heike.Schrempf@hs-esslingen.de;S 01.129;7113973192; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;; ; ; ; ;Mitarbeiterin;Verwaltung;Studentische Abteilung, SG/QSiM Stud. Abteilung;StudA;A
+uliebler;Liebler;Ulrich;M;;LB;Ulrich.Liebler@hs-esslingen.de;-;71139749; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;Dipl.-Ing. (FH); ; ; ; ;LB;FZ; ; ;A
+gklein;Klein;Galina;W;;;Galina.Klein@hs-esslingen.de;S 01.118;7113973131; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;; ;; ; ; ; ;Mitarbeiterin;Verwaltung;Finanzabteilung;FinA;A
+albers;Albers;Karl-Josef;M;Dr.-Ing.;PR;Karl-Josef.Albers@hs-esslingen.de;S 05.202a;7113973454;VU; ; ; ; ;; ; ; ; ;Labor Luft- und Klimatechnik; ; ; ; ;Laborleitung; ; ;Prof. Dr.-Ing.; ;; ; ; ; ;Professor;GU;Fakultät GU; ;A
+aubele;Aubele;Richard;M;Prof. Dipl.-Ing.;LB;Richard.Aubele@hs-esslingen.de;-;71139749; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;Professor;Prof.retired; ; ;R-I
+bathelt;Bathelt;Hartmut;M;Prof. Dr. techn.;PR;Hartmut.Bathelt@hs-esslingen.de;-;71139749; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;Professor;Prof.retired; ; ;R-I

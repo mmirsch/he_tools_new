@@ -29,7 +29,7 @@ namespace HSE\HeTools\Controller;
 /**
  * PersDataListController
  */
-class HSE\HeTools\Controller\PersDataListController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+class PersDataListController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
 
     /**

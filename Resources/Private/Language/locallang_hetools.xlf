@@ -3,11 +3,11 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2016-06-06T13:11:30Z" product-name="he_tools">
 		<header/>
 		<body>
-			<trans-unit id="value.description">
-				<source>value</source>
+			<trans-unit id="mlang_tabs_tab">
+				<source>HE-Tools</source>
 			</trans-unit>
-			<trans-unit id="type.description">
-				<source>type</source>
+			<trans-unit id="mlang_labels_tabdescr">
+				<source>Allg. Backend Modul</source>
 			</trans-unit>
 		</body>
 	</file>

@@ -1,0 +1,10 @@
+
+# ==============================================
+# Persistence object mapping configuration
+# ==============================================
+
+module.tx_hetools_web_hetoolshetools {
+	persistence {
+		storagePid = 50
+	}
+}

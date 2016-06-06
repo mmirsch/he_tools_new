@@ -1,0 +1,25 @@
+<f:layout name="Default">
+
+  <f:section name="content">
+
+    <h1>Ausgewählte Personen</h1>
+
+    <table>
+      <th>Vorname</th>
+      <th>Nachname</th>
+      <th>Login</th>
+      </tr>
+
+      <f:for each="{personsList}" as="list">
+        <tr>
+          <td>{list.vorname}</td>
+          <td>{list.nachname}</td>
+          <td>{list.login}</td>
+        </tr>
+
+      </f:for>
+    </table>
+
+  </f:section>
+</f:layout>
+

@@ -1,6 +1,9 @@
 <?php
 namespace HSE\HeTools\Controller;
 
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\MathUtility;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 /***************************************************************
  *
  *  Copyright notice
@@ -25,9 +28,6 @@ namespace HSE\HeTools\Controller;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Core\Utility\MathUtility;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /**
  * PersonsController
@@ -40,10 +40,9 @@ class PersonsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      *
      * @var \HSE\HeTools\Domain\Repository\PersonsRepository
      * @inject
-     *
      */
-    protected $personsRepository;
-
+    protected $personsRepository = null;
+    
     /**
      * action list
      *
@@ -53,22 +52,24 @@ class PersonsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     {
         $persId = $this->settings['listManually'];
         $persIdArray = explode(',', $persId);
-        foreach($persIdArray as &$value){
-            $personsList[] = $this->personsRepository->findByUid($value);
+
+        if (!empty($persId)) {
+            foreach ($persIdArray as &$value) {
+                $personsList[] = $this->personsRepository->findByUid($value);
+            }
+        } else {
+            $personsList = $this->personsRepository->findAll();
         }
 
         /* Alternativ über for-Schleife:
-        for ($i = 0; $i < count($persIdArray); $i = $i + 1){
-          $personsList[$i] = $this->personsRepository->findByUid($persIdArray[$i]);
-        }
-        */
-
+           for ($i = 0; $i < count($persIdArray); $i = $i + 1){
+           $personsList[$i] = $this->personsRepository->findByUid($persIdArray[$i]);
+           }
+           */
+        
         //$personsList = $this->personsRepository->findByUid($persIdArray[0]);
-        DebuggerUtility::var_dump($personsList);
+        //DebuggerUtility::var_dump($personsList);
         $this->view->assign('personsList', $personsList);
-
-        //$persons = $this->personsRepository->findAll();
-        //$this->view->assign('persons', $persons);
     }
     
     /**
@@ -78,7 +79,7 @@ class PersonsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      */
     public function showAction()
     {
-        $persId = (int)$this->settings['person'];
+        $persId = (int) $this->settings['person'];
         $personsData = $this->personsRepository->findByUid($persId);
         DebuggerUtility::var_dump($personsData);
         $this->view->assign('personsData', $personsData);

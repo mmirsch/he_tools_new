@@ -1,0 +1,33 @@
+<f:comment>
+<f:section name="main">
+</f:section>
+</f:comment>
+
+<h1>Personendaten</h1>
+<dl class="dl-horizontal">
+  <dt>Vorname:</dt>
+  <dd>{personsData.feuser.firstName}</dd>
+  <dt>Nachname:</dt>
+  <dd>{personsData.feuser.lastName}</dd>
+  <f:for each="{personsData.persData}" as="data">
+    <dt>{data.type.title}:</dt>
+    <dd>{data.value}</dd>
+  </f:for>
+  <f:for each="{personsData.persFunc}" as="func">
+    <dt>Funktion:</dt>
+    <dd>{func.type.title}</dd>
+    <f:if condition="{func.faculty}">
+      <f:then>
+        <dt>Fakultät:</dt>
+        <dd>{func.faculty.title}</dd>
+      </f:then>
+    </f:if>
+    <f:if condition="{func.institution}">
+      <f:then>
+        <dt>Institution:</dt>
+        <dd>{func.institution.title}</dd>
+      </f:then>
+    </f:if>
+  </f:for>
+
+</dl>
