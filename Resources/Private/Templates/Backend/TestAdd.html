@@ -1,29 +1,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en"
       xmlns:f="http://schema.helhum.dev/ns/fluid/ViewHelpers">
-<head>Personen-Import</head>
+<head>TestAdd</head>
 <body>
 
 <f:layout name="Default">
 
     <f:section name="content">
 
-        <h1>Importierte Personen</h1>
+    Import erfolgreich. <br />
+    Importierte Personen: <br /><br />
 
         <table>
             <th>Vorname</th>
             <th>Nachname</th>
             <th>Username</th>
-            </tr>
 
             <f:for each="{personsList}" as="list">
                 <tr>
-                    <td>{list.vorname}</td>
-                    <td>{list.nachname}</td>
-                    <td>{list.login}</td>
+                    <td>{list.feuser.firstName}</td>
+                    <td>{list.feuser.lastName}</td>
+                    <td>{list.feuser.username}</td>
                 </tr>
 
             </f:for>
         </table>
+
 
     </f:section>
 </f:layout>

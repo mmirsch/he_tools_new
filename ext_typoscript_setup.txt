@@ -5,7 +5,7 @@
 
 module.tx_hetools_web_hetoolshetools {
 	persistence {
-		storagePid = 50
+		storagePid = 45
 	}
 }
 
