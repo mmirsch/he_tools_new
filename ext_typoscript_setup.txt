@@ -8,3 +8,12 @@ module.tx_hetools_web_hetoolshetools {
 		storagePid = 50
 	}
 }
+
+# Module configuration
+module.tx_hetools_web_hetoolshetools {
+	view {
+		templateRootPaths.0 = EXT:he_tools/Resources/Private/Templates/
+		partialRootPaths.0 = EXT:he_tools/Resources/Private/Partials/
+		layoutRootPaths.0 = EXT:he_tools/Resources/Private/Layouts/Backend/
+	}
+}

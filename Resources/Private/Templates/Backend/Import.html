@@ -1,0 +1,32 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:f="http://schema.helhum.dev/ns/fluid/ViewHelpers">
+<head>Personen-Import</head>
+<body>
+
+<f:layout name="Default">
+
+    <f:section name="content">
+
+        <h1>Importierte Personen</h1>
+
+        <table>
+            <th>Vorname</th>
+            <th>Nachname</th>
+            <th>Login</th>
+            </tr>
+
+            <f:for each="{personsList}" as="list">
+                <tr>
+                    <td>{list.vorname}</td>
+                    <td>{list.nachname}</td>
+                    <td>{list.login}</td>
+                </tr>
+
+            </f:for>
+        </table>
+
+    </f:section>
+</f:layout>
+
+</body>
+</html>

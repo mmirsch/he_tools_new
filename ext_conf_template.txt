@@ -1,0 +1,9 @@
+
+# Options
+###########################
+
+# cat=system/1; type=string; label=Systemordner für die Personendaten
+sysfolder_persons = 0
+
+
+

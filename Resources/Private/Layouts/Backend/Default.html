@@ -1,0 +1,57 @@
+{namespace vh=HSE\HeTools\ViewHelpers}
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+     xmlns:f="http://xsd.helmut-hummel.de/ns/TYPO3/CMS/Fluid/ViewHelpers">
+    <f:layout name="Default"/>
+    <f:be.container
+            includeCssFiles="{0: '{f:uri.resource(path:\'Css/Backend.css\')}'}"
+            includeJsFiles="{0: '{f:uri.resource(path:\'JavaScript/jquery-2.1.4.min.js\')}',
+					1: '{f:uri.resource(path:\'JavaScript/he_tools.js\')}'}"
+            >
+        <div class="typo3-fullDoc">
+            <div id="typo3-docheader">
+                <div class="typo3-docheader-functions">
+                    <div class="left">
+                        <f:be.buttons.csh/>
+                        <f:be.menus.actionMenu>
+                            <f:comment>
+                                ################### Admin-Menu ###################
+                            </f:comment>
+                            <f:if condition="{vh:Be.IsAdmin()}">
+                                <f:be.menus.actionMenuItem label="Personen verwalten" action="managePersons"
+                                                           controller="Backend"/>
+                                <f:be.menus.actionMenuItem label="Personen anzeigen" action="list"
+                                                           controller="Persons"/>
+                            </f:if>
+                            <f:comment>
+                                ################### Editors##################
+                            </f:comment>
+
+                        </f:be.menus.actionMenu>
+                    </div>
+                    <div class="right">
+                        <f:be.pagePath/>
+                        <f:be.pageInfo/>
+                    </div>
+                </div>
+                <div class="typo3-docheader-buttons">
+                    <div class="left">
+
+                    </div>
+                    <div class="right">
+                        <f:be.buttons.shortcut/>
+                    </div>
+                </div>
+
+            </div>
+            <div id="typo3-docbody">
+                <div id="typo3-inner-docbody">
+                    <div class="tx-he-tools">
+                        <f:flashMessages/>
+                        <f:render section="content"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </f:be.container>
+
+</div>

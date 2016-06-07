@@ -1,33 +1,41 @@
-<f:comment>
-<f:section name="main">
-</f:section>
-</f:comment>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:f="http://schema.helhum.dev/ns/fluid/ViewHelpers">
+<head>Personen-Import</head>
+<body>
 
-<h1>Personendaten</h1>
-<dl class="dl-horizontal">
-  <dt>Vorname:</dt>
-  <dd>{personsData.feuser.firstName}</dd>
-  <dt>Nachname:</dt>
-  <dd>{personsData.feuser.lastName}</dd>
-  <f:for each="{personsData.persData}" as="data">
-    <dt>{data.type.title}:</dt>
-    <dd>{data.value}</dd>
-  </f:for>
-  <f:for each="{personsData.persFunc}" as="func">
-    <dt>Funktion:</dt>
-    <dd>{func.type.title}</dd>
-    <f:if condition="{func.faculty}">
-      <f:then>
-        <dt>Fakultät:</dt>
-        <dd>{func.faculty.title}</dd>
-      </f:then>
-    </f:if>
-    <f:if condition="{func.institution}">
-      <f:then>
-        <dt>Institution:</dt>
-        <dd>{func.institution.title}</dd>
-      </f:then>
-    </f:if>
-  </f:for>
+<f:layout name="Default">
+    <f:section name="main">
 
-</dl>
+        <h1>Personendaten</h1>
+        <dl class="dl-horizontal">
+            <dt>Vorname:</dt>
+            <dd>{personsData.feuser.firstName}</dd>
+            <dt>Nachname:</dt>
+            <dd>{personsData.feuser.lastName}</dd>
+            <f:for each="{personsData.persData}" as="data">
+                <dt>{data.type.title}:</dt>
+                <dd>{data.value}</dd>
+            </f:for>
+            <f:for each="{personsData.persFunc}" as="func">
+                <dt>Funktion:</dt>
+                <dd>{func.type.title}</dd>
+                <f:if condition="{func.faculty}">
+                    <f:then>
+                        <dt>Fakultät:</dt>
+                        <dd>{func.faculty.title}</dd>
+                    </f:then>
+                </f:if>
+                <f:if condition="{func.institution}">
+                    <f:then>
+                        <dt>Institution:</dt>
+                        <dd>{func.institution.title}</dd>
+                    </f:then>
+                </f:if>
+            </f:for>
+
+        </dl>
+    </f:section>
+</f:layout>
+
+</body>
+</html>

@@ -13,18 +13,3 @@ plugin.tx_hetools_hepersonen {
 		storagePid =
 	}
 }
-
-module.tx_hetools_hetools {
-	view {
-		# cat=module.tx_hetools_hetools/file; type=string; label=Path to template root (BE)
-		templateRootPath = EXT:he_tools/Resources/Private/Module/Templates/
-		# cat=module.tx_hetools_hetools/file; type=string; label=Path to template partials (BE)
-		partialRootPath = EXT:he_tools/Resources/Private/Module/Partials/
-		# cat=module.tx_hetools_hetools/file; type=string; label=Path to template layouts (BE)
-		layoutRootPath = EXT:he_tools/Resources/Private/Module/Layouts/
-	}
-	persistence {
-		# cat=module.tx_hetools_hetools//a; type=string; label=Default storage PID
-		storagePid =
-	}
-}
