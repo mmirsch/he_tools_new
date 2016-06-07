@@ -7,10 +7,13 @@
 
 <f:section name="content">
     <h1>Personen verwalten</h1>
-    <f:flashMessages/>
+    <f:be.menus.actionMenu>
+        <f:be.menus.actionMenuItem label="Bitte Funktion auswählen" action="managePersons" controller="Backend" />
+        <f:be.menus.actionMenuItem label="Personen importieren" action="import" controller="Backend"/>
+        <f:be.menus.actionMenuItem label="Backend-Benutzer" action="backendUsers" controller="Persons"/>
+        <f:be.menus.actionMenuItem label="Frontend-Benutzer" action="frontendUsers" controller="Persons"/>
+    </f:be.menus.actionMenu>
 
-
-    <f:link.action controller="Backend" action="import">Import</f:link.action>
 </f:section>
 
 </body>
