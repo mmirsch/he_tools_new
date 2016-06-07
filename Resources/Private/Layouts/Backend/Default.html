@@ -17,10 +17,8 @@
                                 ################### Admin-Menu ###################
                             </f:comment>
                             <f:if condition="{vh:Be.IsAdmin()}">
-                                <f:be.menus.actionMenuItem label="Personen verwalten" action="managePersons"
-                                                           controller="Backend"/>
-                                <f:be.menus.actionMenuItem label="Personen anzeigen" action="list"
-                                                           controller="Persons"/>
+                                <f:be.menus.actionMenuItem label="Personen verwalten" action="managePersons" controller="Backend"/>
+                                <f:be.menus.actionMenuItem label="Personen anzeigen" action="list" controller="Persons"/>
                             </f:if>
                             <f:comment>
                                 ################### Editors##################
