@@ -15,7 +15,7 @@ class PersonsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
     public function findByUsername($username)	{
         /** @var \TYPO3\CMS\Extbase\Persistence\QueryInterface $query */
         $query = $this->createQuery();
-        $query->like('feuser.username', $username);
+        $query->equals('feuser.username', $username);
         $queryResult = $query->execute();
         return $queryResult;
     }
@@ -29,7 +29,7 @@ class PersonsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
     public function findByEmail($email)	{
         /** @var \TYPO3\CMS\Extbase\Persistence\QueryInterface $query */
         $query = $this->createQuery();
-        $query->like('feuser.email', $email);
+        $query->equals('feuser.email', $email);
         $queryResult = $query->execute();
         return $queryResult;
     }
@@ -48,20 +48,36 @@ class PersonsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
         $csvArray = $this->createCsvArray();
         $listArray = [];
         for($i = 0; $i < 2; $i = $i + 1){
-            /**@var $newPerson \HSE\HeTools\Domain\Model\Persons */
-            $newPerson = $this->objectManager->get('HSE\HeTools\Domain\Model\Persons');
+            /**@var $existingUser \HSE\HeTools\Domain\Model\Persons */
+            $existingUser = $this->findByUsername($csvArray[$i]['login']);
 
-            /**@var $newFEUser \TYPO3\CMS\Extbase\Domain\Model\FrontendUser */
-            $newFEUser = $this->objectManager->get('TYPO3\CMS\Extbase\Domain\Model\FrontendUser');
+            if (!empty($existingUser)) {
+                // Update
+                $feUser = $existingUser->getFeuser();
+                $feUser->setFirstName($csvArray[$i]['vorname']);
+                $feUser->setLastName($csvArray[$i]['nachname']);
+                $feUser->setEmail($csvArray[$i]['mailok']);
+                $existingUser->setFeuser($feUser);
+                $this->update($existingUser);
+                
+            } else {
+                // New
+                /**@var $newPerson \HSE\HeTools\Domain\Model\Persons */
+                $newPerson = $this->objectManager->get('HSE\HeTools\Domain\Model\Persons');
 
-            $newFEUser->setUsername($csvArray[$i]['login']);
-            $newFEUser->setFirstName($csvArray[$i]['vorname']);
-            $newFEUser->setLastName($csvArray[$i]['nachname']);
-            $newFEUser->setEmail($csvArray[$i]['mailok']);
-            $newPerson->setFeuser($newFEUser);
-            $this->add($newPerson);
-            $listArray[] = $newPerson;
-        }
+                /**@var $newFEUser \TYPO3\CMS\Extbase\Domain\Model\FrontendUser */
+                $newFEUser = $this->objectManager->get('TYPO3\CMS\Extbase\Domain\Model\FrontendUser');
+
+                $newFEUser->setUsername($csvArray[$i]['login']);
+                $newFEUser->setFirstName($csvArray[$i]['vorname']);
+                $newFEUser->setLastName($csvArray[$i]['nachname']);
+                $newFEUser->setEmail($csvArray[$i]['mailok']);
+                $newPerson->setFeuser($newFEUser);
+                $this->add($newPerson);
+                $listArray[] = $newPerson;
+
+            }
+         }
 
         return $listArray;
 
