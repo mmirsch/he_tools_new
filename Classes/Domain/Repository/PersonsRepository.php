@@ -10,28 +10,30 @@ class PersonsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
      * Gets single fe_user by username
      *
      * @param string $username
-     * @return QueryResultInterface|array
+     * @return \HSE\HeTools\Domain\Model\Persons
      */
     public function findByUsername($username)	{
         /** @var \TYPO3\CMS\Extbase\Persistence\QueryInterface $query */
         $query = $this->createQuery();
         $query->equals('feuser.username', $username);
         $queryResult = $query->execute();
-        return $queryResult;
+        $firstMatch = $queryResult->getFirst();
+        return $firstMatch;
     }
 
     /**
      * Gets single fe_user by email
      *
      * @param string $email
-     * @return QueryResultInterface|array
+     * @return \HSE\HeTools\Domain\Model\Persons
      */
     public function findByEmail($email)	{
         /** @var \TYPO3\CMS\Extbase\Persistence\QueryInterface $query */
         $query = $this->createQuery();
         $query->equals('feuser.email', $email);
         $queryResult = $query->execute();
-        return $queryResult;
+        $firstMatch = $queryResult->getFirst();
+        return $firstMatch;
     }
 
 
@@ -48,18 +50,19 @@ class PersonsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
         $csvArray = $this->createCsvArray();
         $listArray = [];
         for($i = 0; $i < 2; $i = $i + 1){
-            /**@var $existingUser \HSE\HeTools\Domain\Model\Persons */
-            $existingUser = $this->findByUsername($csvArray[$i]['login']);
+            /**@var $existingPerson \HSE\HeTools\Domain\Model\Persons */
+            $existingPerson = $this->findByUsername($csvArray[$i]['login']);
 
-            if (!empty($existingUser)) {
+            if (!empty($existingPerson)) {
                 // Update
-                $feUser = $existingUser->getFeuser();
+                $feUser = $existingPerson->getFeuser();
                 $feUser->setFirstName($csvArray[$i]['vorname']);
                 $feUser->setLastName($csvArray[$i]['nachname']);
                 $feUser->setEmail($csvArray[$i]['mailok']);
-                $existingUser->setFeuser($feUser);
-                $this->update($existingUser);
-                
+                $existingPerson->setFeuser($feUser);
+                $this->update($existingPerson);
+                $listArray[] = $existingPerson;
+
             } else {
                 // New
                 /**@var $newPerson \HSE\HeTools\Domain\Model\Persons */
