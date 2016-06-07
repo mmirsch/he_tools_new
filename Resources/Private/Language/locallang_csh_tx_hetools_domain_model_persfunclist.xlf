@@ -9,6 +9,9 @@
 			<trans-unit id="type.description">
 				<source>type</source>
 			</trans-unit>
+			<trans-unit id="type.description">
+        <source>importfield</source>
+      </trans-unit>
 		</body>
 	</file>
 </xliff>

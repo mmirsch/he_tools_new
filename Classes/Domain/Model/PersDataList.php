@@ -46,7 +46,14 @@ class PersDataList extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @var int
      */
     protected $type = 0;
-    
+
+    /**
+     * type
+     *
+     * @var string
+     */
+    protected $importfield = '';
+
     /**
      * Returns the title
      *
@@ -87,6 +94,23 @@ class PersDataList extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setType($type)
     {
         $this->type = $type;
+    }
+
+
+    /**
+     * @return string
+     */
+    public function getImportfield()
+    {
+        return $this->importfield;
+    }
+
+    /**
+     * @param string $importfield
+     */
+    public function setImportfield($importfield)
+    {
+        $this->importfield = $importfield;
     }
 
 }

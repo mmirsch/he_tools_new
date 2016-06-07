@@ -260,6 +260,7 @@ CREATE TABLE tx_hetools_domain_model_persdatalist (
 
 	title varchar(255) DEFAULT '' NOT NULL,
 	type int(11) DEFAULT '0' NOT NULL,
+	importfield varchar(255) DEFAULT '' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -300,6 +301,7 @@ CREATE TABLE tx_hetools_domain_model_persfunclist (
 
 	title varchar(255) DEFAULT '' NOT NULL,
 	type int(11) DEFAULT '0' NOT NULL,
+	importfield varchar(255) DEFAULT '' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,

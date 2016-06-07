@@ -39,14 +39,21 @@ class PersFuncList extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @validate NotEmpty
      */
     protected $title = '';
-    
+
     /**
      * type
      *
      * @var int
      */
     protected $type = '';
-    
+
+    /**
+     * type
+     *
+     * @var string
+     */
+    protected $importfield = '';
+
     /**
      * Returns the title
      *
@@ -87,6 +94,22 @@ class PersFuncList extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setType($type)
     {
         $this->type = $type;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImportfield()
+    {
+        return $this->importfield;
+    }
+
+    /**
+     * @param string $importfield
+     */
+    public function setImportfield($importfield)
+    {
+        $this->importfield = $importfield;
     }
 
 }
