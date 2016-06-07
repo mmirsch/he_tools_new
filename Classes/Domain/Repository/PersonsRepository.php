@@ -7,16 +7,31 @@ use HSE\HeTools\Service\Persons\Import\PersImport;
 class PersonsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
 
     /**
+     * ignore storagePid
+     *
+     * @return void
+     */
+    public function setIgnorePid() {
+        $querySettings = $this->objectManager->get('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\Typo3QuerySettings');
+        // don't add the pid constraint
+        $querySettings->setRespectStoragePage(FALSE);
+        $this->setDefaultQuerySettings($querySettings);
+    }
+
+
+    /**
      * Gets single fe_user by username
      *
      * @param string $username
      * @return \HSE\HeTools\Domain\Model\Persons
      */
     public function findByUsername($username)	{
+        $this->setIgnorePid();
         /** @var \TYPO3\CMS\Extbase\Persistence\QueryInterface $query */
         $query = $this->createQuery();
-        $query->equals('feuser.username', $username);
-        $queryResult = $query->execute();
+        $queryResult = $query->matching(
+          $query->equals('feuser.username', $username)
+        )->execute();
         $firstMatch = $queryResult->getFirst();
         return $firstMatch;
     }
@@ -30,8 +45,9 @@ class PersonsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
     public function findByEmail($email)	{
         /** @var \TYPO3\CMS\Extbase\Persistence\QueryInterface $query */
         $query = $this->createQuery();
-        $query->equals('feuser.email', $email);
-        $queryResult = $query->execute();
+        $queryResult = $query->matching(
+          $query->equals('feuser.username', $email)
+        )->execute();
         $firstMatch = $queryResult->getFirst();
         return $firstMatch;
     }
@@ -55,11 +71,10 @@ class PersonsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
 
             if (!empty($existingPerson)) {
                 // Update
-                $feUser = $existingPerson->getFeuser();
-                $feUser->setFirstName($csvArray[$i]['vorname']);
-                $feUser->setLastName($csvArray[$i]['nachname']);
-                $feUser->setEmail($csvArray[$i]['mailok']);
-                $existingPerson->setFeuser($feUser);
+
+                $existingPerson->setFirstName($csvArray[$i]['vorname']);
+                $existingPerson->setLastName($csvArray[$i]['nachname']);
+                $existingPerson->setEmail($csvArray[$i]['mailok']);
                 $this->update($existingPerson);
                 $listArray[] = $existingPerson;
 

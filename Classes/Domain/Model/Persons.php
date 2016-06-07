@@ -185,4 +185,39 @@ class Persons extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->persFunc = $persFunc;
     }
 
+    /**
+     * Sets the firstName for feuser
+     *
+     * @param string $firstName
+     * @return void
+     */
+    public function setFirstName($firstName)
+    {
+        $this->feuser->setFirstName($firstName);
+    }
+
+    /**
+     * Sets the lastName for feuser
+     *
+     * @param string $lastName
+     * @return void
+     */
+    public function setLastName($lastName)
+    {
+        $this->feuser->setLastName($lastName);
+    }
+
+    /**
+     * Sets the email for feuser
+     *
+     * @param string $email
+     * @return void
+     */
+    public function setEmail($email)
+    {
+        $this->feuser->setEmail($email);
+    }
+
+
+
 }
