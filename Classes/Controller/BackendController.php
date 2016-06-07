@@ -35,7 +35,6 @@ use HSE\HeTools\Domain\Model\PersData;
 /**
  * BackendController
  *
- * Test
  */
 class BackendController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {

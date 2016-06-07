@@ -39,7 +39,7 @@ class PersData extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @validate NotEmpty
      */
     protected $value = '';
-    
+
     /**
      * type
      *
