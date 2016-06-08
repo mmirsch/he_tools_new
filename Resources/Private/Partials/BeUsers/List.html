@@ -1,0 +1,40 @@
+
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+     xmlns:f="http://xsd.helmut-hummel.de/ns/TYPO3/CMS/Fluid/ViewHelpers">
+    <f:layout name="Default"/>
+
+    {namespace vh=HFWU\HfwuRedirects\ViewHelpers}
+
+    <f:alias map="{ll: 'LLL:EXT:he_tools/Resources/Private/Language/locallang.xlf:'}">
+
+        <table class="userlist">
+            <tr>
+                <th class="title">
+                    <f:translate key="{ll}fe_users.columns.name"></f:translate>
+                </th>
+                <th class="short_url">
+                    <f:translate key="{ll}fe_users.columns.username"></f:translate>
+                </th>
+                <th class="actions">
+                    <f:translate key="{ll}fe_users.columns.actions"></f:translate>
+                </th>
+            </tr>
+
+            <f:for each="{userlist}" as="user">
+                <tr>
+                    <td class="name">{user.realName}</td>
+                    <td class="username">{user.username}</td>
+                    <td class="actions">
+                        <img width="20" height="20" data-uid="{redirect.uid}"
+                             class="editBeUser" title="{f:translate(key: '{ll}general.entry.edit')}"
+                             src="{vh:Be.UriResource(path: 'Icons/actions-delete.svg')}"/>
+                        <img width="20" height="20" data-uid="{redirect.uid}"
+                             class="switchToBeUser" title="{f:translate(key: '{ll}general.entry.switchTo')}"
+                             src="{vh:Be.UriResource(path: 'Icons/actions-delete.svg')}"/>
+                    </td>
+                </tr>
+            </f:for>
+        </table>
+
+    </f:alias>
+</div>

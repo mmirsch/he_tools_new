@@ -3,10 +3,7 @@
 ###########################
 
 # cat=system/1; type=string; label=Systemordner für die Personendaten
-sysfolder_persons = 0
+sysfolder_persons = 50
 
 # cat=system/2; type=string; label=Systemordner für die fe_users
-sysfolder_fe_users = 0
-
-
-
+sysfolder_fe_users = 51

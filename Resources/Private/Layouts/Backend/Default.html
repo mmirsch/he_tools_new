@@ -17,11 +17,15 @@
                                 ################### Admin-Menu ###################
                             </f:comment>
                             <f:if condition="{vh:Be.IsAdmin()}">
-                                <f:be.menus.actionMenuItem label="Personen verwalten" action="managePersons"
+                                <f:be.menus.actionMenuItem label="Personen importieren" action="managePersons"
                                                            controller="Backend"/>
+                                <f:be.menus.actionMenuItem label="Frontent-User verwalten" action="list"
+                                                           controller="FeUsers"/>
+                                <f:be.menus.actionMenuItem label="Backend-User verwalten" action="list"
+                                                           controller="BeUsers"/>
                                 <f:be.menus.actionMenuItem label="Personen anzeigen" action="list"
                                                            controller="Persons"/>
-                                <f:be.menus.actionMenuItem label="test" action="test"
+                                <f:be.menus.actionMenuItem label="Personen importieren (Test)" action="test"
                                                            controller="Backend"/>
                             </f:if>
                             <f:comment>

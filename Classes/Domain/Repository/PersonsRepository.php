@@ -3,6 +3,7 @@ namespace HSE\HeTools\Domain\Repository;
 
 use HSE\HeTools\Domain\Model\Persons;
 use HSE\HeTools\Service\Persons\Import\PersImport;
+use HSE\HeTools\Utility\ExtensionUtility;
 
 class PersonsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
 
@@ -61,17 +62,22 @@ class PersonsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
 
     }
 
-    public function importFromCsvArray(){
+    public function importFromCsvArray($start=0, $count=10){
+        $extensionConfiguration = ExtensionUtility::getExtensionConfig();
+        if (isset($extensionConfiguration['sysfolder_fe_users'])) {
+            $pidFeUsers = $extensionConfiguration['sysfolder_fe_users'];
+        } else {
+            $pidFeUsers = 0;
+        }
 
         $csvArray = $this->createCsvArray();
         $listArray = [];
-        for($i = 0; $i < 2; $i = $i + 1){
+        for ($i = $start; $i < $start+$count; $i = $i + 1){
             /**@var $existingPerson \HSE\HeTools\Domain\Model\Persons */
             $existingPerson = $this->findByUsername($csvArray[$i]['login']);
 
             if (!empty($existingPerson)) {
                 // Update
-
                 $existingPerson->setFirstName($csvArray[$i]['vorname']);
                 $existingPerson->setLastName($csvArray[$i]['nachname']);
                 $existingPerson->setEmail($csvArray[$i]['mailok']);
@@ -84,16 +90,13 @@ class PersonsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
                 $newPerson = $this->objectManager->get('HSE\HeTools\Domain\Model\Persons');
 
                 /**@var $newFEUser \TYPO3\CMS\Extbase\Domain\Model\FrontendUser */
-                $newFEUser = $this->objectManager->get('TYPO3\CMS\Extbase\Domain\Model\FrontendUser');
-
-                $newFEUser->setUsername($csvArray[$i]['login']);
-                $newFEUser->setFirstName($csvArray[$i]['vorname']);
-                $newFEUser->setLastName($csvArray[$i]['nachname']);
-                $newFEUser->setEmail($csvArray[$i]['mailok']);
+                $newFEUser = $this->createFrontendUser($csvArray[$i], $pidFeUsers);
                 $newPerson->setFeuser($newFEUser);
                 $this->add($newPerson);
                 $listArray[] = $newPerson;
 
+                // Create backend user
+                $this->createBackendUser($csvArray[$i]);
             }
          }
 
@@ -101,6 +104,49 @@ class PersonsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
 
     }
 
+
+    /**
+     * Create new BackendUser from importData
+     *
+     * @param array $importData
+     *
+     * return \TYPO3\CMS\Extbase\Domain\Model\BackendUser
+     */
+    protected function createBackendUser ($importData) {
+        /** @var $backendUser \TYPO3\CMS\Extbase\Domain\Model\BackendUser  */
+        $backendUser = $this->objectManager->get('TYPO3\CMS\Extbase\Domain\Model\BackendUser');
+        $backendUser->setUsername($importData['login']);
+        $backendUser->setRealName($importData['vorname'] . ' ' . $importData['nachname']);
+        $backendUser->setEmail($importData['mailok']);
+        $backendUser->setPid(0);
+
+        /** @var $backendUsersRepository \TYPO3\CMS\Extbase\Domain\Repository\BackendUserRepository  */
+        $backendUsersRepository = $this->objectManager->get('TYPO3\CMS\Extbase\Domain\Repository\BackendUserRepository');
+        $backendUsersRepository->add($backendUser);
+        return $backendUser;
+    }
+    /**
+     * Create new FrontendUser from importData
+     * @param array $importData
+     * @param int $pidFeUsers
+     *
+     * return \TYPO3\CMS\Extbase\Domain\Model\FrontendUser
+     */
+    protected function createFrontendUser($importData, $pidFeUsers) {
+        /** @var $frontendUser \TYPO3\CMS\Extbase\Domain\Model\FrontendUser  */
+
+        $frontendUser = $this->objectManager->get('TYPO3\CMS\Extbase\Domain\Model\FrontendUser');
+        $frontendUser->setUsername($importData['login']);
+        $frontendUser->setFirstName($importData['vorname']);
+        $frontendUser->setLastName($importData['nachname']);
+        $frontendUser->setEmail($importData['mailok']);
+
+        // use storagefolder if given
+        if (!empty($pidFeUsers)) {
+            $frontendUser->setPid($pidFeUsers);
+        }
+        return $frontendUser;
+    }
 }
 
 ?>

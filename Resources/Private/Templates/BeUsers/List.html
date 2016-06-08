@@ -1,0 +1,28 @@
+
+<f:layout name="Default" />
+
+<f:section name="content">
+
+	<f:flashMessages renderMode="div" class="message" />
+
+	<f:form.hidden id="site_url" value="{siteUrl}" />
+	<f:form.hidden id="return_url" value="{returnUrl}" />
+
+
+	<label for="search_filter" class="filter_label">
+		<f:translate key="general.display.filter_search"></f:translate>
+	</label>
+
+	<f:form.textfield
+			type="input"
+			value="{filter}"
+			class="ajaxFilter"
+			id="search_filter"
+			/>
+
+	<div id="userlist">
+		<f:render partial="BeUsers/List" arguments="{_all}" />
+	</div>
+
+</f:section>
+

@@ -73,6 +73,22 @@
 				<source>Faculty</source>
 			</trans-unit>
 
+			<trans-unit id="fe_users.columns.name">
+        <source>Name</source>
+      </trans-unit>
+			<trans-unit id="fe_users.columns.username">
+        <source>Username</source>
+      </trans-unit>
+			<trans-unit id="fe_users.columns.actions">
+        <source>Actions</source>
+      </trans-unit>
+
+			<trans-unit id="general.display.filter_search">
+				<source>Search</source>
+			</trans-unit>
+
+
+
 		</body>
 	</file>
 </xliff>

@@ -83,6 +83,7 @@ class BackendController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 	public function testAddAction()
 	{
 
+		/**@var $personsRepository \HSE\HeTools\Domain\Repository\PersonsRepository */
 		$personsRepository = $this->objectManager->get('HSE\HeTools\Domain\Repository\PersonsRepository');
 
 		$personsList = $personsRepository->importFromCsvArray();
