@@ -7,6 +7,8 @@
 
     <f:section name="content">
 
+    <f:debug>{personsList}</f:debug>
+
     Import erfolgreich. <br />
     Importierte Personen: <br /><br />
 
@@ -14,12 +16,20 @@
             <th>Vorname</th>
             <th>Nachname</th>
             <th>Username</th>
+            <th>Funktion</th>
+            <th>Fakultät</th>
+            <th>Einrichtung</th>
 
             <f:for each="{personsList}" as="list">
                 <tr>
                     <td>{list.feuser.firstName}</td>
                     <td>{list.feuser.lastName}</td>
                     <td>{list.feuser.username}</td>
+                    <td>
+                        <f:for each="{list.persFunc}" as="persFunc">{persFunc.type.title}</f:for>
+                    </td>
+                    <td>{list.persFunc.faculties.shortcut}</td>
+                    <td>{list.persFunc.institutions.title}</td>
                 </tr>
 
             </f:for>
