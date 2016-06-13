@@ -8,6 +8,38 @@ use HSE\HeTools\Utility\ExtensionUtility;
 class PersonsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
 
     /**
+     * persFuncListRepository
+     *
+     * @var \HSE\HeTools\Domain\Repository\PersFuncListRepository
+     * @inject
+     */
+    protected $persFuncListRepository = null;
+
+    /**
+     * persFuncRepository
+     *
+     * @var \HSE\HeTools\Domain\Repository\PersFuncRepository
+     * @inject
+     */
+    protected $persFuncRepository = null;
+
+    /**
+     * FacultiesRepository
+     *
+     * @var \HSE\HeTools\Domain\Repository\FacultiesRepository
+     * @inject
+     */
+    protected $facultiesRepository = null;
+
+    /**
+     * InstitutionsRepository
+     *
+     * @var \HSE\HeTools\Domain\Repository\InstitutionsRepository
+     * @inject
+     */
+    protected $institutionsRepository = null;
+
+    /**
      * ignore storagePid
      *
      * @return void
@@ -26,7 +58,7 @@ class PersonsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
      * @param string $username
      * @return \HSE\HeTools\Domain\Model\Persons
      */
-    public function findOneByUsername($username)	{
+    public function findByUsername($username)	{
         $this->setIgnorePid();
         /** @var \TYPO3\CMS\Extbase\Persistence\QueryInterface $query */
         $query = $this->createQuery();
@@ -43,7 +75,8 @@ class PersonsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
      * @param string $email
      * @return \HSE\HeTools\Domain\Model\Persons
      */
-    public function findOneByEmail($email)	{
+
+    public function findByEmail($email)	{
         /** @var \TYPO3\CMS\Extbase\Persistence\QueryInterface $query */
         $query = $this->createQuery();
         $queryResult = $query->matching(
@@ -53,7 +86,6 @@ class PersonsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
         return $firstMatch;
     }
 
-
     public function createCsvArray(){
 
         $extPath = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('he_tools');
@@ -62,7 +94,7 @@ class PersonsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
 
     }
 
-    public function importFromCsvArray($start=0, $count=50){
+    public function importFromCsvArray($start=0, $count=2){
         $extensionConfiguration = ExtensionUtility::getExtensionConfig();
         if (isset($extensionConfiguration['sysfolder_fe_users'])) {
             $pidFeUsers = $extensionConfiguration['sysfolder_fe_users'];
@@ -71,20 +103,49 @@ class PersonsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
         }
 
         $csvArray = $this->createCsvArray();
-        $listArray = [];
-        $end = $start+$count;
-        if (count($csvArray)<$end) {
-            $end = count($csvArray);
-        }
-        for ($i = $start; $i < $end; $i = $i + 1){
+
+        for ($i = $start; $i < $start+$count; $i = $i + 1){
             /**@var $existingPerson \HSE\HeTools\Domain\Model\Persons */
-            $existingPerson = $this->findOneByUsername($csvArray[$i]['login']);
+            $existingPerson = $this->findByUsername($csvArray[$i]['login']);
 
             if (!empty($existingPerson)) {
                 // Update
                 $existingPerson->setFirstName($csvArray[$i]['vorname']);
                 $existingPerson->setLastName($csvArray[$i]['nachname']);
                 $existingPerson->setEmail($csvArray[$i]['mailok']);
+
+                /**@var $newPersFuncList \HSE\HeTools\Domain\Model\PersFuncList */
+                $newPersFuncList = $this->persFuncListRepository->findByTitle($csvArray[$i]['fkt_sva']);
+
+                if(!empty($newPersFuncList)){
+
+                    if($this->isFunctionInPerson($existingPerson, $csvArray[$i]['fkt_sva']) == FALSE){
+                        /**@var $newPersFunc \HSE\HeTools\Domain\Model\PersFunc */
+                        $newPersFunc = $this->objectManager->get('HSE\HeTools\Domain\Model\PersFunc');
+                        $newPersFunc->setType($newPersFuncList);
+
+                        /**@var $faculties \HSE\HeTools\Domain\Model\Faculties */
+                        $faculties = $this->facultiesRepository->findByShortcut($csvArray[$i]['hb_sva']);
+                        if(!empty($faculties)) {
+                            $newPersFunc->setFaculty($faculties);
+                        } else{
+                        }
+
+                        /**@var $institutions \HSE\HeTools\Domain\Model\Institutions */
+                        $institutions = $this->institutionsRepository->findByTitle($csvArray[$i]['hb_sva']);
+                        if(!empty($institutions)) {
+                            $newPersFunc->setInstitution($institutions);
+                        } else {
+                        }
+
+                        $existingPerson->addPersFunc($newPersFunc);
+                    } else {
+
+                    }
+
+                } else {
+                }
+
                 $this->update($existingPerson);
                 $listArray[] = $existingPerson;
 
@@ -93,18 +154,61 @@ class PersonsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
                 /**@var $newPerson \HSE\HeTools\Domain\Model\Persons */
                 $newPerson = $this->objectManager->get('HSE\HeTools\Domain\Model\Persons');
 
+                /**@var $newPersFuncList \HSE\HeTools\Domain\Model\PersFuncList */
+                $newPersFuncList = $this->persFuncListRepository->findByTitle($csvArray[$i]['fkt_sva']);
+
+                /**@var $newPersFunc \HSE\HeTools\Domain\Model\PersFunc */
+                $newPersFunc = $this->objectManager->get('HSE\HeTools\Domain\Model\PersFunc');
+                $newPersFunc->setType($newPersFuncList);
+
+                /**@var $faculties \HSE\HeTools\Domain\Model\Faculties */
+                $faculties = $this->facultiesRepository->findByShortcut($csvArray[$i]['hb_sva']);
+                if(!empty($faculties)) {
+                    $newPersFunc->setFaculty($faculties);
+                } else{
+                }
+
+                /**@var $institutions \HSE\HeTools\Domain\Model\Institutions */
+                $institutions = $this->institutionsRepository->findByTitle($csvArray[$i]['hb_sva']);
+                if(!empty($institutions)) {
+                    $newPersFunc->setInstitution($institutions);
+                } else {
+                }
+
                 /**@var $newFEUser \TYPO3\CMS\Extbase\Domain\Model\FrontendUser */
                 $newFEUser = $this->createFrontendUser($csvArray[$i], $pidFeUsers);
                 $newPerson->setFeuser($newFEUser);
+
+                $newPerson->addPersFunc($newPersFunc);
                 $this->add($newPerson);
                 $listArray[] = $newPerson;
 
                 // Create backend user
                 $this->createBackendUser($csvArray[$i]);
             }
-         }
+        }
 
         return $listArray;
+
+    }
+
+    public function isFunctionInPerson($person, $title){
+
+        /**@var $person \HSE\HeTools\Domain\Model\Persons */
+        $persFuncArray = $person->getPersFunc();
+
+        foreach($persFuncArray as $value) {
+            $titleArray[] = $value->getType()->getTitle();
+        }
+
+        $result = FALSE;
+        foreach($titleArray as $value){
+            if($value == $title){
+                $result = TRUE;
+            } else {
+            }
+        }
+        return $result;
 
     }
 
@@ -117,41 +221,12 @@ class PersonsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
      * return \TYPO3\CMS\Extbase\Domain\Model\BackendUser
      */
     protected function createBackendUser ($importData) {
-        /** @var $backendUser \TYPO3\CMS\Beuser\Domain\Model\BackendUser  */
-        $backendUser = $this->objectManager->get('TYPO3\CMS\Beuser\Domain\Model\BackendUser');
+        /** @var $backendUser \TYPO3\CMS\Extbase\Domain\Model\BackendUser  */
+        $backendUser = $this->objectManager->get('TYPO3\CMS\Extbase\Domain\Model\BackendUser');
         $backendUser->setUsername($importData['login']);
         $backendUser->setRealName($importData['vorname'] . ' ' . $importData['nachname']);
         $backendUser->setEmail($importData['mailok']);
         $backendUser->setPid(0);
-
-        /** @var $backendUserGroupRepository \TYPO3\CMS\Extbase\Domain\Repository\BackendUserGroupRepository  */
-        $backendUserGroupRepository = $this->objectManager->get('TYPO3\CMS\Extbase\Domain\Repository\BackendUserGroupRepository');
-
-        /*
-         * #### TEST - Start
-         *
-         * Creating be_groups during import
-         * for test purposes only!
-         *
-         * will be removed after testing is finished
-         */
-        /** @var $backendUserGroup \TYPO3\CMS\Extbase\Domain\Model\BackendUserGroup  */
-        $backendUserGroup = $backendUserGroupRepository->findOneByTitle($importData['hb_sva']);
-        if (empty($backendUserGroup)) {
-            /** @var $backendUserGroup \TYPO3\CMS\Extbase\Domain\Model\BackendUserGroup  */
-            $backendUserGroup = $this->objectManager->get('TYPO3\CMS\Extbase\Domain\Model\BackendUserGroup');
-            $backendUserGroup->setTitle($importData['hb_sva']);
-            $backendUserGroup->setPid(0);
-            $backendUserGroupRepository->add($backendUserGroup);
-        }
-
-        $backendUserGroups = $this->objectManager->get('TYPO3\CMS\Extbase\Persistence\ObjectStorage');
-        $backendUserGroups->attach($backendUserGroup);
-
-        $backendUser->setBackendUserGroups($backendUserGroups);
-        /*
-         * #### TEST - End
-         */
 
         /** @var $backendUsersRepository \TYPO3\CMS\Extbase\Domain\Repository\BackendUserRepository  */
         $backendUsersRepository = $this->objectManager->get('TYPO3\CMS\Extbase\Domain\Repository\BackendUserRepository');
@@ -172,6 +247,7 @@ class PersonsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
         $frontendUser->setUsername($importData['login']);
         $frontendUser->setFirstName($importData['vorname']);
         $frontendUser->setLastName($importData['nachname']);
+        $frontendUser->setName($importData['vorname'] . ' ' . $importData['nachname']);
         $frontendUser->setEmail($importData['mailok']);
 
         // use storagefolder if given
@@ -180,6 +256,9 @@ class PersonsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
         }
         return $frontendUser;
     }
+
+
+
 }
 
 ?>
