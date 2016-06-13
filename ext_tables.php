@@ -25,13 +25,13 @@ if (TYPO3_MODE === 'BE') {
 		'',						// Position
 		array(
 			'Backend' => 'managePersons, import, test, testAdd',
-			'BeUsers' => 'list, listAjax',
+			'BeUsers' => 'list, listAjax, switchUser',
 			'FeUsers' => 'list, listAjax',
 			'Persons' => 'list',
 		),
 		array(
 			'access' => 'user,group',
-			'icon'   => 'EXT:' . $_EXTKEY . '/ext_icon.gif',
+			'icon'   => 'EXT:' . $_EXTKEY . '/Ressources/Public/Icons/he_tools.svg',
 			'labels' => 'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang_hetools.xlf',
 		)
 	);
