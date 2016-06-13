@@ -79,6 +79,9 @@
 			<trans-unit id="fe_users.columns.username">
         <source>Username</source>
       </trans-unit>
+			<trans-unit id="fe_users.columns.usergroup">
+        <source>Username</source>
+      </trans-unit>
 			<trans-unit id="fe_users.columns.actions">
         <source>Actions</source>
       </trans-unit>

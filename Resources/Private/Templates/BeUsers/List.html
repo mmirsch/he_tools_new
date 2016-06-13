@@ -5,11 +5,11 @@
 
 	<f:flashMessages renderMode="div" class="message" />
 
-	<f:form.hidden id="site_url" value="{siteUrl}" />
 	<f:form.hidden id="return_url" value="{returnUrl}" />
+	<f:form.hidden id="ajax_url" value="{f:uri.action(action: 'listAjax', noCacheHash:'TRUE', controller:'BeUsers')}" />
 
 
-	<label for="search_filter" class="filter_label">
+	<label for="be_users_search_filter" class="filter_label">
 		<f:translate key="general.display.filter_search"></f:translate>
 	</label>
 
@@ -17,11 +17,11 @@
 			type="input"
 			value="{filter}"
 			class="ajaxFilter"
-			id="search_filter"
+			id="be_users_search_filter"
 			/>
 
-	<div id="userlist">
-		<f:render partial="BeUsers/List" arguments="{_all}" />
+	<div id="be_userlist">
+		<f:render partial="BeUsers/List" arguments="{userList: userList, returnUrl: returnUrl}" />
 	</div>
 
 </f:section>

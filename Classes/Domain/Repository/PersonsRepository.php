@@ -62,7 +62,7 @@ class PersonsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
 
     }
 
-    public function importFromCsvArray($start=0, $count=10){
+    public function importFromCsvArray($start=0, $count=500){
         $extensionConfiguration = ExtensionUtility::getExtensionConfig();
         if (isset($extensionConfiguration['sysfolder_fe_users'])) {
             $pidFeUsers = $extensionConfiguration['sysfolder_fe_users'];
