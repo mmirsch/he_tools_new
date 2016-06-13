@@ -1,9 +1,7 @@
 <?php
 namespace HSE\HeTools\Domain\Repository;
 
-use HSE\HeTools\Domain\Model\Persons;
-
-class PersFuncListRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
+class InstitutionsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
 
     public function findByTitle($title){
         /** @var \TYPO3\CMS\Extbase\Persistence\QueryInterface $query */
@@ -14,7 +12,6 @@ class PersFuncListRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
         $firstMatch = $queryResult->getFirst();
         return $firstMatch;
     }
-
 
 }
 

@@ -24,6 +24,22 @@ class PersonsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
     protected $persFuncRepository = null;
 
     /**
+     * FacultiesRepository
+     *
+     * @var \HSE\HeTools\Domain\Repository\FacultiesRepository
+     * @inject
+     */
+    protected $facultiesRepository = null;
+
+    /**
+     * InstitutionsRepository
+     *
+     * @var \HSE\HeTools\Domain\Repository\InstitutionsRepository
+     * @inject
+     */
+    protected $institutionsRepository = null;
+
+    /**
      * ignore storagePid
      *
      * @return void
@@ -98,29 +114,32 @@ class PersonsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
                 $existingPerson->setEmail($csvArray[$i]['mailok']);
 
                 /**@var $newPersFuncList \HSE\HeTools\Domain\Model\PersFuncList */
-                $newPersFuncList = $this->persFuncListRepository->findPersFuncListByTitle($csvArray[$i]['fkt_sva']);
+                $newPersFuncList = $this->persFuncListRepository->findByTitle($csvArray[$i]['fkt_sva']);
 
                 if(!empty($newPersFuncList)){
 
-                    /**@var $newPersFunc \HSE\HeTools\Domain\Model\PersFunc */
-                    $newPersFunc = $this->objectManager->get('HSE\HeTools\Domain\Model\PersFunc');
-                    $newPersFunc->setType($newPersFuncList);
-
-                    if($this->isFaculty($csvArray[$i]['hb_sva']) == TRUE){
-                        /**@var $newFaculties \HSE\HeTools\Domain\Model\Faculties */
-                        $newFaculties = $this->objectManager->get('HSE\HeTools\Domain\Model\Faculties');
-                        $newFaculties->setShortcut($csvArray[$i]['hb_sva']);
-                        $newPersFunc->setFaculty($newFaculties);
-                    } else {
-                        /**@var $newInstitutions \HSE\HeTools\Domain\Model\Institutions */
-                        $newInstitutions = $this->objectManager->get('HSE\HeTools\Domain\Model\Institutions');
-                        $newInstitutions->setTitle($csvArray[$i]['hb_sva']);
-                        $newPersFunc->setInstitution($newInstitutions);
-                    }
-
                     if($this->isFunctionInPerson($existingPerson, $csvArray[$i]['fkt_sva']) == FALSE){
+                        /**@var $newPersFunc \HSE\HeTools\Domain\Model\PersFunc */
+                        $newPersFunc = $this->objectManager->get('HSE\HeTools\Domain\Model\PersFunc');
+                        $newPersFunc->setType($newPersFuncList);
+
+                        /**@var $faculties \HSE\HeTools\Domain\Model\Faculties */
+                        $faculties = $this->facultiesRepository->findByShortcut($csvArray[$i]['hb_sva']);
+                        if(!empty($faculties)) {
+                            $newPersFunc->setFaculty($faculties);
+                        } else{
+                        }
+
+                        /**@var $institutions \HSE\HeTools\Domain\Model\Institutions */
+                        $institutions = $this->institutionsRepository->findByTitle($csvArray[$i]['hb_sva']);
+                        if(!empty($institutions)) {
+                            $newPersFunc->setInstitution($institutions);
+                        } else {
+                        }
+
                         $existingPerson->addPersFunc($newPersFunc);
                     } else {
+
                     }
 
                 } else {
@@ -135,30 +154,31 @@ class PersonsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
                 $newPerson = $this->objectManager->get('HSE\HeTools\Domain\Model\Persons');
 
                 /**@var $newPersFuncList \HSE\HeTools\Domain\Model\PersFuncList */
-                $newPersFuncList = $this->persFuncListRepository->findPersFuncListByTitle($csvArray[$i]['fkt_sva']);
+                $newPersFuncList = $this->persFuncListRepository->findByTitle($csvArray[$i]['fkt_sva']);
 
                 /**@var $newPersFunc \HSE\HeTools\Domain\Model\PersFunc */
                 $newPersFunc = $this->objectManager->get('HSE\HeTools\Domain\Model\PersFunc');
                 $newPersFunc->setType($newPersFuncList);
 
-                $newPerson->addPersFunc($newPersFunc);
+                /**@var $faculties \HSE\HeTools\Domain\Model\Faculties */
+                $faculties = $this->facultiesRepository->findByShortcut($csvArray[$i]['hb_sva']);
+                if(!empty($faculties)) {
+                    $newPersFunc->setFaculty($faculties);
+                } else{
+                }
 
-                if($this->isFaculty($csvArray[$i]['hb_sva']) == TRUE){
-                    /**@var $newFaculties \HSE\HeTools\Domain\Model\Faculties */
-                    $newFaculties = $this->objectManager->get('HSE\HeTools\Domain\Model\Faculties');
-                    $newFaculties->setShortcut($csvArray[$i]['hb_sva']);
-                    $newPersFunc->setFaculty($newFaculties);
+                /**@var $institutions \HSE\HeTools\Domain\Model\Institutions */
+                $institutions = $this->institutionsRepository->findByTitle($csvArray[$i]['hb_sva']);
+                if(!empty($institutions)) {
+                    $newPersFunc->setInstitution($institutions);
                 } else {
-                    /**@var $newInstitutions \HSE\HeTools\Domain\Model\Institutions */
-                    $newInstitutions = $this->objectManager->get('HSE\HeTools\Domain\Model\Institutions');
-                    $newInstitutions->setTitle($csvArray[$i]['hb_sva']);
-                    $newPersFunc->setInstitution($newInstitutions);
                 }
 
                 /**@var $newFEUser \TYPO3\CMS\Extbase\Domain\Model\FrontendUser */
                 $newFEUser = $this->createFrontendUser($csvArray[$i], $pidFeUsers);
                 $newPerson->setFeuser($newFEUser);
 
+                $newPerson->addPersFunc($newPersFunc);
                 $this->add($newPerson);
                 $listArray[] = $newPerson;
 
@@ -169,16 +189,6 @@ class PersonsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
 
         return $listArray;
 
-    }
-
-    //Funktion funktioniert nicht. Return ist immer TRUE
-    public function isFaculty($value){
-        if($value == ('AN' || 'BW' || 'FZ' || 'GU' || 'GS' || 'G' || 'IT' || 'MB' || 'ME' || 'SAGP' || 'WI')){
-            $returnValue = TRUE;
-        } else {
-            $returnValue = FALSE;
-        }
-        return $returnValue;
     }
 
     public function isFunctionInPerson($person, $title){
