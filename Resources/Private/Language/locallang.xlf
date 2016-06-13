@@ -73,24 +73,22 @@
 				<source>Faculty</source>
 			</trans-unit>
 
-			<trans-unit id="fe_users.columns.name">
+			<trans-unit id="be_users.columns.name">
         <source>Name</source>
       </trans-unit>
-			<trans-unit id="fe_users.columns.username">
+			<trans-unit id="be_users.columns.username">
         <source>Username</source>
       </trans-unit>
-			<trans-unit id="fe_users.columns.usergroup">
-        <source>Username</source>
+			<trans-unit id="be_users.columns.usergroups">
+        <source>Usergroups</source>
       </trans-unit>
-			<trans-unit id="fe_users.columns.actions">
+			<trans-unit id="be_users.columns.actions">
         <source>Actions</source>
       </trans-unit>
 
 			<trans-unit id="general.display.filter_search">
 				<source>Search</source>
 			</trans-unit>
-
-
 
 		</body>
 	</file>
