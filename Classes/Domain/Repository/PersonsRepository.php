@@ -58,7 +58,7 @@ class PersonsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
      * @param string $username
      * @return \HSE\HeTools\Domain\Model\Persons
      */
-    public function findByUsername($username)	{
+    public function findOneByUsername($username)	{
         $this->setIgnorePid();
         /** @var \TYPO3\CMS\Extbase\Persistence\QueryInterface $query */
         $query = $this->createQuery();
@@ -75,7 +75,7 @@ class PersonsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
      * @param string $email
      * @return \HSE\HeTools\Domain\Model\Persons
      */
-    public function findByEmail($email)	{
+    public function findOneByEmail($email)	{
         /** @var \TYPO3\CMS\Extbase\Persistence\QueryInterface $query */
         $query = $this->createQuery();
         $queryResult = $query->matching(
@@ -105,7 +105,7 @@ class PersonsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
 
         for ($i = $start; $i < $start+$count; $i = $i + 1){
             /**@var $existingPerson \HSE\HeTools\Domain\Model\Persons */
-            $existingPerson = $this->findByUsername($csvArray[$i]['login']);
+            $existingPerson = $this->findOneByUsername($csvArray[$i]['login']);
 
             if (!empty($existingPerson)) {
                 // Update
@@ -220,18 +220,48 @@ class PersonsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
      * return \TYPO3\CMS\Extbase\Domain\Model\BackendUser
      */
     protected function createBackendUser ($importData) {
-        /** @var $backendUser \TYPO3\CMS\Extbase\Domain\Model\BackendUser  */
-        $backendUser = $this->objectManager->get('TYPO3\CMS\Extbase\Domain\Model\BackendUser');
+        /** @var $backendUser \TYPO3\CMS\Beuser\Domain\Model\BackendUser  */
+        $backendUser = $this->objectManager->get('TYPO3\CMS\Beuser\Domain\Model\BackendUser');
         $backendUser->setUsername($importData['login']);
         $backendUser->setRealName($importData['vorname'] . ' ' . $importData['nachname']);
         $backendUser->setEmail($importData['mailok']);
         $backendUser->setPid(0);
+
+        /** @var $backendUserGroupRepository \TYPO3\CMS\Extbase\Domain\Repository\BackendUserGroupRepository  */
+        $backendUserGroupRepository = $this->objectManager->get('TYPO3\CMS\Extbase\Domain\Repository\BackendUserGroupRepository');
+
+        /*
+         * #### TEST - Start
+         *
+         * Creating be_groups during import
+         * for test purposes only!
+         *
+         * will be removed after testing is finished
+         */
+        /** @var $backendUserGroup \TYPO3\CMS\Extbase\Domain\Model\BackendUserGroup  */
+        $backendUserGroup = $backendUserGroupRepository->findOneByTitle($importData['hb_sva']);
+        if (empty($backendUserGroup)) {
+            /** @var $backendUserGroup \TYPO3\CMS\Extbase\Domain\Model\BackendUserGroup  */
+            $backendUserGroup = $this->objectManager->get('TYPO3\CMS\Extbase\Domain\Model\BackendUserGroup');
+            $backendUserGroup->setTitle($importData['hb_sva']);
+            $backendUserGroup->setPid(0);
+            $backendUserGroupRepository->add($backendUserGroup);
+        }
+
+        $backendUserGroups = $this->objectManager->get('TYPO3\CMS\Extbase\Persistence\ObjectStorage');
+        $backendUserGroups->attach($backendUserGroup);
+
+        $backendUser->setBackendUserGroups($backendUserGroups);
+        /*
+         * #### TEST - End
+         */
 
         /** @var $backendUsersRepository \TYPO3\CMS\Extbase\Domain\Repository\BackendUserRepository  */
         $backendUsersRepository = $this->objectManager->get('TYPO3\CMS\Extbase\Domain\Repository\BackendUserRepository');
         $backendUsersRepository->add($backendUser);
         return $backendUser;
     }
+
     /**
      * Create new FrontendUser from importData
      * @param array $importData
