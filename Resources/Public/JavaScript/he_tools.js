@@ -62,9 +62,14 @@ function processingAnimation(mode,message) {
     }
 }
 
-function listAjax(filter, div) {
-    var ajaxUrl = $('#ajax_url').val();
-    var returnUrl = $('#return_url').val();
+function aliasListAjax() {
+    var ajaxUrl = TYPO3.settings.ajaxUrls['HfwuRedirects::aliasList'];
+    var filter = $('#search_filter').val();
+    var pid = $('#pid').val();
+    var limit = $('#limit').val();
+    var site_url = $('#site_url').val();
+    var return_url = $('#return_url').val();
+    var filter_types = $('#filter_types').val();
 
     $.ajax({
         url: ajaxUrl,
@@ -72,22 +77,44 @@ function listAjax(filter, div) {
         dataType: 'html',
         data: {
             filter: filter,
-            returnUrl: returnUrl,
+            pid: pid,
+            limit: limit,
+            site_url: site_url,
+            return_url: return_url,
+            filter_types: filter_types
+
         },
         beforeSend : function(){
             processingAnimation('start','bitte warten');
         },
         success: function (result) {
-            $('#' + div).html(result);
+            $('#redirect_list').html(result);
         },
         error: function (error) {
-            $('#' + div).html(error);
+            $('#redirect_list').html(error);
         }
     }).always(function() {
         processingAnimation('stop');
     });
 }
 
+function aliasDeleteAjax(uid) {
+    var ajaxUrl = TYPO3.settings.ajaxUrls['HfwuRedirects::deleteRedirectEntry'];
+    $.ajax({
+        url:       ajaxUrl,
+        type:      'GET',
+        dataType:  'html',
+        data: {
+            uid: uid
+        },
+        success: function (result) {
+            aliasListAjax();
+        },
+        error: function (error) {
+            aliasListAjax();
+        }
+    });
+}
 
 function showQrCodeAjax(uid) {
     var ajaxUrl = TYPO3.settings.ajaxUrls['HfwuRedirects::showQrCodeAjax'] + '&uid=' + uid;
@@ -95,14 +122,21 @@ function showQrCodeAjax(uid) {
 }
 
 $(document).ready(function() {
-
-    $('#be_users_search_filter').bindWithDelay('keyup', function (event) {
-        var filter = $('#be_users_search_filter').val();
-        var div = 'be_userlist';
-        listAjax(filter, div);
+    $('#search_filter').bindWithDelay('keyup', function (event) {
+         aliasListAjax();
     },300);
-
-
+    $('.ajaxFilterReset').on('click', function (event) {
+        $('.ajaxFilter').val('');
+        $('#filter_types').val('all');
+        aliasListAjax();
+    });
+    $('#redirect_list').on('click', '.deleteEntry', function (event) {
+        var confirmationMessage = $('#deleteConfirmationMessage').val();
+        if (confirm(confirmationMessage)) {
+            var uid = $(this).attr('data-uid');
+            aliasDeleteAjax(uid);
+        }
+    });
     $('#redirect_list').on('click', '.showQrCode', function (event) {
         var uid = $(this).attr('data-uid');
         showQrCodeAjax(uid);
@@ -116,4 +150,3 @@ $(document).ready(function() {
     });
 
 });
-

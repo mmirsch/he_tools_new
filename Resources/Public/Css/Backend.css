@@ -1,21 +1,3 @@
-#spinOverlay{
-    position:fixed;
-    display:block;
-    top:0;
-    left:0;
-    background:rgba(0,0,0,0.5)
-    url("/typo3/sysext/t3skin/images/spinner/big-f0f0f0.gif") center center no-repeat;
-    z-index:99
-}
-#spinOverlayMessage{
-    margin:auto;
-    position:absolute;
-    height:10px;
-    width:200px;
-    text-align:
-    center;
-    color:#fff
-}
 
 textarea.f3-form-error {
     background-color:#FF9F9F;
@@ -50,10 +32,6 @@ input.f3-form-error {
 
 .tx-he-tools table tr:nth-child(even) {
     background: #eee;
-}
-
-.tx-he-tools table .btn {
-    padding: 2px;
 }
 
 .typo3-messages .message-error {
