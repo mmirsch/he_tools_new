@@ -93,7 +93,7 @@ class PersonsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
 
     }
 
-    public function importFromCsvArray($start=0, $count=2){
+    public function importFromCsvArray($start=0, $count=3){
         $extensionConfiguration = ExtensionUtility::getExtensionConfig();
         if (isset($extensionConfiguration['sysfolder_fe_users'])) {
             $pidFeUsers = $extensionConfiguration['sysfolder_fe_users'];
@@ -102,8 +102,12 @@ class PersonsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
         }
 
         $csvArray = $this->createCsvArray();
-
-        for ($i = $start; $i < $start+$count; $i = $i + 1){
+        $listArray = [];
+        $end = $start+$count;
+        if (count($csvArray)<$end) {
+            $end = count($csvArray);
+        }
+        for ($i = $start; $i < $end; $i = $i + 1){
             /**@var $existingPerson \HSE\HeTools\Domain\Model\Persons */
             $existingPerson = $this->findOneByUsername($csvArray[$i]['login']);
 
@@ -156,29 +160,31 @@ class PersonsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
                 /**@var $newPersFuncList \HSE\HeTools\Domain\Model\PersFuncList */
                 $newPersFuncList = $this->persFuncListRepository->findByTitle($csvArray[$i]['fkt_sva']);
 
-                /**@var $newPersFunc \HSE\HeTools\Domain\Model\PersFunc */
-                $newPersFunc = $this->objectManager->get('HSE\HeTools\Domain\Model\PersFunc');
-                $newPersFunc->setType($newPersFuncList);
+                if (!empty($newPersFuncList)) {
+                    /**@var $newPersFunc \HSE\HeTools\Domain\Model\PersFunc */
+                    $newPersFunc = $this->objectManager->get('HSE\HeTools\Domain\Model\PersFunc');
+                    $newPersFunc->setType($newPersFuncList);
 
-                /**@var $faculties \HSE\HeTools\Domain\Model\Faculties */
-                $faculties = $this->facultiesRepository->findByShortcut($csvArray[$i]['hb_sva']);
-                if(!empty($faculties)) {
-                    $newPersFunc->setFaculty($faculties);
-                } else{
-                }
+                    /**@var $faculties \HSE\HeTools\Domain\Model\Faculties */
+                    $faculties = $this->facultiesRepository->findByShortcut($csvArray[$i]['hb_sva']);
+                    if(!empty($faculties)) {
+                        $newPersFunc->setFaculty($faculties);
+                    } else{
+                    }
 
-                /**@var $institutions \HSE\HeTools\Domain\Model\Institutions */
-                $institutions = $this->institutionsRepository->findByTitle($csvArray[$i]['hb_sva']);
-                if(!empty($institutions)) {
-                    $newPersFunc->setInstitution($institutions);
-                } else {
+                    /**@var $institutions \HSE\HeTools\Domain\Model\Institutions */
+                    $institutions = $this->institutionsRepository->findByTitle($csvArray[$i]['hb_sva']);
+                    if(!empty($institutions)) {
+                        $newPersFunc->setInstitution($institutions);
+                    } else {
+                    }
+                    $newPerson->addPersFunc($newPersFunc);
                 }
 
                 /**@var $newFEUser \TYPO3\CMS\Extbase\Domain\Model\FrontendUser */
                 $newFEUser = $this->createFrontendUser($csvArray[$i], $pidFeUsers);
                 $newPerson->setFeuser($newFEUser);
 
-                $newPerson->addPersFunc($newPersFunc);
                 $this->add($newPerson);
                 $listArray[] = $newPerson;
 
