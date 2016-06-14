@@ -55,9 +55,7 @@ class BeUsersController extends ActionController
     public function listAction()
     {
         $returnUrl = BackendUtility::getReturnUrl();
-        $userlist = $this->backendUserRepository->findAllByFilter();
-        $this->view->assign('userList', $userlist);
-        $this->view->assign('returnUrl', $returnUrl);
+        $this->render('',$returnUrl);
     }
     
     /**
@@ -70,11 +68,23 @@ class BeUsersController extends ActionController
         $getVars = GeneralUtility::_GET();
         $filter = $getVars['filter'];
         $returnUrl = $getVars['returnUrl'];
+        $this->render($filter,$returnUrl);
+
+    }
+
+    /**
+     * render
+     *
+     * @param string $filter Search word (e.g. parts of username, first name, last name
+     * @param string $returnUrl URL of current script
+     *
+     * @return void
+     */
+    public function render($filter,$returnUrl) {
         $userlist = $this->backendUserRepository->findAllByFilter($filter);
         $this->view->assign('userList', $userlist);
         $this->view->assign('returnUrl', $returnUrl);
     }
-
 
 
     /**
@@ -86,8 +96,6 @@ class BeUsersController extends ActionController
     public function switchUserAction($switchUser)
     {
         $targetUser = \TYPO3\CMS\Backend\Utility\BackendUtility::getRecord('be_users', $switchUser);
-
-//        $redirectUrl = \HSE\HeTools\Utility\BackendUtility::getReturnUrl();
 
         if (is_array($targetUser) && $this->getBackendUserAuthentication()->isAdmin()) {
             $updateData['ses_userid'] = (int)$targetUser['uid'];

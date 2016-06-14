@@ -88,12 +88,6 @@ function listAjax(filter, div) {
     });
 }
 
-
-function showQrCodeAjax(uid) {
-    var ajaxUrl = TYPO3.settings.ajaxUrls['HfwuRedirects::showQrCodeAjax'] + '&uid=' + uid;
-    document.location.href = ajaxUrl;
-}
-
 $(document).ready(function() {
 
     $('#be_users_search_filter').bindWithDelay('keyup', function (event) {
@@ -102,18 +96,11 @@ $(document).ready(function() {
         listAjax(filter, div);
     },300);
 
-
-    $('#redirect_list').on('click', '.showQrCode', function (event) {
-        var uid = $(this).attr('data-uid');
-        showQrCodeAjax(uid);
-        return false;
-    });
-    $('#filter_types').on('change', function (event) {
-        aliasListAjax();
-    });
-    $('#limit').on('change', function (event) {
-        aliasListAjax();
-    });
+    $('#fe_users_search_filter').bindWithDelay('keyup', function (event) {
+        var filter = $('#fe_users_search_filter').val();
+        var div = 'fe_userlist';
+        listAjax(filter, div);
+    },300);
 
 });
 
