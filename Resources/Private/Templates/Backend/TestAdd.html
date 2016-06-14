@@ -19,6 +19,7 @@
             <th>Funktion</th>
             <th>Fakultät</th>
             <th>Einrichtung</th>
+            <th>Raum</th>
 
             <f:for each="{personsList}" as="list">
                 <tr>
@@ -28,8 +29,15 @@
                     <td>
                         <f:for each="{list.persFunc}" as="persFunc">{persFunc.type.title}</f:for>
                     </td>
-                    <td>{list.persFunc.facultiy.shortcut}</td>
-                    <td>{list.persFunc.institution.title}</td>
+                    <td>
+                        <f:for each="{list.persFunc}" as="persFunc">{persFunc.faculty.shortcut}</f:for>
+                    </td>
+                    <td>
+                        <f:for each="{list.persFunc}" as="persFunc">{persFunc.institution.title}</f:for>
+                    </td>
+                    <td>
+                        <f:for each="{list.persData}" as="persData">{persData.value}</f:for>
+                    </td>
                 </tr>
 
             </f:for>

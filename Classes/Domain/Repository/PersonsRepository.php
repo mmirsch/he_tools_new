@@ -8,6 +8,22 @@ use HSE\HeTools\Utility\ExtensionUtility;
 class PersonsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
 
     /**
+     * persDataListRepository
+     *
+     * @var \HSE\HeTools\Domain\Repository\PersDataListRepository
+     * @inject
+     */
+    protected $persDataListRepository = null;
+
+    /**
+     * persDataRepository
+     *
+     * @var \HSE\HeTools\Domain\Repository\PersDataRepository
+     * @inject
+     */
+    protected $persDataRepository = null;
+
+    /**
      * persFuncListRepository
      *
      * @var \HSE\HeTools\Domain\Repository\PersFuncListRepository
@@ -157,8 +173,20 @@ class PersonsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
                 /**@var $newPerson \HSE\HeTools\Domain\Model\Persons */
                 $newPerson = $this->objectManager->get('HSE\HeTools\Domain\Model\Persons');
 
+                /**@var $newPersDataList \HSE\HeTools\Domain\Model\PersDataList */
+                $newPersDataList = $this->persDataListRepository->findByTitle('room');
+
+                if(!empty($newPersDataList)){
+                    /**@var $newPersData \HSE\HeTools\Domain\Model\PersData */
+                    $newPersData = $this->objectManager->get('HSE\HeTools\Domain\Model\PersData');
+                    $newPersData->setType($newPersDataList);
+                    $newPersData->setValue($csvArray[$i]['raum']);
+                }
+
                 /**@var $newPersFuncList \HSE\HeTools\Domain\Model\PersFuncList */
                 $newPersFuncList = $this->persFuncListRepository->findByTitle($csvArray[$i]['fkt_sva']);
+                $newPerson->addPersData($newPersData);
+
 
                 if (!empty($newPersFuncList)) {
                     /**@var $newPersFunc \HSE\HeTools\Domain\Model\PersFunc */

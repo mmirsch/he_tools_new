@@ -102,23 +102,23 @@ class Persons extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Adds a PersData
      *
-     * @param \HSE\HeTools\Domain\Model\PersData $persDatum
+     * @param \HSE\HeTools\Domain\Model\PersData $persData
      * @return void
      */
-    public function addPersDatum(\HSE\HeTools\Domain\Model\PersData $persDatum)
+    public function addPersData(\HSE\HeTools\Domain\Model\PersData $persData)
     {
-        $this->persData->attach($persDatum);
+        $this->persData->attach($persData);
     }
     
     /**
      * Removes a PersData
      *
-     * @param \HSE\HeTools\Domain\Model\PersData $persDatumToRemove The PersData to be removed
+     * @param \HSE\HeTools\Domain\Model\PersData $persDataToRemove The PersData to be removed
      * @return void
      */
-    public function removePersDatum(\HSE\HeTools\Domain\Model\PersData $persDatumToRemove)
+    public function removePersData(\HSE\HeTools\Domain\Model\PersData $persDataToRemove)
     {
-        $this->persData->detach($persDatumToRemove);
+        $this->persData->detach($persDataToRemove);
     }
     
     /**
