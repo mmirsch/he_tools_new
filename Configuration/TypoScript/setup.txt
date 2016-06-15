@@ -8,4 +8,8 @@ plugin.tx_hetools_hepersonen {
 	persistence {
 		storagePid = {$plugin.tx_hetools_hepersonen.persistence.storagePid}
 	}
+
+	settings {
+		cssFile = {$plugin.tx_hetools_hepersonen.settings.cssFile}
+	}
 }

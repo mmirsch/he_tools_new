@@ -1,0 +1,32 @@
+.tx-he-tools table {
+    border-collapse: collapse;
+}
+
+.tx-he-tools table th {
+    font-weight:bold;
+    color: white;
+    background: #004666;
+    padding: 2px 4px;
+}
+
+.tx-he-tools table td {
+    vertical-align:top;
+    border: 1px solid #004666;
+    padding: 2px 4px;
+}
+
+.tx-he-tools table tr:nth-child(odd) {
+    background: #fff;
+}
+
+.tx-he-tools table tr:nth-child(even) {
+    background: #eee;
+}
+
+.typo3-messages .message-error {
+    color:red;
+}
+
+.typo3-messages .message-ok {
+    color:green;
+}

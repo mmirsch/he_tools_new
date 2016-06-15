@@ -12,4 +12,9 @@ plugin.tx_hetools_hepersonen {
 		# cat=plugin.tx_hetools_hepersonen//a; type=string; label=Default storage PID
 		storagePid =
 	}
+
+	settings {
+		# cat=plugin.tx_news/file; type=string; label=Path to CSS file
+		cssFile = EXT:he_tools/Resources/Public/Css/he_personen.css
+	}
 }
