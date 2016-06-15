@@ -42,7 +42,15 @@ class PersonsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      * @inject
      */
     protected $personsRepository = null;
-    
+
+    /**
+     * persFuncListRepository
+     *
+     * @var \HSE\HeTools\Domain\Repository\PersFuncListRepository
+     * @inject
+     */
+    protected $persFuncListRepository = null;
+
     /**
      * action list
      *
@@ -50,16 +58,28 @@ class PersonsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      */
     public function listAction()
     {
-        $persId = $this->settings['listManually'];
-        $persIdArray = explode(',', $persId);
+        $idFunction = $this->settings['function'];
+        $idFaculty = $this->settings['faculty'];
+        $idListManually = $this->settings['listManually'];
+        $idExclude = $this->settings['listManuallyExclude'];
 
-        if (!empty($persId)) {
-            foreach ($persIdArray as &$value) {
-                $personsList[] = $this->personsRepository->findByUid($value);
-            }
+
+        if (!empty($idFunction) || !empty($idFaculty) || !empty($listManually)) {
+            $personsList = $this->personsRepository->createPersonsList($idFunction, $idFaculty, $idListManually, $idExclude);
         } else {
-            $personsList = $this->personsRepository->findAll();
         }
+
+        //$persIdListManually = $this->settings['listManually'];
+        //$persIdArray = explode(',', $persIdListManually);
+
+        //if (!empty($persIdArray)) {
+        //    foreach ($persIdArray as &$value) {
+        //        $personsList[] = $this->personsRepository->findByUid($value);
+        //    }
+        //} else {
+        //}
+
+        $this->view->assign('personsList', $personsList);
 
         /* Alternativ über for-Schleife:
            for ($i = 0; $i < count($persIdArray); $i = $i + 1){
@@ -68,8 +88,8 @@ class PersonsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
            */
         
         //$personsList = $this->personsRepository->findByUid($persIdArray[0]);
-        //DebuggerUtility::var_dump($personsList);
-        $this->view->assign('personsList', $personsList);
+        DebuggerUtility::var_dump($personsList);
+
     }
     
     /**

@@ -109,7 +109,7 @@ class PersonsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
 
     }
 
-    public function importFromCsvArray($start=0, $count=3){
+    public function importFromCsvArray($start=0, $count=10){
         $extensionConfiguration = ExtensionUtility::getExtensionConfig();
         if (isset($extensionConfiguration['sysfolder_fe_users'])) {
             $pidFeUsers = $extensionConfiguration['sysfolder_fe_users'];
@@ -320,7 +320,26 @@ class PersonsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
         return $frontendUser;
     }
 
+    public function createPersonsList($functions, $faculty, $listManually, $exclude){
+        /** @var \TYPO3\CMS\Extbase\Persistence\QueryInterface $query */
+        $query = $this->createQuery();
+        $query = $query->matching(
+            $query->logicalOr(
+                $query->logicalAnd(
+                    $query->in('persFunc.type.uid', explode(',', $functions)),
+                    $query->in('persFunc.faculty.uid', explode(',', $faculty)),
+                    $query->logicalNot($query->in('uid', explode(',', $exclude))
+                    )
+                ),
+                $query->in('uid', explode(',', $listManually))
+            )
+        );
 
+        $queryResult = $query->execute();
+
+        $results = $queryResult->toArray();
+        return $results;
+    }
 
 }
 

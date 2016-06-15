@@ -1,106 +1,147 @@
 <T3DataStructure>
-	<sheets>
-		<sDEF>
-			<ROOT>
-				<TCEforms>
-					<sheetTitle>Function</sheetTitle>
-				</TCEforms>
-				<type>array</type>
-				<el>
-					<switchableControllerActions>
-						<TCEforms>
-							<label>Funktion auswählen</label>
-							<onChange>reload</onChange>
-							<config>
-								<type>select</type>
-								<items>
-									<numIndex index="0">
-										<numIndex index="0">Personen: Listenansicht normal</numIndex>
-										<numIndex index="1">Persons->list</numIndex>
-									</numIndex>
-									<numIndex index="1">
-										<numIndex index="0">Personen: Listenansicht manuelle Auswahl</numIndex>
-										<numIndex index="1">Persons->listManually</numIndex>
-									</numIndex>
-									<numIndex index="10">
-										<numIndex index="0">Personen: Einzelansicht</numIndex>
-										<numIndex index="1">Persons->show</numIndex>
-									</numIndex>
-									<numIndex index="20">
-										<numIndex index="0">Personen: Edit</numIndex>
-										<numIndex index="1">Persons->edit</numIndex>
-									</numIndex>
-								</items>
-							</config>
-						</TCEforms>
-					</switchableControllerActions>
-					<settings.person>
-						<TCEforms>
-							<label>Person auswählen</label>
-							<displayCond>FIELD:switchableControllerActions:=:Persons->show</displayCond>
-							<config>
-								<type>select</type>
-								<foreign_table>tx_hetools_domain_model_persons</foreign_table>
-								<size>30</size>
-								<maxitems>1</maxitems>
-								<wizards><suggest>
-									<type>suggest</type>
-									<default>
-										<searchWholePhrase>TRUE</searchWholePhrase>
-										<minimumCharacters>1</minimumCharacters>
-										<receiverClass>HSE\HeTools\Suggest\PersonsSuggestReceiver</receiverClass>
-									</default>
-								</suggest></wizards>
-							</config>
-						</TCEforms>
-					</settings.person>
-					<settings.listManually>
-						<TCEforms>
-							<label>Personen auswählen, die auf jeden Fall angezeigt werden sollen</label>
-							<displayCond>
-								<OR>
-									<numIndex index="0">FIELD:switchableControllerActions:=:Persons->list</numIndex>
-									<numIndex index="1">FIELD:switchableControllerActions:=:Persons->listManually</numIndex>
-								</OR>
-							</displayCond>
-							<config>
-								<type>select</type>
-								<foreign_table>tx_hetools_domain_model_persons</foreign_table>
-								<size>30</size>
-								<maxitems>99</maxitems>
-								<wizards><suggest>
-									<type>suggest</type>
-									<default>
-										<searchWholePhrase>TRUE</searchWholePhrase>
-										<minimumCharacters>1</minimumCharacters>
-										<receiverClass>HSE\HeTools\Suggest\PersonsSuggestReceiver</receiverClass>
-									</default>
-								</suggest></wizards>
-							</config>
-						</TCEforms>
-					</settings.listManually>
-					<settings.listManuallyExclude>
-						<TCEforms>
-							<label>Personen auswählen, die nicht angezeigt werden sollen</label>
-							<displayCond>FIELD:switchableControllerActions:=:Persons->list</displayCond>
-							<config>
-								<type>select</type>
-								<foreign_table>tx_hetools_domain_model_persons</foreign_table>
-								<size>30</size>
-								<maxitems>99</maxitems>
-								<wizards><suggest>
-									<type>suggest</type>
-									<default>
-										<searchWholePhrase>TRUE</searchWholePhrase>
-										<minimumCharacters>1</minimumCharacters>
-										<receiverClass>HSE\HeTools\Suggest\PersonsSuggestReceiver</receiverClass>
-									</default>
-								</suggest></wizards>
-							</config>
-						</TCEforms>
-					</settings.listManuallyExclude>
-				</el>
-			</ROOT>
-		</sDEF>
-	</sheets>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>Function</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <switchableControllerActions>
+                        <TCEforms>
+                            <label>Funktion auswählen</label>
+                            <onChange>reload</onChange>
+                            <config>
+                                <type>select</type>
+                                <items>
+                                    <numIndex index="0">
+                                        <numIndex index="0">Personen: Listenansicht normal</numIndex>
+                                        <numIndex index="1">Persons->list</numIndex>
+                                    </numIndex>
+                                    <numIndex index="1">
+                                        <numIndex index="0">Personen: Listenansicht manuelle Auswahl</numIndex>
+                                        <numIndex index="1">Persons->listManually</numIndex>
+                                    </numIndex>
+                                    <numIndex index="10">
+                                        <numIndex index="0">Personen: Einzelansicht</numIndex>
+                                        <numIndex index="1">Persons->show</numIndex>
+                                    </numIndex>
+                                    <numIndex index="20">
+                                        <numIndex index="0">Personen: Edit</numIndex>
+                                        <numIndex index="1">Persons->edit</numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </switchableControllerActions>
+                    <settings.person>
+                        <TCEforms>
+                            <label>Person auswählen</label>
+                            <displayCond>FIELD:switchableControllerActions:=:Persons->show</displayCond>
+                            <config>
+                                <type>select</type>
+                                <foreign_table>tx_hetools_domain_model_persons</foreign_table>
+                                <size>30</size>
+                                <maxitems>1</maxitems>
+                                <wizards>
+                                    <suggest>
+                                        <type>suggest</type>
+                                        <default>
+                                            <searchWholePhrase>TRUE</searchWholePhrase>
+                                            <minimumCharacters>1</minimumCharacters>
+                                            <receiverClass>HSE\HeTools\Suggest\PersonsSuggestReceiver</receiverClass>
+                                        </default>
+                                    </suggest>
+                                </wizards>
+                            </config>
+                        </TCEforms>
+                    </settings.person>
+                    <settings.function>
+                        <TCEforms>
+                            <label>Personen nach Funktion anzeigen</label>
+                            <displayCond>FIELD:switchableControllerActions:=:Persons->list</displayCond>
+                            <config>
+                                <type>select</type>
+                                <foreign_table>tx_hetools_domain_model_persfunclist</foreign_table>
+                                <size>30</size>
+                                <maxitems>99</maxitems>
+                                <wizards>
+                                    <suggest>
+                                        <type>suggest</type>
+                                    </suggest>
+                                </wizards>
+                            </config>
+                        </TCEforms>
+                    </settings.function>
+                    <settings.faculty>
+                        <TCEforms>
+                            <label>Personen nach Fakultät anzeigen</label>
+                            <displayCond>FIELD:switchableControllerActions:=:Persons->list</displayCond>
+                            <config>
+                                <type>select</type>
+                                <foreign_table>tx_hetools_domain_model_faculties</foreign_table>
+                                <size>30</size>
+                                <maxitems>99</maxitems>
+                                <wizards>
+                                    <suggest>
+                                        <type>suggest</type>
+                                    </suggest>
+                                </wizards>
+                            </config>
+                        </TCEforms>
+                    </settings.faculty>
+                    <settings.listManually>
+                        <TCEforms>
+                            <label>Personen auswählen, die auf jeden Fall angezeigt werden sollen</label>
+                            <displayCond>
+                                <OR>
+                                    <numIndex index="0">FIELD:switchableControllerActions:=:Persons->list</numIndex>
+                                    <numIndex index="1">FIELD:switchableControllerActions:=:Persons->listManually
+                                    </numIndex>
+                                </OR>
+                            </displayCond>
+                            <config>
+                                <type>select</type>
+                                <foreign_table>tx_hetools_domain_model_persons</foreign_table>
+                                <size>30</size>
+                                <maxitems>99</maxitems>
+                                <wizards>
+                                    <suggest>
+                                        <type>suggest</type>
+                                        <default>
+                                            <searchWholePhrase>TRUE</searchWholePhrase>
+                                            <minimumCharacters>1</minimumCharacters>
+                                            <receiverClass>HSE\HeTools\Suggest\PersonsSuggestReceiver</receiverClass>
+                                        </default>
+                                    </suggest>
+                                </wizards>
+                            </config>
+                        </TCEforms>
+                    </settings.listManually>
+                    <settings.listManuallyExclude>
+                        <TCEforms>
+                            <label>Personen auswählen, die nicht angezeigt werden sollen</label>
+                            <displayCond>FIELD:switchableControllerActions:=:Persons->list</displayCond>
+                            <config>
+                                <type>select</type>
+                                <foreign_table>tx_hetools_domain_model_persons</foreign_table>
+                                <size>30</size>
+                                <maxitems>99</maxitems>
+                                <wizards>
+                                    <suggest>
+                                        <type>suggest</type>
+                                        <default>
+                                            <searchWholePhrase>TRUE</searchWholePhrase>
+                                            <minimumCharacters>1</minimumCharacters>
+                                            <receiverClass>HSE\HeTools\Suggest\PersonsSuggestReceiver</receiverClass>
+                                        </default>
+                                    </suggest>
+                                </wizards>
+                            </config>
+                        </TCEforms>
+                    </settings.listManuallyExclude>
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
 </T3DataStructure>

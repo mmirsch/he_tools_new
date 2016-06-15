@@ -14,7 +14,7 @@ plugin.tx_hetools_hepersonen {
 	}
 
 	settings {
-		# cat=plugin.tx_news/file; type=string; label=Path to CSS file
+		# cat=plugin.tx_hetools_hepersonen/file; type=string; label=Path to CSS file
 		cssFile = EXT:he_tools/Resources/Public/Css/he_personen.css
 	}
 }
