@@ -13,22 +13,20 @@ class BackendUserRepository extends \TYPO3\CMS\Beuser\Domain\Repository\BackendU
       $limitCount = 50;
     }
 
+    $whereBasic = '(be_users.username NOT LIKE "%_cli%" AND be_users.deleted=0)';
     if (!empty($filter)) {
+      $whereUsername = '(be_users.username LIKE "%' . $filter . '%")';
+      $whereRealname = '(be_users.realName LIKE "%' . $filter . '%")';
       if ($groups) {
-        $whereGroups = '(be_users.username LIKE "%' . $filter . '%" OR be_users.realName LIKE "%' . $filter . '%")
-								 	OR
-									(be_groups.uid IN (SELECT uid FROM be_groups WHERE title LIKE "%' . $filter . '%"))';
+        $whereGroups = '(be_groups.uid IN (SELECT uid FROM be_groups WHERE title LIKE "%' . $filter . '%"))';
       } else {
-        $whereGroups = '(be_users.username LIKE "%' . $filter . '%" OR be_users.realName LIKE "%' . $filter . '%")';
+        $whereGroups = 'FALSE';
       }
-
+      $whereFilterAndGroups = $whereUsername . ' OR ' . $whereRealname . ' OR ' . $whereGroups;
     } else {
-      $whereGroups = 'TRUE';
+      $whereFilterAndGroups = 'TRUE';
     }
-    $where = ' WHERE (be_users.username NOT LIKE "%_cli%" AND
-								be_users.deleted=0 AND
-								(' . $whereGroups . ')
-							 )';
+    $where = ' WHERE ' . $whereBasic . ' AND (' . $whereFilterAndGroups . ')';
 
     $select = 'SELECT DISTINCT be_users.username,be_users.realName,be_users.uid,be_users.usergroup ' .
               'FROM be_users LEFT JOIN be_groups ON ( FIND_IN_SET( be_groups.uid, be_users.usergroup ) ) ';
@@ -52,7 +50,7 @@ class BackendUserRepository extends \TYPO3\CMS\Beuser\Domain\Repository\BackendU
     $groupList = explode(',',$usergroups);
     $titelList = array();
     foreach ($groupList as $usergroup) {
-      $sqlQuery = 'SELECT title FROM be_groups where uid=' . $usergroup;
+      $sqlQuery = 'SELECT title FROM be_groups where uid=' . $usergroup . ' ORDER BY title';
       /** @var \TYPO3\CMS\Extbase\Persistence\QueryInterface $query */
       $query = $this->createQuery();
       $query->statement($sqlQuery);

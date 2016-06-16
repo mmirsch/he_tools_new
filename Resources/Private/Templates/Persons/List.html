@@ -7,14 +7,39 @@
 
     <f:section name="main">
 
-        <h1>Ausgewählte Personen</h1>
 
-        <dl class="dl-horizontal">
+        <table>
+            <th>Vorname</th>
+            <th>Nachname</th>
+            <th>Username</th>
+            <th>Funktion</th>
+            <th>Fakultät</th>
+            <th>Einrichtung</th>
+
             <f:for each="{personsList}" as="list">
-                <dt>Person:</dt>
-                <dd>{list.feuser.Name}</dd>
+                <tr>
+                    <td>{list.feuser.firstName}</td>
+                    <td>{list.feuser.lastName}</td>
+                    <td>{list.feuser.username}</td>
+                    <td>
+                        <f:for each="{list.persFunc}" as="persFunc">
+                            {persFunc.type.title}
+                        </f:for>
+                    </td>
+                    <td>
+                        <f:for each="{list.persFunc}" as="persFunc">
+                            {persFunc.faculty.shortcut}
+                        </f:for>
+                    </td>
+                    <td>
+                        <f:for each="{list.persFunc}" as="persFunc">
+                            {persFunc.institution.title}
+                        </f:for>
+                    </td>
+                </tr>
+
             </f:for>
-        </dl>
+        </table>
 
     </f:section>
 
