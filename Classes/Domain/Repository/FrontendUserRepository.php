@@ -3,7 +3,7 @@ namespace HSE\HeTools\Domain\Repository;
 
 use HSE\HeTools\Service\Persons\Import\PersImport;
 
-class FrontEnduserRepository extends \TYPO3\CMS\Extbase\Domain\Model\FrontendUser{
+class FrontendUserRepository extends \TYPO3\CMS\Feuser\Domain\Repository\FrontendUserRepository{
 
     public function createCsvArray(){
 
