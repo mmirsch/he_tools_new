@@ -20,13 +20,23 @@ class FrontendUserRepository extends \TYPO3\CMS\Extbase\Domain\Repository\Fronte
         $query->execute();
     }
 
-    public function findAllByFilter($value){
+    public function findAllByFilterName($value){
         $query = $this->createQuery();
         $query->matching(
             $query->like('name', '%'.$value.'%')
         );
         return $query->execute();
+    }
 
+    public function findAllByFilterNameAndUsergroup($value){
+        $query = $this->createQuery();
+        $query->matching(
+            $query->logicalOr(
+                $query->like('name', '%'.$value.'%'),
+                $query->like('usergroup.title', '%'.$value.'%')
+            )
+        );
+        return $query->execute(TRUE);
     }
 
 }

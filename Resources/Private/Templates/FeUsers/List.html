@@ -3,12 +3,14 @@
 
     <f:section name="content">
 
-        <f:form action="result">
+        <f:form action="list">
             <f:form.textfield name="search" value="{search}" type="input" />
             <f:form.submit value="suchen" />
+            <br />
+            Suche auch Benutzergruppe: <f:form.checkbox name="searchInUsergroup" value="searchInUsergroup" />
         </f:form>
 
-        <f:render partial="FeUsers/List" arguments="{feuserList: feuserList}" />
+        <f:render partial="FeUsers/List" arguments="{feuserList: feuserList, returnUrl: returnUrl}" />
 
     </f:section>
 

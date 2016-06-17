@@ -29,7 +29,7 @@ namespace HSE\HeTools\Domain\Model;
 /**
  * FrontendUser
  */
-class FrontendUser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+class FrontendUser extends \TYPO3\CMS\Extbase\Domain\Model\FrontendUser
 {
 
     /**
@@ -100,6 +100,5 @@ class FrontendUser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->username = $email;
     }
-
 
 }
