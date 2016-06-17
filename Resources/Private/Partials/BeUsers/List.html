@@ -30,7 +30,7 @@
                     <td class="usergroup">{backendUser.usergroup}</td>
 
                     <td class="actions">
-                        <vh:Be.EditBackendUserLink tableName="be_users" identifier="{backendUser.uid}" returnUrl="{returnUrl}"></vh:Be.EditBackendUserLink>
+                        <vh:Be.EditUserLink tableName="be_users" identifier="{backendUser.uid}" returnUrl="{returnUrl}"></vh:Be.EditUserLink>
                         <f:link.action action="switchUser" class="btn btn-default" target="_top" arguments="{switchUser: backendUser.uid}" title="Benutzer wechseln">
                             <span class="t3js-icon icon icon-size-small icon-state-default icon-actions-system-backend-user-switch" data-identifier="actions-system-backend-user-switch">
                                 <span class="icon-markup">

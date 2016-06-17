@@ -1,14 +1,22 @@
-
+{namespace vh=HSE\HeTools\ViewHelpers}
     <f:layout name="Default" />
 
         <table>
             <th>Name</th>
-            <th>E-Mail</th>
+            <th>Benutzername</th>
+            <th>Benutzergruppe</th>
+            <th></th>
 
-            <f:for each="{feuserList}" as="list">
+            <f:for each="{feuserList}" as="frontendUser">
                 <tr>
-                    <td>{list.name}</td>
-                    <td>{list.email}</td>
+                    <td>{frontendUser.name}</td>
+                    <td>{frontendUser.username}</td>
+                    <td>
+                        {usergroup}
+                    </td>
+                    <td>
+                        <vh:Be.EditUserLink tableName="fe_users" identifier="{frontendUser.uid}" returnUrl="{returnUrl}"></vh:Be.EditUserLink>
+                    </td>
                 </tr>
             </f:for>
         </table>

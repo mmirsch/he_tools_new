@@ -50,21 +50,21 @@ class FeUsersController extends ActionController
     /**
      * action list
      *
-     * @return void
-     */
-    public function listAction()
-    {
-        $allFeusers = $this->frontendUserRepository->findAll();
-        $this->view->assign('feuserList', $allFeusers);
-    }
-
-    /**
      * @param string $search
+     * @param boolean $searchInUsergroup
      */
-    public function resultAction($search)
+    public function listAction($search='', $searchInUsergroup=FALSE)
     {
-        $allFeusers = $this->frontendUserRepository->findAllByFilter($search);
-        $this->view->assign('feuserList', $allFeusers);
+        if(empty($search)){
+            $feusers = $this->frontendUserRepository->findAll();
+        }else {
+            if($searchInUsergroup == FALSE) {
+                $feusers = $this->frontendUserRepository->findAllByFilterName($search);
+            } else {
+                $feusers = $this->frontendUserRepository->findAllByFilterNameAndUsergroup($search);
+            }
+        }
+        $this->view->assign('feuserList', $feusers);
     }
 
 }
