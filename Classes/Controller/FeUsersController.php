@@ -57,4 +57,14 @@ class FeUsersController extends ActionController
         $allFeusers = $this->frontendUserRepository->findAll();
         $this->view->assign('feuserList', $allFeusers);
     }
+
+    /**
+     * @param string $search
+     */
+    public function resultAction($search)
+    {
+        $allFeusers = $this->frontendUserRepository->findAllByFilter($search);
+        $this->view->assign('feuserList', $allFeusers);
+    }
+
 }

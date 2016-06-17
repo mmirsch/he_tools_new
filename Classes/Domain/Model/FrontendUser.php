@@ -27,10 +27,79 @@ namespace HSE\HeTools\Domain\Model;
      ***************************************************************/
 
 /**
- * Persons
+ * FrontendUser
  */
 class FrontendUser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
+
+    /**
+     * username
+     *
+     * @var string
+     */
+    protected $username = '';
+
+    /**
+     * @return string
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    /**
+     * @param string $username
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+    }
+
+    /**
+     * name
+     *
+     * @var string
+     */
+    protected $name = '';
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->username = $name;
+    }
+
+    /**
+     * email
+     *
+     * @var string
+     */
+    protected $email = '';
+
+    /**
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     */
+    public function setEmail($email)
+    {
+        $this->username = $email;
+    }
 
 
 }

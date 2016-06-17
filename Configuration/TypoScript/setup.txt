@@ -9,6 +9,7 @@ plugin.tx_hetools_hepersonen {
 		storagePid = {$plugin.tx_hetools_hepersonen.persistence.storagePid}
 	}
 
+
 }
 
 page.includeCSS.tx_hetools_hepersonen = {$plugin.tx_hetools_hepersonen.settings.cssFile}

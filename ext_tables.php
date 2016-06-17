@@ -26,7 +26,7 @@ if (TYPO3_MODE === 'BE') {
 		array(
 			'Backend' => 'managePersons, import, test, testAdd',
 			'BeUsers' => 'list, listAjax, switchUser',
-			'FeUsers' => 'list, listAjax',
+			'FeUsers' => 'list, listAjax, result',
 			'Persons' => 'list',
 		),
 		array(
