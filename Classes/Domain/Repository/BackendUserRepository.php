@@ -41,7 +41,10 @@ class BackendUserRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
     $query->statement($sqlQuery);
     $result = $query->execute(true);
     foreach ($result as $index=>$elem) {
-      $result[$index]['usergroup'] = $this->getBeUsergroups($elem['usergroup']);
+      if (!empty($elem['usergroup'])) {
+        $result[$index]['usergroup'] = $this->getBeUsergroups($elem['usergroup']);
+      }
+
     }
     return $result;
   }
