@@ -17,3 +17,23 @@ module.tx_hetools_web_hetoolshetools {
 		layoutRootPaths.0 = EXT:he_tools/Resources/Private/Layouts/Backend/
 	}
 }
+
+
+
+config.tx_extbase {
+	persistence {
+		classes {
+			HSE\HeTools\Domain\Model\FrontendUser {
+				mapping {
+					tableName = fe_users
+				}
+			}
+			HSE\HeTools\Domain\Model\BackendUser {
+				mapping {
+					tableName = be_users
+				}
+			}
+
+		}
+	}
+}

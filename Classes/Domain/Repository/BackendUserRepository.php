@@ -2,7 +2,7 @@
 namespace HSE\HeTools\Domain\Repository;
 
 
-class BackendUserRepository extends \TYPO3\CMS\Beuser\Domain\Repository\BackendUserRepository {
+class BackendUserRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 
   public function findAllByFilter($filter='', $groups=true)
   {

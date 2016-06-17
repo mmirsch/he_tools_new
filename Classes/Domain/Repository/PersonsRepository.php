@@ -306,7 +306,7 @@ class PersonsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
     protected function createFrontendUser($importData, $pidFeUsers) {
         /** @var $frontendUser \TYPO3\CMS\Extbase\Domain\Model\FrontendUser  */
 
-        $frontendUser = $this->objectManager->get('TYPO3\CMS\Extbase\Domain\Model\FrontendUser');
+        $frontendUser = $this->objectManager->get(\TYPO3\CMS\Extbase\Domain\Model\FrontendUser::class);
         $frontendUser->setUsername($importData['login']);
         $frontendUser->setFirstName($importData['vorname']);
         $frontendUser->setLastName($importData['nachname']);

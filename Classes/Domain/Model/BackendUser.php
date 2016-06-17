@@ -32,5 +32,28 @@ namespace HSE\HeTools\Domain\Model;
 class BackendUser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
 
+    /**
+     * username
+     *
+     * @var string
+     */
+    protected $username = '';
+
+    /**
+     * @return string
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    /**
+     * @param string $username
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+    }
+
 
 }
