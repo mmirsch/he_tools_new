@@ -1,6 +1,7 @@
 <?php
 namespace  HSE\HeTools\Utility;
 
+use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Backend\Utility\BackendUtility as BackendUtilityCore;
 
@@ -58,7 +59,7 @@ class BackendUtility {
     /**
      * @return BackendUserAuthentication
      */
-    protected static function getBackendUserAuthentication() {
+    public static function getBackendUserAuthentication() {
         return $GLOBALS['BE_USER'];
     }
 

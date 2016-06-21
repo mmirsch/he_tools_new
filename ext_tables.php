@@ -24,7 +24,7 @@ if (TYPO3_MODE === 'BE') {
 		'hetools',	// Submodule key
 		'',						// Position
 		array(
-			'Backend' => 'managePersons, import, test, testAdd',
+			'Backend' => 'managePersons, import, test, testAdd, bookmarks',
 			'BeUsers' => 'list, listAjax, switchUser',
 			'FeUsers' => 'list, listAjax',
 			'Persons' => 'list',

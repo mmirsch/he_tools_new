@@ -2,68 +2,91 @@
 namespace HSE\HeTools\Domain\Repository;
 
 
-class BackendUserRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
+class BackendUserRepository extends \TYPO3\CMS\Extbase\Domain\Repository\BackendUserRepository {
 
-  public function findAllByFilter($filter='', $groups=true)
-  {
-    $extensionConfiguration = \HSE\HeTools\Utility\ExtensionUtility::getExtensionConfig();
-    if (isset($extensionConfiguration['limit_userlist'])) {
-      $limitCount = $extensionConfiguration['limit_userlist'];
-    } else {
-      $limitCount = 50;
-    }
+	public function findAllByFilter($filter = '', $groups = true) {
+		if (isset($extensionConfiguration['limit_userlist'])) {
+			$limitCount = $extensionConfiguration['limit_userlist'];
+		} else {
+			$limitCount = 20;
+		}
+		/** @var \TYPO3\CMS\Extbase\Persistence\QueryInterface $query */
+		$query = $this->createQuery();
+		$query->matching(
+			$query->logicalAnd(
+				$query->logicalNot($query->equals('realName','')),
+				$query->logicalOr(
+					$query->like('username', '%'.$filter.'%'),
+					$query->like('realName', '%'.$filter.'%'),
+					$query->like('usergroup.title', '%' . $filter . '%')
+				)
+			)
+		);
+		$result = $query->execute(TRUE);
+		$resultList = array();
+		foreach ($result as $index => $elem) {
+			if (!empty($elem['usergroup'])) {
+				$result[$index]['usergroup'] = $this->getBeUsergroups($elem['usergroup']);
+			}
+			$sortName = $this->getLastNameFirstName($elem['username']);
+			if (!empty($sortName)) {
+				$resultList[$sortName] = $result[$index];
+			}
+		}
+		ksort($resultList);
+		$i = 0;
+		foreach ($resultList as  $key=>$elem) {
+			if ($i>$limitCount) {
+				unset($resultList[$key]);
+			}
+			$i++;
+		}
+		return $resultList;
+	}
 
-    $whereBasic = '(be_users.username NOT LIKE "%_cli%" AND be_users.deleted=0)';
-    if (!empty($filter)) {
-      $whereUsername = '(be_users.username LIKE "%' . $filter . '%")';
-      $whereRealname = '(be_users.realName LIKE "%' . $filter . '%")';
-      if ($groups) {
-        $whereGroups = '(be_groups.uid IN (SELECT uid FROM be_groups WHERE title LIKE "%' . $filter . '%"))';
-      } else {
-        $whereGroups = 'FALSE';
-      }
-      $whereFilterAndGroups = $whereUsername . ' OR ' . $whereRealname . ' OR ' . $whereGroups;
-    } else {
-      $whereFilterAndGroups = 'TRUE';
-    }
-    $where = ' WHERE ' . $whereBasic . ' AND (' . $whereFilterAndGroups . ')';
+	protected function getBeUsergroups($usergroups) {
+		$titelList = array();
+		if (!empty($usergroups)) {
+			$groupList = explode(',', $usergroups);
+			/**@var $backendUsergroupsRepository \TYPO3\CMS\Extbase\Domain\Repository\BackendUserGroupRepository */
+			$backendUsergroupsRepository =  $this->objectManager->get(\TYPO3\CMS\Extbase\Domain\Repository\BackendUserGroupRepository::class);
 
-    $select = 'SELECT DISTINCT be_users.username,be_users.realName,be_users.uid,be_users.usergroup ' .
-              'FROM be_users LEFT JOIN be_groups ON ( FIND_IN_SET( be_groups.uid, be_users.usergroup ) ) ';
-    $join = 'INNER JOIN fe_users ON be_users.username = fe_users.username ';
-    $orderby = 'ORDER BY fe_users.last_name, fe_users.first_name ';
-    $limit = 'LIMIT 0,' . $limitCount;
-    $sqlQuery = $select . $join . $where . $orderby . $limit;
+			foreach ($groupList as $usergroup) {
+				/**@var $usergroup \TYPO3\CMS\Extbase\Domain\Model\BackendUserGroup */
+				$usergroup = $backendUsergroupsRepository->findByUid($usergroup);
+				if (!empty($usergroup)) {
+					$titelList[] = $usergroup->getTitle();
+				}
+			}
 
-    /** @var \TYPO3\CMS\Extbase\Persistence\QueryInterface $query */
-    $query = $this->createQuery();
+		}
+		return implode(',', $titelList);
+	}
 
-    $query->statement($sqlQuery);
-    $result = $query->execute(true);
-    foreach ($result as $index=>$elem) {
-      if (!empty($elem['usergroup'])) {
-        $result[$index]['usergroup'] = $this->getBeUsergroups($elem['usergroup']);
-      }
+	/*
+	 * @param string $backendUsername
+	 *
+	 * return string
+	 */
+	protected function getLastNameFirstName($backendUsername) {
+		$lastNameFirstName = '';
+		/**@var $frontendUserRepository \TYPO3\CMS\Extbase\Domain\Repository\FrontendUserRepository */
+		$frontendUserRepository =  $this->objectManager->get(\TYPO3\CMS\Extbase\Domain\Repository\FrontendUserRepository::class);
 
-    }
-    return $result;
-  }
+		/**@var $frontendUsers \TYPO3\CMS\Extbase\Persistence\QueryResultInterface */
+		$frontendUsers =  $frontendUserRepository->findByUsername($backendUsername);
 
-  public function getBeUsergroups($usergroups) {
-    $groupList = explode(',',$usergroups);
-    $titelList = array();
-    foreach ($groupList as $usergroup) {
-      $sqlQuery = 'SELECT title FROM be_groups where uid=' . $usergroup . ' ORDER BY title';
-      /** @var \TYPO3\CMS\Extbase\Persistence\QueryInterface $query */
-      $query = $this->createQuery();
-      $query->statement($sqlQuery);
-      $result = $query->execute(true);
-      if (count($result)==1) {
-        $titelList[] = $result[0]['title'];
-      }
-    }
-    return implode(',',$titelList);
-  }
+		if ($frontendUsers->count()>0) {
+			/**@var $frontendUser \TYPO3\CMS\Extbase\Persistence\FrontendUser */
+			$frontendUser = $frontendUsers->getFirst();
+			if (!empty($frontendUser)) {
+				$lastNameFirstName = $frontendUser->getLastName() . $frontendUser->getFirstName();
+			}
+		}
+
+		return $lastNameFirstName;
+	}
+
 
 }
 

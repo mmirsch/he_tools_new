@@ -26,8 +26,10 @@ namespace HSE\HeTools\Controller;
 	 *  This copyright notice MUST APPEAR in all copies of the script!
 	 ***************************************************************/
 use HSE\HeTools\Service\Persons\Import\PersImport;
+use HSE\HeTools\Utility\BackendUtility;
 use TYPO3\CMS\Core\Utility\DebugUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\HttpUtility;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use HSE\HeTools\Domain\Model\Persons;
 use HSE\HeTools\Domain\Model\PersData;
@@ -112,6 +114,20 @@ class BackendController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 
 	}
 
+	/**
+	 * action bookmarkAction
+	 *
+	 * @param int $tmpMount
+	 * @return void
+	 */
+	public function bookmarksAction($tmpMount='5') {
+		/**@var \TYPO3\CMS\Core\Authentication\BackendUserAuthentication	$backendUser	 */
+		$backendUser = BackendUtility::getBackendUserAuthentication();
+		$backendUser->uc['pageTree_temporaryMountPoint'] = $tmpMount;
+		$backendUser->writeUC();
+		$returnUrl = BackendUtility::getReturnUrl();
+		HttpUtility::redirect('index.php');
+	}
 
 	/**
 	 * action persImport

@@ -109,7 +109,7 @@ class PersonsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
 
     }
 
-    public function importFromCsvArray($start=0, $count=10){
+    public function importFromCsvArray($start=0, $count=100){
         $extensionConfiguration = ExtensionUtility::getExtensionConfig();
         if (isset($extensionConfiguration['sysfolder_fe_users'])) {
             $pidFeUsers = $extensionConfiguration['sysfolder_fe_users'];
@@ -181,11 +181,11 @@ class PersonsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository{
                     $newPersData = $this->objectManager->get('HSE\HeTools\Domain\Model\PersData');
                     $newPersData->setType($newPersDataList);
                     $newPersData->setValue($csvArray[$i]['raum']);
+                    $newPerson->addPersData($newPersData);
                 }
 
                 /**@var $newPersFuncList \HSE\HeTools\Domain\Model\PersFuncList */
                 $newPersFuncList = $this->persFuncListRepository->findByTitle($csvArray[$i]['fkt_sva']);
-                $newPerson->addPersData($newPersData);
 
 
                 if (!empty($newPersFuncList)) {
