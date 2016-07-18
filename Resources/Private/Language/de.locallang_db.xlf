@@ -1,133 +1,150 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2016-06-06T10:28:35Z" product-name="he_tools">
-		<header/>
-		<body>
-			<trans-unit id="tx_hetools_domain_model_faculties">
-        <source>Faculties</source>
-        <target state="translated">Fakultäten</target>
-      </trans-unit>
-      <trans-unit id="tx_hetools_domain_model_faculties.title">
-        <source>Title</source>
-        <target state="translated">Titel</target>
-      </trans-unit>
-      <trans-unit id="tx_hetools_domain_model_faculties.shortcut">
-        <source>Shortcut</source>
-        <target state="translated">Kürzel</target>
-      </trans-unit>
-      <trans-unit id="tx_hetools_domain_model_studyprograms">
-        <source>Studyprograms</source>
-        <target state="translated">Studiengänge</target>
-      </trans-unit>
-      <trans-unit id="tx_hetools_domain_model_studyprograms.title">
-        <source>Title</source>
-        <target state="translated">Titel</target>
-      </trans-unit>
-      <trans-unit id="tx_hetools_domain_model_studyprograms.shortcut">
-        <source>Shortcut</source>
-        <target state="translated">Kürzel</target>
-      </trans-unit>
-      <trans-unit id="tx_hetools_domain_model_studyprograms.degree">
-        <source>Degree</source>
-        <target state="translated">Abschluss</target>
-      </trans-unit>
-      <trans-unit id="tx_hetools_domain_model_studyprograms.faculty">
-        <source>Faculty</source>
-        <target state="translated">Fekultät</target>
-      </trans-unit>
-      <trans-unit id="tx_hetools_domain_model_institutions">
-        <source>Institutions</source>
-        <target state="translated">Einrichtung</target>
-      </trans-unit>
-      <trans-unit id="tx_hetools_domain_model_institutions.title">
-        <source>Title</source>
-        <target state="translated">Titel</target>
-      </trans-unit>
-      <trans-unit id="tx_hetools_domain_model_institutions.shortcut">
-        <source>Shortcut</source>
-        <target state="translated">Kürzel</target>
-      </trans-unit>
-      <trans-unit id="tx_hetools_domain_model_persons">
-        <source>Persons</source>
-        <target state="translated">Personen</target>
-      </trans-unit>
-      <trans-unit id="tx_hetools_domain_model_persons.feuser">
-        <source>Feuser</source>
-        <target state="translated">FE-User</target>
-      </trans-unit>
-      <trans-unit id="tx_hetools_domain_model_persons.pers_data">
-        <source>Pers Data</source>
-        <target state="translated">Personen-Daten</target>
-      </trans-unit>
-      <trans-unit id="tx_hetools_domain_model_persons.pers_func">
-        <source>Pers Func</source>
-        <target state="translated">Personen-Funktionen</target>
-      </trans-unit>
-      <trans-unit id="tx_hetools_domain_model_persdata">
-        <source>Pers Data</source>
-        <target state="translated">Personen-Daten</target>
-      </trans-unit>
-      <trans-unit id="tx_hetools_domain_model_persdata.title">
-        <source>Title</source>
-        <target state="translated">Titel</target>
-      </trans-unit>
-      <trans-unit id="tx_hetools_domain_model_persdata.value">
-        <source>Value</source>
-        <target state="translated">Wert</target>
-      </trans-unit>
-      <trans-unit id="tx_hetools_domain_model_persfunc">
-        <source>Pers Func</source>
-        <target state="translated">Personen-Funktionen</target>
-      </trans-unit>
-      <trans-unit id="tx_hetools_domain_model_persfunc.title">
-        <source>Title</source>
-        <target state="translated">Titel</target>
-      </trans-unit>
-      <trans-unit id="tx_hetools_domain_model_persfunc.type">
-        <source>Type</source>
-        <target state="translated">Typ</target>
-      </trans-unit>
-      <trans-unit id="tx_hetools_domain_model_persfunc.institution">
-        <source>Institution</source>
-        <target state="translated">Einrichtungen</target>
-      </trans-unit>
-      <trans-unit id="tx_hetools_domain_model_persfunc.faculty">
-        <source>Faculty</source>
-        <target state="translated">Fakultät</target>
-      </trans-unit>
-			<trans-unit id="tx_hetools_domain_model_persdatalist">
-				<source>Pers Data List</source>
-				<target state="translated">Personen-Daten Liste</target>
-			</trans-unit>
-			<trans-unit id="tx_hetools_domain_model_persdatalist.title">
-				<source>Title</source>
-				<target state="translated">Titel</target>
-			</trans-unit>
-			<trans-unit id="tx_hetools_domain_model_persdatalist.type">
-				<source>Type</source>
-				<target state="translated">Typ</target>
-			</trans-unit>
-			<trans-unit id="tx_hetools_domain_model_persdatalist.importfield">
-				<source>Import field</source>
-				<target state="translated">Import-Feld</target>
-			</trans-unit>
-			<trans-unit id="tx_hetools_domain_model_persfunclist">
-				<source>Pers Func List</source>
-				<target state="translated">Personen-Funktionen Liste</target>
-			</trans-unit>
-			<trans-unit id="tx_hetools_domain_model_persfunclist.title">
-				<source>Title</source>
-				<target state="translated">Titel</target>
-			</trans-unit>
-			<trans-unit id="tx_hetools_domain_model_persfunclist.type">
-				<source>Type</source>
-				<target state="translated">Typ</target>
-			</trans-unit>
-			<trans-unit id="tx_hetools_domain_model_persfunclist.importfield">
-				<source>Import field</source>
-				<target state="translated">Import-Feld</target>
-			</trans-unit>
+    <file source-language="en" datatype="plaintext" original="messages" date="2016-06-06T10:28:35Z"
+          product-name="he_tools">
+        <header/>
+        <body>
+            <trans-unit id="tx_hetools_domain_model_campus">
+                <source>Campus</source>
+                <target state="translated">Standorte</target>
+            </trans-unit>
+            <trans-unit id="tx_hetools_domain_model_campus.title">
+                <source>Title</source>
+                <target state="translated">Titel</target>
+            </trans-unit>
+            <trans-unit id="tx_hetools_domain_model_campus.shortcut">
+                <source>Shortcut</source>
+                <target state="translated">Kürzel</target>
+            </trans-unit>
+            <trans-unit id="tx_hetools_domain_model_faculties">
+                <source>Faculties</source>
+                <target state="translated">Fakultäten</target>
+            </trans-unit>
+            <trans-unit id="tx_hetools_domain_model_faculties.title">
+                <source>Title</source>
+                <target state="translated">Titel</target>
+            </trans-unit>
+            <trans-unit id="tx_hetools_domain_model_faculties.shortcut">
+                <source>Shortcut</source>
+                <target state="translated">Kürzel</target>
+            </trans-unit>
+            <trans-unit id="tx_hetools_domain_model_studyprograms">
+                <source>Studyprograms</source>
+                <target state="translated">Studiengänge</target>
+            </trans-unit>
+            <trans-unit id="tx_hetools_domain_model_studyprograms.title">
+                <source>Title</source>
+                <target state="translated">Titel</target>
+            </trans-unit>
+            <trans-unit id="tx_hetools_domain_model_studyprograms.shortcut">
+                <source>Shortcut</source>
+                <target state="translated">Kürzel</target>
+            </trans-unit>
+            <trans-unit id="tx_hetools_domain_model_studyprograms.degree">
+                <source>Degree</source>
+                <target state="translated">Abschluss</target>
+            </trans-unit>
+            <trans-unit id="tx_hetools_domain_model_studyprograms.faculty">
+                <source>Faculty</source>
+                <target state="translated">Fakultät</target>
+            </trans-unit>
+            <trans-unit id="tx_hetools_domain_model_studyprograms.campus">
+                <source>Campus</source>
+                <target state="translated">Standort</target>
+            </trans-unit>
+            <trans-unit id="tx_hetools_domain_model_institutions">
+                <source>Institutions</source>
+                <target state="translated">Einrichtung</target>
+            </trans-unit>
+            <trans-unit id="tx_hetools_domain_model_institutions.title">
+                <source>Title</source>
+                <target state="translated">Titel</target>
+            </trans-unit>
+            <trans-unit id="tx_hetools_domain_model_institutions.shortcut">
+                <source>Shortcut</source>
+                <target state="translated">Kürzel</target>
+            </trans-unit>
+            <trans-unit id="tx_hetools_domain_model_persons">
+                <source>Persons</source>
+                <target state="translated">Personen</target>
+            </trans-unit>
+            <trans-unit id="tx_hetools_domain_model_persons.feuser">
+                <source>Feuser</source>
+                <target state="translated">FE-User</target>
+            </trans-unit>
+            <trans-unit id="tx_hetools_domain_model_persons.pers_data">
+                <source>Pers Data</source>
+                <target state="translated">Personen-Daten</target>
+            </trans-unit>
+            <trans-unit id="tx_hetools_domain_model_persons.pers_func">
+                <source>Pers Func</source>
+                <target state="translated">Personen-Funktionen</target>
+            </trans-unit>
+            <trans-unit id="tx_hetools_domain_model_persdata">
+                <source>Pers Data</source>
+                <target state="translated">Personen-Daten</target>
+            </trans-unit>
+            <trans-unit id="tx_hetools_domain_model_persdata.title">
+                <source>Title</source>
+                <target state="translated">Titel</target>
+            </trans-unit>
+            <trans-unit id="tx_hetools_domain_model_persdata.value">
+                <source>Value</source>
+                <target state="translated">Wert</target>
+            </trans-unit>
+            <trans-unit id="tx_hetools_domain_model_persfunc">
+                <source>Pers Func</source>
+                <target state="translated">Personen-Funktionen</target>
+            </trans-unit>
+            <trans-unit id="tx_hetools_domain_model_persfunc.title">
+                <source>Title</source>
+                <target state="translated">Titel</target>
+            </trans-unit>
+            <trans-unit id="tx_hetools_domain_model_persfunc.type">
+                <source>Type</source>
+                <target state="translated">Typ</target>
+            </trans-unit>
+            <trans-unit id="tx_hetools_domain_model_persfunc.institution">
+                <source>Institution</source>
+                <target state="translated">Einrichtungen</target>
+            </trans-unit>
+            <trans-unit id="tx_hetools_domain_model_persfunc.faculty">
+                <source>Faculty</source>
+                <target state="translated">Fakultät</target>
+            </trans-unit>
+            <trans-unit id="tx_hetools_domain_model_persdatalist">
+                <source>Pers Data List</source>
+                <target state="translated">Personen-Daten Liste</target>
+            </trans-unit>
+            <trans-unit id="tx_hetools_domain_model_persdatalist.title">
+                <source>Title</source>
+                <target state="translated">Titel</target>
+            </trans-unit>
+            <trans-unit id="tx_hetools_domain_model_persdatalist.type">
+                <source>Type</source>
+                <target state="translated">Typ</target>
+            </trans-unit>
+            <trans-unit id="tx_hetools_domain_model_persdatalist.importfield">
+                <source>Import field</source>
+                <target state="translated">Import-Feld</target>
+            </trans-unit>
+            <trans-unit id="tx_hetools_domain_model_persfunclist">
+                <source>Pers Func List</source>
+                <target state="translated">Personen-Funktionen Liste</target>
+            </trans-unit>
+            <trans-unit id="tx_hetools_domain_model_persfunclist.title">
+                <source>Title</source>
+                <target state="translated">Titel</target>
+            </trans-unit>
+            <trans-unit id="tx_hetools_domain_model_persfunclist.type">
+                <source>Type</source>
+                <target state="translated">Typ</target>
+            </trans-unit>
+            <trans-unit id="tx_hetools_domain_model_persfunclist.importfield">
+                <source>Import field</source>
+                <target state="translated">Import-Feld</target>
+            </trans-unit>
 
-		</body>
-	</file>
+        </body>
+    </file>
 </xliff>

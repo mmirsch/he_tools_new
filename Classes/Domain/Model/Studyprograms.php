@@ -52,7 +52,7 @@ class Studyprograms extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @var int
      */
     protected $degree = 0;
-    
+
     /**
      * faculty
      *
@@ -60,7 +60,15 @@ class Studyprograms extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @cascade remove
      */
     protected $faculty = null;
-    
+
+    /**
+     * campus
+     *
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\HSE\HeTools\Domain\Model\Campus>
+     * @cascade remove
+     */
+    protected $campus = null;
+
     /**
      * Returns the title
      *
@@ -187,6 +195,20 @@ class Studyprograms extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setFaculty(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $faculty)
     {
         $this->faculty = $faculty;
+    }
+
+    /**
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\HSE\HeTools\Domain\Model\Campus>
+     */
+    public function getCampus() {
+        return $this->campus;
+    }
+
+    /**
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\HSE\HeTools\Domain\Model\Campus> $campus
+     */
+    public function setCampus($campus) {
+        $this->campus = $campus;
     }
 
 }

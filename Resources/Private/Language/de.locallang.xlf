@@ -3,7 +3,19 @@
 	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2016-05-31T12:19:22Z" product-name="he_tools">
 		<header/>
 		<body>
-					<trans-unit id="tx_hetools_domain_model_faculties">
+			<trans-unit id="tx_hetools_domain_model_campus">
+				<source>Campus</source>
+				<target state="translated">Standorte</target>
+			</trans-unit>
+			<trans-unit id="tx_hetools_domain_model_campus.title">
+				<source>Title</source>
+				<target state="translated">Titel</target>
+			</trans-unit>
+			<trans-unit id="tx_hetools_domain_model_campus.shortcut">
+				<source>Shortcut</source>
+				<target state="translated">Kürzel</target>
+			</trans-unit>
+			<trans-unit id="tx_hetools_domain_model_faculties">
     				<source>Faculties</source>
             <target state="translated">Fakultäten</target>
     			</trans-unit>
@@ -31,11 +43,15 @@
     				<source>Degree</source>
             <target state="translated">Abschluss</target>
     			</trans-unit>
-    			<trans-unit id="tx_hetools_domain_model_studyprograms.faculty">
-    				<source>Faculty</source>
-            <target state="translated">Fekultät</target>
-    			</trans-unit>
-    			<trans-unit id="tx_hetools_domain_model_institutions">
+			<trans-unit id="tx_hetools_domain_model_studyprograms.faculty">
+				<source>Faculty</source>
+				<target state="translated">Fakultät</target>
+			</trans-unit>
+			<trans-unit id="tx_hetools_domain_model_studyprograms.campus">
+				<source>Campus</source>
+				<target state="translated">Standort</target>
+			</trans-unit>
+			<trans-unit id="tx_hetools_domain_model_institutions">
     				<source>Institutions</source>
             <target state="translated">Einrichtung</target>
     			</trans-unit>

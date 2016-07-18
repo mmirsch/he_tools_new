@@ -3,6 +3,16 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2016-06-06T10:28:35Z" product-name="he_tools">
 		<header/>
 		<body>
+			<trans-unit id="tx_hetools_domain_model_campus">
+				<source>Campus</source>
+			</trans-unit>
+			<trans-unit id="tx_hetools_domain_model_campus.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_hetools_domain_model_campus.shortcut">
+				<source>Shortcut</source>
+			</trans-unit>
+
 			<trans-unit id="tx_hetools_domain_model_faculties">
 				<source>Faculties</source>
 			</trans-unit>
@@ -26,6 +36,9 @@
 			</trans-unit>
 			<trans-unit id="tx_hetools_domain_model_studyprograms.faculty">
 				<source>Faculty</source>
+			</trans-unit>
+			<trans-unit id="tx_hetools_domain_model_studyprograms.campus">
+				<source>Campus</source>
 			</trans-unit>
 			<trans-unit id="tx_hetools_domain_model_institutions">
 				<source>Institutions</source>

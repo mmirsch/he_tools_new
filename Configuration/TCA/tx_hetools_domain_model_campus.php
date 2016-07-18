@@ -1,7 +1,7 @@
 <?php
 return array(
 	'ctrl' => array(
-		'title'	=> 'LLL:EXT:he_tools/Resources/Private/Language/locallang_db.xlf:tx_hetools_domain_model_studyprograms',
+		'title'	=> 'LLL:EXT:he_tools/Resources/Private/Language/locallang_db.xlf:tx_hetools_domain_model_campus',
 		'label' => 'title',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
@@ -19,14 +19,14 @@ return array(
 			'starttime' => 'starttime',
 			'endtime' => 'endtime',
 		),
-		'searchFields' => 'title,shortcut,degree,faculty,',
-		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('he_tools') . 'Resources/Public/Icons/tx_hetools_domain_model_studyprograms.gif'
+		'searchFields' => 'title,shortcut,',
+		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('he_tools') . 'Resources/Public/Icons/tx_hetools_domain_model_campus.gif'
 	),
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, shortcut, degree, faculty, campus',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, shortcut',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title, shortcut, degree, faculty, campus, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title, shortcut, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -57,8 +57,8 @@ return array(
 				'items' => array(
 					array('', 0),
 				),
-				'foreign_table' => 'tx_hetools_domain_model_studyprograms',
-				'foreign_table_where' => 'AND tx_hetools_domain_model_studyprograms.pid=###CURRENT_PID### AND tx_hetools_domain_model_studyprograms.sys_language_uid IN (-1,0)',
+				'foreign_table' => 'tx_hetools_domain_model_campus',
+				'foreign_table_where' => 'AND tx_hetools_domain_model_campus.pid=###CURRENT_PID### AND tx_hetools_domain_model_campus.sys_language_uid IN (-1,0)',
 			),
 		),
 		'l10n_diffsource' => array(
@@ -118,7 +118,7 @@ return array(
 
 		'title' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:he_tools/Resources/Private/Language/locallang_db.xlf:tx_hetools_domain_model_studyprograms.title',
+			'label' => 'LLL:EXT:he_tools/Resources/Private/Language/locallang_db.xlf:tx_hetools_domain_model_campus.title',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
@@ -127,52 +127,18 @@ return array(
 		),
 		'shortcut' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:he_tools/Resources/Private/Language/locallang_db.xlf:tx_hetools_domain_model_studyprograms.shortcut',
+			'label' => 'LLL:EXT:he_tools/Resources/Private/Language/locallang_db.xlf:tx_hetools_domain_model_campus.shortcut',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
 				'eval' => 'trim'
 			),
 		),
-		'degree' => array(
-			'exclude' => 1,
-			'label' => 'LLL:EXT:he_tools/Resources/Private/Language/locallang_db.xlf:tx_hetools_domain_model_studyprograms.degree',
-			'config' => array(
-				'type' => 'select',
-				'renderType' => 'selectSingle',
-				'items' => array(
-					array('Bachelor of Engineering', 'B. Sc.'),
-					array('Bachelor of Science', 'B. Eng.'),
-					array('Master of Engineering', 'M. Eng.'),
-					array('Master of Engineering', 'M. Sc.'),
-				),
-				'size' => 1,
-				'maxitems' => 1,
-				'eval' => ''
-			),
-		),
-		'faculty' => array(
-			'exclude' => 1,
-			'label' => 'LLL:EXT:he_tools/Resources/Private/Language/locallang_db.xlf:tx_hetools_domain_model_studyprograms.faculty',
-			'config' => array(
-				'type' => 'select',
-				'foreign_table' => 'tx_hetools_domain_model_faculties',
-				'size' => 12,
-				'minitems' => 1,
-				'maxitems' => 1,
-			),
-		),
-		'campus' => array(
-				'exclude' => 1,
-				'label' => 'LLL:EXT:he_tools/Resources/Private/Language/locallang_db.xlf:tx_hetools_domain_model_studyprograms.campus',
-				'config' => array(
-					'type' => 'select',
-					'foreign_table' => 'tx_hetools_domain_model_campus',
-					'size' => 3,
-					'minitems' => 1,
-					'maxitems' => 1,
-				),
-		),
 		
+		'studyprograms' => array(
+			'config' => array(
+				'type' => 'passthrough',
+			),
+		),
 	),
 );
