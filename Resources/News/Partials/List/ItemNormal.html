@@ -1,0 +1,134 @@
+{namespace n=Tx_News_ViewHelpers}<!--
+	=====================
+		Partials/List/Item.html
+-->
+<div class="row article articletype-{newsItem.type}{f:if(condition: newsItem.istopnews, then: ' topnews')}">
+    <div class="col-md-2">
+        <n:excludeDisplayedNews newsItem="{newsItem}" />
+        <!-- header -->
+        <f:if condition="{newsItem.falMedia}">
+            <!-- fal media preview element -->
+            <f:then>
+                <div class="news-img-wrap">
+                    <f:if condition="{newsItem.falMediaPreviews}">
+                        <f:then>
+                            <n:link newsItem="{newsItem}" settings="{settings}">
+                                <f:alias map="{mediaElement: newsItem.falMediaPreviews.0}">
+                                    <f:if condition="{mediaElement.originalResource.type} == 2">
+                                        <f:image src="{mediaElement.uid}" treatIdAsReference="1" title="{mediaElement.originalResource.title}" alt="{mediaElement.originalResource.alternative}" maxWidth="{settings.list.media.image.maxWidth}" maxHeight="{settings.list.media.image.maxHeight}" />
+                                    </f:if>
+                                    <f:if condition="{mediaElement.originalResource.type} == 4">
+                                        <f:render partial="Detail/FalMediaVideo" arguments="{mediaElement: mediaElement}" />
+                                    </f:if>
+                                </f:alias>
+                            </n:link>
+                        </f:then>
+                    </f:if>
+
+                </div>
+            </f:then>
+            <f:else>
+                <f:if condition="{newsItem.media}">
+                    <!-- media preview element -->
+                    <f:then>
+                        <div class="news-img-wrap">
+                            <f:if condition="{newsItem.mediaPreviews}">
+                                <f:then>
+                                    <n:link newsItem="{newsItem}" settings="{settings}">
+                                        <f:alias map="{mediaElement: newsItem.mediaPreviews.0}">
+                                            <f:if condition="{mediaElement.type} == 0">
+                                                <f:image src="uploads/tx_news/{mediaElement.image}" title="{mediaElement.title}" alt="{mediaElement.alt}" maxWidth="{settings.list.media.image.maxWidth}" maxHeight="{settings.list.media.image.maxHeight}" />
+                                            </f:if>
+                                            <f:if condition="{mediaElement.type} == 1">
+                                                <f:render partial="Detail/MediaVideo" arguments="{mediaElement: mediaElement}" />
+                                            </f:if>
+                                            <f:if condition="{mediaElement.type} == 2">
+                                                <f:render partial="Detail/MediaHtml" arguments="{mediaElement: mediaElement}" />
+                                            </f:if>
+                                        </f:alias>
+                                    </n:link>
+                                </f:then>
+
+                            </f:if>
+                        </div>
+                    </f:then>
+                </f:if>
+            </f:else>
+        </f:if>
+    </div>
+    <div class="col-md-6">
+        <!-- teas=ser text -->
+
+        <f:if condition="{newsItem.teaser}">
+            <f:then>
+                <div class="teaser-text">
+                    <f:format.html>{newsItem.teaser}</f:format.html>
+                </div>
+             </f:then>
+        </f:if>
+        <div class="header">
+            <h3>
+                <n:link newsItem="{newsItem}" settings="{settings}">
+                    {newsItem.title}
+                </n:link>
+            </h3>
+        </div>
+        <div class="bodytext">
+            <f:format.html><f:format.crop maxCharacters="{settings.cropMaxCharacters}" respectWordBoundaries="1">{newsItem.bodytext}</f:format.crop></f:format.html>
+
+            <n:link newsItem="{newsItem}" settings="{settings}" class="more">weiterlesen</n:link>
+        </div>
+    </div>
+    <div class="col-md-4">
+         <f:if condition="{newsItem.mindbodyCategories}">
+            <f:then>
+                <f:if condition="{newsItem.mindbodyInfo}">
+                    <f:then>
+                        <table class="news_info">
+                            <tbody>
+                                <tr>
+                                    <td class="icons">
+                                        <f:render partial="Icons/MiniKreis" arguments="{mindbodyCategories: newsItem.mindbodyCategories}" />
+                                    </td>
+                                    <td class="courses">
+                                        <f:format.html>{newsItem.mindbodyInfo}</f:format.html>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </f:then>
+                    <f:else>
+                        <table class="news_info">
+                            <tbody>
+                            <tr>
+                                <td class="icons">
+                                    <f:render partial="Icons/MiniKreis" arguments="{mindbodyCategories: newsItem.mindbodyCategories}" />
+                                </td>
+                                <td class="courses"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </f:else>
+                </f:if>
+            </f:then>
+            <f:else>
+                <f:if condition="{newsItem.mindbodyInfo}">
+                    <f:then>
+                        <table class="news_info">
+                            <tbody>
+                            <tr>
+                                <td class="icons"></td>
+                                <td class="courses">
+                                    <f:format.html>{newsItem.mindbodyInfo}</f:format.html>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </f:then>
+                 </f:if>
+            </f:else>
+        </f:if>
+    </div>
+    <hr />
+</div>
+

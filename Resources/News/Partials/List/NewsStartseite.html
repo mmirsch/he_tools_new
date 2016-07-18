@@ -1,0 +1,41 @@
+{namespace n=Tx_News_ViewHelpers}<!--
+	=====================
+		Partials/List/ItemStartseite.html
+-->
+<div class="article startseite">
+	<f:if condition="{newsItem.falMedia}">
+		<!-- fal media preview element -->
+		<f:then>
+			<div class="news-img-wrap">
+                <f:then>
+                    <n:link newsItem="{newsItem}" settings="{settings}">
+                        <f:alias map="{mediaElement: newsItem.falMediaPreviews.0}">
+                            <f:if condition="{mediaElement.originalResource.type} == 2">
+                                <f:image src="{mediaElement.uid}" treatIdAsReference="1" title="{mediaElement.originalResource.title}" alt="{mediaElement.originalResource.alternative}" maxWidth="140" maxHeight="{settings.list.media.image.maxHeight}" />
+                            </f:if>
+                            <f:if condition="{mediaElement.originalResource.type} == 4">
+                                <f:render partial="Detail/FalMediaVideo" arguments="{mediaElement: mediaElement}" />
+                            </f:if>
+                        </f:alias>
+                    </n:link>
+                </f:then>
+			</div>
+		</f:then>
+	</f:if>
+
+    <div class="heading"><h1>NEWS</h1></div>
+	<!-- teaser text -->
+	<div class="teaser-text">
+		<f:if condition="{newsItem.teaser}">
+			<f:then>{newsItem.teaser}</f:then>
+		</f:if>
+	</div>
+    <!-- header -->
+    <h3>{newsItem.title}</h3>
+    <f:format.stripTags><f:format.crop maxCharacters="{settings.cropMaxCharacters}" respectWordBoundaries="1" respectHtml="1">{newsItem.bodytext}</f:format.crop></f:format.stripTags>
+    <span class="morelink"><n:link newsItem="{newsItem}" settings="{settings}" class="more">weiterlesen</n:link></span>
+    <div class="right">
+        <f:link.page pageUid="163">Weitere Meldungen</f:link.page>
+    </div>
+
+</div>

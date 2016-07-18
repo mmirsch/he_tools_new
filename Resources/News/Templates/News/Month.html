@@ -1,0 +1,71 @@
+{namespace events=GeorgRinger\Eventnews\ViewHelpers}{namespace n=GeorgRinger\News\ViewHelpers}
+<f:layout name="General"/>
+
+<f:section name="content">
+    <f:debug>{all}</f:debug>
+
+    <div class="row">
+        <div class="col-md-12">
+            <events:calendar newsList="{news}" demand="{demand}" firstDayOfWeek="1">
+                <table class=" table-condensed">
+                    <tr class="title">
+                        <th colspan="7">
+                            <ul class="pager">
+                                <li class="previous">
+                                    <f:link.page rel="nofollow" pageUid="{currentPageId}"
+                                                 additionalParams="{tx_news_pi1:{overwriteDemand:{month:previousMonthData.month,year:previousMonthData.year}}}">
+                                        &larr;
+                                    </f:link.page>
+                                </li>
+                                <li>{f:format.date(date:currentMonthData.date,format:'%B %Y')}</li>
+                                <li class="next">
+                                    <f:link.page rel="nofollow" pageUid="{currentPageId}"
+                                                 additionalParams="{tx_news_pi1:{overwriteDemand:{month:nextMonthData.month,year:nextMonthData.year}}}">
+                                        &rarr;
+                                    </f:link.page>
+                                </li>
+                            </ul>
+                        </th>
+                    </tr>
+                    <tr class="days">
+                        <f:for each="{weeks.0}" as="day">
+                            <th>
+                                {f:format.date(date: day.ts, format: '%a')}
+                            </th>
+                        </f:for>
+                    </tr>
+                    <f:for each="{weeks}" as="week">
+                        <tr>
+                            <f:for each="{week}" as="day">
+                                <f:render section="calday" arguments="{day:day, settings:settings, currentMonthData : currentMonthData}"></f:render>
+                            </f:for>
+                        </tr>
+                    </f:for>
+                </table>
+            </events:calendar>
+        </div>
+
+    </div>
+</f:section>
+
+<f:section name="calday">
+    <td class="{f:format.date(date: day.ts, format: 'N')} {f:if(condition: '{day.curmonth}', then: 'day', else: 'old day')}{f:if(condition: '{day.news}', then: ' hasevents')}{f:if(condition: '{day.curday}', then: ' today')}">
+        <f:if condition="{day.dayBelongsToCurrentMonth}">
+            <f:then>
+                <f:if condition="{day.news}">
+                    <f:then>
+                        <strong>
+                            <f:link.action pageUid="{settings.listPid}" arguments="{overwriteDemand:{year: currentMonthData.year, month: currentMonthData.month, day:day.day}}"><f:translate key="month.{month}" />{day.day}</f:link.action>
+                        </strong>
+                    </f:then>
+                    <f:else>
+                        {day.day}
+                    </f:else>
+                </f:if>
+            </f:then>
+            <f:else>
+                {day.day}
+            </f:else>
+        </f:if>
+    </td>
+</f:section>
